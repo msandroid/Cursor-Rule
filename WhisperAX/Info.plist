@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>NSPrivacyAccessedAPITypes</key>
+	<dict>
+		<key>NSPrivacyAccessedAPIType</key>
+		<string>NSPrivacyAccessedAPICategoryUserDefaults</string>
+	</dict>
+	<key>UIBackgroundModes</key>
+	<array>
+		<string>audio</string>
+		<string>background-processing</string>
+		<string>background-fetch</string>
+	</array>
+	<key>NSMicrophoneUsageDescription</key>
+	<string>This app needs microphone access to perform speech recognition.</string>
+	<key>NSBackgroundTasksUsageDescription</key>
+	<string>This app uses background tasks to continue processing audio when the app is in the background.</string>
+</dict>
+</plist>
