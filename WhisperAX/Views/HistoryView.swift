@@ -110,7 +110,7 @@ struct HistoryView: View {
                             
                             // Results Count
                             HStack {
-                                Text("\(filteredItems.count) items")
+                                Text(String(localized: LocalizedStringResource("\(filteredItems.count) items", comment: "Items count format")))
                                     .font(.caption)
                                     .foregroundStyle(.white.opacity(0.7))
                                 
@@ -169,7 +169,7 @@ struct HistoryView: View {
                                     .fontWeight(.semibold)
                                     .foregroundStyle(.white)
                                 
-                                Text("Voice recognition history will appear here")
+                                Text(String(localized: LocalizedStringResource("Voice recognition history will appear here", comment: "No history description")))
                                     .font(.body)
                                     .foregroundStyle(.white.opacity(0.7))
                                     .multilineTextAlignment(.center)
@@ -246,7 +246,7 @@ struct HistoryView: View {
                 deleteAllItems()
             }
         } message: {
-            Text("Are you sure you want to delete all history items?")
+            Text(String(localized: LocalizedStringResource("Are you sure you want to delete all history items?", comment: "Delete confirmation message")))
         }
         .onAppear {
             loadHistory()
@@ -461,7 +461,7 @@ struct HistoryDetailView: View {
     
     private var transcriptionSection: some View {
         VStack(alignment: .leading, spacing: 16) {
-            Text("history.transcription")
+            Text(String(localized: LocalizedStringResource("Transcription", comment: "Transcription label")))
                 .font(.title2)
                 .fontWeight(.semibold)
                 .foregroundColor(themeManager.isDarkMode ? .white : .black)
@@ -486,7 +486,7 @@ struct HistoryDetailView: View {
     
     private var metadataSection: some View {
         VStack(alignment: .leading, spacing: 16) {
-            Text("history.details")
+            Text(String(localized: LocalizedStringResource("Details", comment: "Details label")))
                 .font(.title2)
                 .fontWeight(.semibold)
                 .foregroundColor(themeManager.isDarkMode ? .white : .black)
@@ -536,7 +536,7 @@ struct HistoryDetailView: View {
                 }) {
                     HStack {
                         Image(systemName: "doc.on.doc")
-                        Text("history.copy")
+                        Text(String(localized: LocalizedStringResource("Copy", comment: "Copy button")))
                     }
                     .frame(maxWidth: .infinity)
                     .padding()
@@ -550,7 +550,7 @@ struct HistoryDetailView: View {
                 }) {
                     HStack {
                         Image(systemName: "square.and.arrow.up")
-                        Text("history.share")
+                        Text(String(localized: LocalizedStringResource("Share", comment: "Share button")))
                     }
                     .frame(maxWidth: .infinity)
                     .padding()

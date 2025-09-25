@@ -15,11 +15,11 @@ struct SharedTextsView: View {
                             .font(.system(size: 50))
                             .foregroundColor(.gray)
                         
-                        Text("共有されたテキストがありません")
+                        Text("No shared texts")
                             .font(.headline)
                             .foregroundColor(.gray)
                         
-                        Text("他のアプリからScribeにテキストを共有してください")
+                        Text("Please share text from other apps to Scribe")
                             .font(.subheadline)
                             .foregroundColor(.secondary)
                             .multilineTextAlignment(.center)
@@ -36,7 +36,7 @@ struct SharedTextsView: View {
                                 
                                 HStack {
                                     Spacer()
-                                    Text("\(index + 1)番目の共有テキスト")
+                                    Text("Shared text \(index + 1)")
                                         .font(.caption)
                                         .foregroundColor(.secondary)
                                 }
@@ -51,20 +51,20 @@ struct SharedTextsView: View {
                     }
                 }
             }
-            .navigationTitle("共有されたテキスト")
+            .navigationTitle("Shared Texts")
             #if canImport(UIKit)
             .navigationBarTitleDisplayMode(.inline)
             #endif
             .toolbar {
                 ToolbarItem(placement: .cancellationAction) {
-                    Button("閉じる") {
+                    Button("Close") {
                         dismiss()
                     }
                 }
                 
                 if !sharedTexts.isEmpty {
                     ToolbarItem(placement: .primaryAction) {
-                        Button("すべて削除") {
+                        Button("Delete All") {
                             clearAllTexts()
                         }
                         .foregroundColor(.red)
@@ -115,19 +115,19 @@ struct TextEditorView: View {
                     .font(.body)
                     .padding()
             }
-            .navigationTitle("テキスト編集")
+            .navigationTitle("Text Edit")
             #if canImport(UIKit)
             .navigationBarTitleDisplayMode(.inline)
             #endif
             .toolbar {
                 ToolbarItem(placement: .cancellationAction) {
-                    Button("キャンセル") {
+                    Button("Cancel") {
                         dismiss()
                     }
                 }
                 
                 ToolbarItem(placement: .primaryAction) {
-                    Button("保存") {
+                    Button("Save") {
                         onSave(editedText)
                         dismiss()
                     }

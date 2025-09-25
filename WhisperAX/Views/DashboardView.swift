@@ -450,14 +450,14 @@ struct OverviewTabView: View {
                 // Sample Data Generation Button (for demo purposes)
                 if analyticsManager.totalTranscriptions == 0 {
                     VStack(spacing: 16) {
-                        Text("No data available yet")
+                        Text(String(localized: LocalizedStringResource("No data available yet", comment: "No data available message")))
                             .font(.headline)
                             .foregroundColor(themeManager.isDarkMode ? .white.opacity(0.7) : .black.opacity(0.7))
                         
                         Button(action: {
                             analyticsManager.generateSampleData()
                         }) {
-                            Text("Generate Sample Data")
+                            Text(String(localized: LocalizedStringResource("Generate Sample Data", comment: "Generate sample data button")))
                                 .font(.subheadline)
                                 .fontWeight(.medium)
                                 .foregroundColor(.white)
@@ -587,12 +587,12 @@ struct ModelsTabView: View {
                                     .frame(width: 20)
                                 
                                 VStack(alignment: .leading, spacing: 4) {
-                                    Text("Scribe Core Documentation")
+                                    Text(String(localized: LocalizedStringResource("Scribe Core Documentation", comment: "Scribe core documentation title")))
                                         .font(.subheadline)
                                         .fontWeight(.medium)
                                         .foregroundColor(.white)
                                     
-                                    Text("View documentation")
+                                    Text(String(localized: LocalizedStringResource("View documentation", comment: "View documentation button")))
                                         .font(.caption)
                                         .foregroundColor(.white.opacity(0.7))
                                 }
@@ -746,12 +746,12 @@ struct BillingTabView: View {
             VStack(alignment: .leading, spacing: 32) {
                 // Header
                 VStack(alignment: .leading, spacing: 8) {
-                    Text("dashboard.billing_subscription")
+                    Text(String(localized: LocalizedStringResource("Billing & Subscription", comment: "Billing subscription title")))
                         .font(.largeTitle)
                         .fontWeight(.bold)
                         .foregroundColor(themeManager.isDarkMode ? .white : .black)
                     
-                    Text("Beta version - Free plan")
+                    Text(String(localized: LocalizedStringResource("Beta version - Free plan", comment: "Beta free plan description")))
                         .font(.subheadline)
                         .foregroundColor(themeManager.isDarkMode ? .white.opacity(0.7) : .black.opacity(0.7))
                 }
@@ -763,33 +763,33 @@ struct BillingTabView: View {
                 VStack(spacing: 16) {
                     VStack(spacing: 16) {
                         HStack {
-                            Text("Free Plan")
+                            Text(String(localized: LocalizedStringResource("Free Plan", comment: "Free plan title")))
                                 .font(.title3)
                                 .fontWeight(.semibold)
                                 .foregroundColor(themeManager.isDarkMode ? .white : .black)
                             
                             Spacer()
                             
-                            Text("$0/month")
+                            Text(String(localized: LocalizedStringResource("$0/month", comment: "Free price")))
                                 .font(.title3)
                                 .fontWeight(.bold)
                                 .foregroundColor(Color("006337"))
                         }
                         
                         HStack {
-                            Text("Plan status:")
+                            Text(String(localized: LocalizedStringResource("Plan status:", comment: "Plan status label")))
                                 .font(.subheadline)
                                 .foregroundColor(themeManager.isDarkMode ? .white.opacity(0.7) : .black.opacity(0.7))
                             
                             Spacer()
                             
-                            Text("Active")
+                            Text(String(localized: LocalizedStringResource("Active", comment: "Active status")))
                                 .font(.subheadline)
                                 .fontWeight(.medium)
                                 .foregroundColor(Color("006337"))
                         }
                         
-                        Text("All features are free during open beta testing")
+                        Text(String(localized: LocalizedStringResource("All features are free during open beta testing", comment: "Beta features description")))
                             .font(.caption)
                             .foregroundColor(themeManager.isDarkMode ? .white.opacity(0.6) : .black.opacity(0.6))
                             .padding(.top, 8)
@@ -817,7 +817,7 @@ struct TokenInfoTabView: View {
             VStack(alignment: .leading, spacing: 24) {
                 // Header
                 VStack(alignment: .leading, spacing: 8) {
-                    Text("About Tokens")
+                    Text(String(localized: LocalizedStringResource("About Tokens", comment: "About tokens title")))
                         .font(.largeTitle)
                         .fontWeight(.bold)
                         .foregroundColor(themeManager.isDarkMode ? .white : .black)

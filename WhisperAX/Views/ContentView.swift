@@ -253,44 +253,44 @@ class LanguageDetectionManager {
         self.config = config
     }
     
-    /// システムの優先言語を取得（Apple SpeechAnalyzerのアプローチ）
+    /// Get system preferred language (Apple SpeechAnalyzer approach)
     private func getSystemPreferredLanguage() -> String {
-        // システムの優先言語を取得
+        // Get system preferred languages
         let preferredLanguages = Locale.preferredLanguages
         let currentLocale = Locale.current
         
-        // システム言語を取得
+        // Get system language
         if let systemLanguage = currentLocale.language.languageCode?.identifier {
             return systemLanguage
         }
         
-        // フォールバック: 最初の優先言語
+        // Fallback: first preferred language
         if let firstLanguage = preferredLanguages.first {
             let locale = Locale(identifier: firstLanguage)
             return locale.language.languageCode?.identifier ?? "en"
         }
         
-        return "en" // 最終フォールバック
+        return "en" // Final fallback
     }
 
     
-    /// フォールバック言語を生成（100言語対応）
+    /// Generate fallback languages (100 language support)
     private func generateFallbacks(for language: String) -> [String] {
         let fallbackMap: [String: [String]] = [
-            // 東アジア言語
+            // East Asian languages
             "zh": ["ja", "ko", "yue", "en"],
             "ja": ["zh", "ko", "en"],
             "ko": ["ja", "zh", "en"],
             "yue": ["zh", "en"],
             
-            // アラビア語系
+            // Arabic language family
             "ar": ["he", "fa", "ur", "ps", "en"],
             "he": ["ar", "en"],
             "fa": ["ar", "ur", "ps", "en"],
             "ur": ["ar", "fa", "hi", "en"],
             "ps": ["ar", "fa", "en"],
             
-            // スラブ語系
+            // Slavic language family
             "ru": ["uk", "bg", "be", "kk", "uz", "tg", "tk", "mn", "en"],
             "uk": ["ru", "be", "en"],
             "bg": ["ru", "mk", "sr", "en"],
@@ -304,7 +304,7 @@ class LanguageDetectionManager {
             "pl": ["cs", "sk", "en"],
             "be": ["ru", "uk", "en"],
             
-            // 中央アジア・トルコ語系
+            // Central Asian and Turkish language family
             "tr": ["az", "uz", "kk", "tk", "en"],
             "az": ["tr", "uz", "kk", "en"],
             "uz": ["tr", "az", "kk", "tg", "en"],
@@ -312,10 +312,10 @@ class LanguageDetectionManager {
             "tg": ["uz", "fa", "en"],
             "tk": ["tr", "uz", "en"],
             
-            // モンゴル語系
+            // Mongolian language family
             "mn": ["ru", "kk", "en"],
             
-            // インド・イラン語系
+            // Indo-Iranian language family
             "hi": ["ur", "bn", "gu", "pa", "mr", "ne", "en"],
             "bn": ["hi", "as", "en"],
             "as": ["bn", "hi", "en"],
@@ -329,7 +329,7 @@ class LanguageDetectionManager {
             "ml": ["ta", "te", "kn", "en"],
             "si": ["ta", "en"],
             
-            // 東南アジア言語
+            // Southeast Asian languages
             "th": ["lo", "km", "en"],
             "lo": ["th", "km", "en"],
             "km": ["th", "lo", "vi", "en"],
@@ -339,7 +339,7 @@ class LanguageDetectionManager {
             "ms": ["id", "en"],
             "tl": ["en"],
             
-            // ヨーロッパ言語
+            // European languages
             "en": ["es", "fr", "de", "it", "pt", "nl", "sv", "da", "no", "fi"],
             "es": ["pt", "it", "fr", "en"],
             "pt": ["es", "it", "fr", "en"],
@@ -359,17 +359,17 @@ class LanguageDetectionManager {
             "is": ["da", "no", "sv", "en"],
             "fo": ["da", "no", "is", "en"],
             
-            // バルト・スラブ語系
+            // Baltic-Slavic language family
             "hu": ["ro", "sk", "en"],
             "ro": ["hu", "bg", "en"],
             
-            // ケルト語系
+            // Celtic language family
             "cy": ["en"],
             "ga": ["en"],
             "gd": ["en"],
             "br": ["fr", "en"],
             
-            // その他のヨーロッパ言語
+            // Other European languages
             "el": ["en"],
             "mt": ["it", "en"],
             "sq": ["en"],
@@ -377,7 +377,7 @@ class LanguageDetectionManager {
             "oc": ["fr", "es", "en"],
             "lb": ["de", "fr", "en"],
             
-            // アフリカ言語
+            // African languages
             "sw": ["en"],
             "ha": ["en"],
             "yo": ["en"],
@@ -386,11 +386,11 @@ class LanguageDetectionManager {
             "mg": ["en"],
             "so": ["en"],
             
-            // 太平洋言語
+            // Pacific languages
             "mi": ["en"],
             "haw": ["en"],
             
-            // その他
+            // Others
             "bo": ["en"],
             "sa": ["hi", "en"],
             "yi": ["he", "de", "en"],
@@ -450,7 +450,7 @@ import AVFoundation
 import CoreML
 
 struct ContentView: View {
-    // WhisperKitインスタンスはWhisperModelManagerから取得
+    // WhisperKit instance is obtained from WhisperModelManager
     private var whisperKit: WhisperKit? {
         modelManager.whisperKit
     }
@@ -473,12 +473,12 @@ struct ContentView: View {
 
     // MARK: Model management
 
-    // modelStateはWhisperModelManagerから取得
+    // modelState is obtained from WhisperModelManager
     private var modelState: ModelState {
         modelManager.modelState
     }
     
-    // 選択されたモデルの表示名を取得
+    // Get display name of selected model
     private var selectedModelDisplayName: String {
         if let model = WhisperModels.shared.getModel(by: selectedModel) {
             return model.displayName
@@ -492,7 +492,7 @@ struct ContentView: View {
     @State private var availableLanguages: [String] = []
     @State private var disabledModels: [String] = WhisperKit.recommendedModels().disabled
 
-    @AppStorage("selectedAudioInput") private var selectedAudioInput: String = "No Audio Input"
+    @AppStorage("selectedAudioInput") private var selectedAudioInput: String = String(localized: LocalizedStringResource("No Audio Input", comment: "No audio input default"))
     @AppStorage("selectedModel") private var selectedModel: String = "base"
     @AppStorage("selectedTask") private var selectedTask: String = "transcribe"
     @AppStorage("selectedLanguage") private var selectedLanguage: String = "english"
@@ -521,7 +521,7 @@ struct ContentView: View {
     @AppStorage("decoderComputeUnits") private var decoderComputeUnits: MLComputeUnits = .cpuAndNeuralEngine
     @AppStorage("showComputeUnits") private var showComputeUnits: Bool = true
     @AppStorage("sttFontSize") private var sttFontSize: Double = 16.0
-    @AppStorage("sttFontFamily") private var sttFontFamily: String = "System"
+    @AppStorage("sttFontFamily") private var sttFontFamily: String = String(localized: LocalizedStringResource("System", comment: "System font option"))
     @AppStorage("enableLineBreaks") private var enableLineBreaks: Bool = true
     @AppStorage("lineSpacing") private var lineSpacing: Double = 1.0
     @AppStorage("waveformActionType") private var waveformActionType: String = "clear" // "clear" or "ascii"
@@ -553,7 +553,7 @@ struct ContentView: View {
     @State private var confirmedSegments: [TranscriptionSegment] = []
     @State private var unconfirmedSegments: [TranscriptionSegment] = []
     
-    // STT時間計測用の変数
+    // Variables for STT time measurement
     @State private var sttStartTime: Date?
     @State private var sttEndTime: Date?
     @State private var sttProcessingTime: TimeInterval = 0
@@ -586,7 +586,7 @@ struct ContentView: View {
     @State private var asciiArtText: String = ""
     @State private var displayedAsciiArt: String = ""
     @State private var streamingTimer: Timer?
-    @State private var asciiArtSpeed: Double = 75000.0 // 表示速度の倍率
+    @State private var asciiArtSpeed: Double = 75000.0 // Display speed multiplier
     @State private var isEditingText: Bool = false
     @State private var editedText: String = ""
     @State private var showIcon: Bool = false
@@ -594,7 +594,7 @@ struct ContentView: View {
     @State private var sharedTexts: [String] = []
     @State private var showSharedTexts: Bool = false
     
-    // ASCIIアート用のフォントサイズ計算
+    // Font size calculation for ASCII art
     private var asciiArtFont: Font {
         #if os(iOS)
         let screenWidth = UIScreen.main.bounds.width
@@ -611,7 +611,7 @@ struct ContentView: View {
     }
     
     private var isStreamMode: Bool {
-        return false // シンプルUIでは常にfalse
+        return false // Always false in simple UI
     }
     
     private var backgroundColor: Color {
@@ -665,7 +665,7 @@ struct ContentView: View {
         streamingTimer?.invalidate()
         streamingTimer = Timer.scheduledTimer(withTimeInterval: 0.01 / asciiArtSpeed, repeats: true) { timer in
             if currentLineIndex < lines.count {
-                // 一列ずつ表示
+                // Display one line at a time
                 if currentLineIndex > 0 {
                     displayedAsciiArt += "\n"
                 }
@@ -700,7 +700,7 @@ struct ContentView: View {
     // MARK: Views
     
     var asciiArtFullScreenView: some View {
-        // ASCIIアート表示
+        // ASCII art display
         ZStack {
             ScrollView([.horizontal, .vertical], showsIndicators: true) {
                 Text(displayedAsciiArt)
@@ -720,7 +720,7 @@ struct ContentView: View {
             .gesture(
                 DragGesture()
                     .onEnded { value in
-                        // 下方向へのスワイプで閉じる
+                        // Close with downward swipe
                         if value.translation.height > 100 {
                             withAnimation(.easeInOut(duration: 0.3)) {
                                 showAsciiArt = false
@@ -730,7 +730,7 @@ struct ContentView: View {
                     }
             )
             
-            // 閉じるボタン
+            // Close button
             VStack {
                 HStack {
                     Spacer()
@@ -765,7 +765,7 @@ struct ContentView: View {
     
     var bottomButtonRow: some View {
         HStack(spacing: 40) {
-            // ファイル選択ボタン
+            // File selection button
             fileSelectButton
 
             // 音声波形表示ボタン
@@ -918,7 +918,7 @@ struct ContentView: View {
     var body: some View {
         NavigationView {
             VStack {
-                // ASCIIアート表示時は全画面表示
+                // ASCII art display時は全画面表示
                 if showAsciiArt && !asciiArtText.isEmpty {
                     asciiArtFullScreenView
                         .frame(maxWidth: .infinity, maxHeight: .infinity)
@@ -1052,13 +1052,13 @@ struct ContentView: View {
         .sheet(isPresented: $showTokenCalculator) {
             NavigationView {
                 TokenCalculatorView()
-                    .navigationTitle("Token Calculator")
+                    .navigationTitle(String(localized: LocalizedStringResource("Token Calculator", comment: "Token calculator title")))
                     #if os(iOS)
                     .navigationBarTitleDisplayMode(NavigationBarItem.TitleDisplayMode.inline)
                     #endif
                     .toolbar {
                         ToolbarItem(placement: .primaryAction) {
-                            Button("Done") {
+                            Button(String(localized: LocalizedStringResource("Done", comment: "Done button"))) {
                                 showTokenCalculator = false
                             }
                         }
@@ -1173,7 +1173,7 @@ struct ContentView: View {
                                         saveEditedText()
                                         isEditingText = false
                                     }) {
-                                        Text("Done")
+                                        Text(String(localized: LocalizedStringResource("Done", comment: "Done button text")))
                                             .font(.caption)
                                             .foregroundColor(.primary)
                                             .padding(4)
@@ -1184,7 +1184,7 @@ struct ContentView: View {
                                     Button(action: {
                                         isEditingText = false
                                     }) {
-                                        Text("Cancel")
+                                        Text(String(localized: LocalizedStringResource("Cancel", comment: "Cancel button text")))
                                             .font(.caption)
                                             .foregroundColor(.primary)
                                             .padding(4)
@@ -1298,7 +1298,7 @@ struct ContentView: View {
                         .frame(width: 200)
                         .tint(Color(hex: "1CA485"))
                     
-                    Text("Loading...")
+                    Text(String(localized: LocalizedStringResource("Loading...", comment: "Loading indicator text")))
                         .font(.headline)
                         .foregroundColor(.secondary)
                 }
@@ -1314,7 +1314,7 @@ struct ContentView: View {
                         .frame(width: 200)
                         .tint(Color(hex: "1CA485"))
                     
-                    Text("Scribing")
+                    Text(String(localized: LocalizedStringResource("Scribing", comment: "Processing indicator text")))
                         .font(.headline)
                         .foregroundColor(.secondary)
                 }
@@ -1335,7 +1335,7 @@ struct ContentView: View {
                         .frame(width: 200)
                         .tint(Color(hex: "1CA485"))
                     
-                    Text("Sampling")
+                    Text(String(localized: LocalizedStringResource("Sampling", comment: "Sampling indicator text")))
                         .font(.headline)
                         .foregroundColor(.secondary)
                     
@@ -1493,24 +1493,24 @@ struct ContentView: View {
         }
     }
     
-    /// システムの優先言語を取得（Apple SpeechAnalyzerのアプローチ）
+    /// Get system preferred language (Apple SpeechAnalyzer approach)
     private func getSystemPreferredLanguage() -> String {
-        // システムの優先言語を取得
+        // Get system preferred languages
         let preferredLanguages = Locale.preferredLanguages
         let currentLocale = Locale.current
         
-        // システム言語を取得
+        // Get system language
         if let systemLanguage = currentLocale.language.languageCode?.identifier {
             return systemLanguage
         }
         
-        // フォールバック: 最初の優先言語
+        // Fallback: first preferred language
         if let firstLanguage = preferredLanguages.first {
             let locale = Locale(identifier: firstLanguage)
             return locale.language.languageCode?.identifier ?? "en"
         }
         
-        return "en" // 最終フォールバック
+        return "en" // Final fallback
     }
     
     /// 言語コードから言語名を取得（100言語対応）
@@ -1854,7 +1854,7 @@ struct ContentView: View {
             Task(priority: .userInitiated) {
                 guard await AudioProcessor.requestRecordPermission() else {
                     await MainActor.run {
-                        currentText = "Microphone access denied."
+                        currentText = String(localized: LocalizedStringResource("Microphone access denied.", comment: "Error message when microphone access is denied"))
                     }
                     print("Microphone access was not granted.")
                     return
@@ -1872,7 +1872,7 @@ struct ContentView: View {
                 // There is no built-in microphone
                 if deviceId == nil {
                     await MainActor.run {
-                        currentText = "No audio input device selected."
+                        currentText = String(localized: LocalizedStringResource("No audio input device selected.", comment: "Error message when no audio input device is selected"))
                     }
                     print("No audio input device available")
                     return
@@ -1890,7 +1890,7 @@ struct ContentView: View {
                     await MainActor.run {
                         isRecording = true
                         isTranscribing = true
-                        currentText = "Recording started."
+                        currentText = String(localized: LocalizedStringResource("Recording started.", comment: "Status message when recording starts"))
                         
                         // STT中にアイコン非表示設定が有効な場合、UI要素を非表示にする
                         if hideIconsDuringSTT {
@@ -1906,13 +1906,13 @@ struct ContentView: View {
                     }
                 } catch {
                     await MainActor.run {
-                        currentText = "Failed to start recording."
+                        currentText = String(localized: LocalizedStringResource("Failed to start recording.", comment: "Error message when recording fails to start"))
                     }
                     print("Failed to start recording: \(error)")
                 }
             }
         } else {
-            currentText = "WhisperKit not initialized."
+            currentText = String(localized: LocalizedStringResource("WhisperKit not initialized.", comment: "Error message when WhisperKit is not initialized"))
         }
     }
 
@@ -1928,7 +1928,7 @@ struct ContentView: View {
         }
 
         // 録音停止時のメッセージ（STTテキストがある場合は上書きしない）
-        if currentText == "Recording started." || currentText == "Waiting for speech..." {
+        if currentText == String(localized: LocalizedStringResource("Recording started.", comment: "Status message when recording starts")) || currentText == "Waiting for speech..." {
             currentText = ""
         }
 
@@ -1955,13 +1955,13 @@ struct ContentView: View {
                     let transcriptionText = getTranscriptionText()
                     if transcriptionText.isEmpty {
                         // STTテキストがない場合は何も表示しない
-                        if currentText == "Recording stopped." || currentText == "Recording started." || currentText == "Waiting for speech..." {
+                        if currentText == "Recording stopped." || currentText == String(localized: LocalizedStringResource("Recording started.", comment: "Status message when recording starts")) || currentText == "Waiting for speech..." {
                             currentText = ""
                         }
                     } else {
                         // STTテキストがある場合は、メッセージを追加するか、既存テキストを保持
-                        if currentText == "Recording stopped." || currentText == "Recording started." || currentText == "Waiting for speech..." {
-                            currentText = "Recording completed."
+                        if currentText == "Recording stopped." || currentText == String(localized: LocalizedStringResource("Recording started.", comment: "Status message when recording starts")) || currentText == "Waiting for speech..." {
+                            currentText = String(localized: LocalizedStringResource("Recording completed.", comment: "Status message when recording is completed"))
                         }
                     }
                 }
@@ -1970,7 +1970,7 @@ struct ContentView: View {
                     // エラー時もSTTテキストがある場合は保持
                     let transcriptionText = getTranscriptionText()
                     if transcriptionText.isEmpty {
-                        currentText = "Error during final transcription."
+                        currentText = String(localized: LocalizedStringResource("Error during final transcription.", comment: "Error message when final transcription fails"))
                     }
                     // STTテキストがある場合は、エラーメッセージを表示せずに既存テキストを保持
                 }
@@ -2109,7 +2109,7 @@ struct ContentView: View {
         } catch {
             Logging.error("Failed to load audio file: \(error.localizedDescription)")
             await MainActor.run {
-                currentText = "Failed to load audio file."
+                currentText = String(localized: LocalizedStringResource("Failed to load audio file.", comment: "Error message when audio file loading fails"))
             }
             return
         }

@@ -82,7 +82,7 @@ struct SettingsView: View {
                     
                     // Model Settings Section
                     SettingsSection(
-                        title: String(localized: "Model Settings"),
+                        title: String(localized: LocalizedStringResource("Model Settings", comment: "Model settings section")),
                         icon: "cpu",
                         iconColor: .primary
                     ) {
@@ -92,7 +92,7 @@ struct SettingsView: View {
                     
                     // Audio Settings Section
                     SettingsSection(
-                        title: String(localized: "Audio Settings"),
+                        title: String(localized: LocalizedStringResource("Audio Settings", comment: "Audio settings section")),
                         icon: "mic",
                         iconColor: .primary
                     ) {
@@ -109,7 +109,7 @@ struct SettingsView: View {
                                 .foregroundStyle(.primary)
                                 .frame(width: 24, height: 24)
                             
-                            Text(String(localized: "Advanced Settings"))
+                            Text(String(localized: LocalizedStringResource("Advanced Settings", comment: "Advanced settings section")))
                                 .font(.headline)
                                 .fontWeight(.semibold)
                                 .foregroundStyle(.primary)
@@ -147,7 +147,7 @@ struct SettingsView: View {
                                 .foregroundStyle(.primary)
                                 .frame(width: 24, height: 24)
                             
-                            Text(String(localized: "Experimental Settings"))
+                            Text(String(localized: LocalizedStringResource("Experimental Settings", comment: "Experimental settings section")))
                                 .font(.headline)
                                 .fontWeight(.semibold)
                                 .foregroundStyle(.primary)
@@ -179,7 +179,7 @@ struct SettingsView: View {
                     
                      // UI Language Settings Section
                     SettingsSection(
-                        title: String(localized: "Display Language"),
+                        title: String(localized: LocalizedStringResource("Display Language", comment: "Display language setting")),
                         icon: "globe",
                         iconColor: Color(hex: "1CA485")
                     ) {
@@ -189,13 +189,13 @@ struct SettingsView: View {
                 .padding(.horizontal, 16)
                 .padding(.vertical, 8)
             }
-            .navigationTitle(String(localized: "Settings"))
+            .navigationTitle(String(localized: LocalizedStringResource("Settings", comment: "Settings view title")))
             #if os(iOS)
             .navigationBarTitleDisplayMode(.inline)
             #endif
             .toolbar(content: {
                 ToolbarItem(placement: .primaryAction) {
-                    Button(String(localized: "Done")) {
+                    Button(String(localized: LocalizedStringResource("Done", comment: "Done button"))) {
                         dismiss()
                     }
                     .buttonStyle(.bordered)
@@ -222,14 +222,14 @@ struct SettingsView: View {
         .sheet(isPresented: $showUILanguageSelection) {
             UILanguageSelectionView()
         }
-        .alert("Language Changed", isPresented: $showLanguageChangeAlert) {
-            Button("Restart App") {
+        .alert(String(localized: LocalizedStringResource("Language Changed", comment: "Language changed alert title")), isPresented: $showLanguageChangeAlert) {
+            Button(String(localized: LocalizedStringResource("Restart App", comment: "Restart app button"))) {
                 // アプリを再起動
                 exit(0)
             }
-            Button("Continue", role: .cancel) { }
+            Button(String(localized: LocalizedStringResource("Continue", comment: "Continue button")), role: .cancel) { }
         } message: {
-            Text("The language has been changed. Please restart the app to see the changes.")
+            Text(String(localized: LocalizedStringResource("The language has been changed. Please restart the app to see the changes.", comment: "Language changed alert message")))
         }
         .onAppear {
             modelManager.selectedModel = selectedModel
@@ -277,12 +277,12 @@ struct SettingsView: View {
             HStack(spacing: 12) {
                 
                     VStack(alignment: .leading, spacing: 4) {
-                        Text(String(localized: "Display Language"))
+                        Text(String(localized: LocalizedStringResource("Display Language", comment: "Display language setting")))
                             .font(.subheadline)
                             .fontWeight(.medium)
                             .foregroundStyle(.primary)
                         
-                        Text(String(localized: "UI Language"))
+                        Text(String(localized: LocalizedStringResource("UI Language", comment: "UI language setting")))
                             .font(.caption)
                             .foregroundStyle(.secondary)
                     }
@@ -314,7 +314,7 @@ struct SettingsView: View {
                         .font(.caption)
                         .foregroundStyle(Color(hex: "1CA485"))
                     
-                    Text(String(localized: "Auto-detect system language"))
+                    Text(String(localized: LocalizedStringResource("Auto-detect system language", comment: "Auto-detect system language setting")))
                         .font(.caption)
                         .foregroundStyle(Color(hex: "1CA485"))
                 }
@@ -377,7 +377,7 @@ struct SettingsView: View {
                                         .foregroundStyle(.primary)
                                 }
                             } else {
-                                Text(String(localized: "No model selected"))
+                                Text(String(localized: LocalizedStringResource("No model selected", comment: "No model selected message")))
                                     .font(.caption)
                                     .foregroundStyle(.secondary)
                             }
@@ -389,7 +389,7 @@ struct SettingsView: View {
                             showModelSelection = true
                         }) {
                             HStack(spacing: 4) {
-                                Text(String(localized: "Change"))
+                                Text(String(localized: LocalizedStringResource("Change", comment: "Change button")))
                                     .font(.caption)
                                     .fontWeight(.medium)
                                 Image(systemName: "chevron.right")
@@ -412,7 +412,7 @@ struct SettingsView: View {
                         }) {
                             HStack(spacing: 4) {
                                 Image(systemName: "trash")
-                                Text(String(localized: "Delete"))
+                                Text(String(localized: LocalizedStringResource("Delete", comment: "Delete button")))
                             }
                             .font(.caption)
                         }
@@ -426,7 +426,7 @@ struct SettingsView: View {
                         }) {
                             HStack(spacing: 4) {
                                 Image(systemName: "arrow.clockwise")
-                                Text(String(localized: "Repair"))
+                                Text(String(localized: LocalizedStringResource("Repair", comment: "Repair button")))
                             }
                             .font(.caption)
                         }
@@ -442,7 +442,7 @@ struct SettingsView: View {
                         }) {
                             HStack(spacing: 4) {
                                 Image(systemName: "folder")
-                                Text(String(localized: "Open Folder"))
+                                Text(String(localized: LocalizedStringResource("Open Folder", comment: "Open folder button")))
                             }
                             .font(.caption)
                         }
@@ -478,7 +478,7 @@ struct SettingsView: View {
                 } label: {
                     HStack(spacing: 8) {
                         Image(systemName: "arrow.down.circle.fill")
-                        Text(String(localized: "Load Model"))
+                        Text(String(localized: LocalizedStringResource("Load Model", comment: "Load model button")))
                             .fontWeight(.medium)
                     }
                     .frame(maxWidth: .infinity)
@@ -513,21 +513,21 @@ struct SettingsView: View {
     private var modelStateDescription: String {
         switch modelManager.modelState {
         case .loaded:
-            return String(localized: "Loaded")
+            return String(localized: LocalizedStringResource("Loaded", comment: "Loaded state"))
         case .unloaded:
-            return String(localized: "Unloaded")
+            return String(localized: LocalizedStringResource("Unloaded", comment: "Unloaded state"))
         case .loading:
-            return String(localized: "Loading")
+            return String(localized: LocalizedStringResource("Loading", comment: "Loading state"))
         case .prewarming:
-            return String(localized: "Prewarming")
+            return String(localized: LocalizedStringResource("Prewarming", comment: "Prewarming state"))
         case .unloading:
-            return String(localized: "Unloading")
+            return String(localized: LocalizedStringResource("Unloading", comment: "Unloading state"))
         case .prewarmed:
-            return String(localized: "Prewarmed")
+            return String(localized: LocalizedStringResource("Prewarmed", comment: "Prewarmed state"))
         case .downloading:
-            return String(localized: "Downloading")
+            return String(localized: LocalizedStringResource("Downloading", comment: "Downloading state"))
         case .downloaded:
-            return String(localized: "Downloaded")
+            return String(localized: LocalizedStringResource("Downloaded", comment: "Downloaded state"))
         }
     }
     
@@ -616,7 +616,7 @@ struct SettingsView: View {
                     .foregroundStyle(.secondary)
                     .frame(width: 24)
                 
-                Text(String(localized: "Compute Units"))
+                Text(String(localized: LocalizedStringResource("Compute Units", comment: "Compute units setting")))
                     .font(.headline)
                     .fontWeight(.semibold)
                     .foregroundStyle(.primary)
@@ -654,7 +654,7 @@ struct SettingsView: View {
                                 }
                             }
                             
-                            Text(String(localized: "Audio Encoder"))
+                            Text(String(localized: LocalizedStringResource("Audio Encoder", comment: "Audio encoder setting")))
                                 .font(.subheadline)
                                 .fontWeight(.medium)
                                 .foregroundStyle(.primary)
@@ -663,9 +663,9 @@ struct SettingsView: View {
                         }
                         
                         Picker("", selection: $encoderComputeUnits) {
-                            Text(String(localized: "CPU")).tag(MLComputeUnits.cpuOnly)
-                            Text(String(localized: "GPU")).tag(MLComputeUnits.cpuAndGPU)
-                            Text(String(localized: "Neural Engine")).tag(MLComputeUnits.cpuAndNeuralEngine)
+                            Text(String(localized: LocalizedStringResource("CPU", comment: "CPU option"))).tag(MLComputeUnits.cpuOnly)
+                            Text(String(localized: LocalizedStringResource("GPU", comment: "GPU option"))).tag(MLComputeUnits.cpuAndGPU)
+                            Text(String(localized: LocalizedStringResource("Neural Engine", comment: "Neural Engine option"))).tag(MLComputeUnits.cpuAndNeuralEngine)
                         }
                         .onChange(of: encoderComputeUnits, initial: false) { _, _ in
                             onLoadModel(selectedModel)
@@ -691,7 +691,7 @@ struct SettingsView: View {
                                 }
                             }
                             
-                            Text(String(localized: "Text Decoder"))
+                            Text(String(localized: LocalizedStringResource("Text Decoder", comment: "Text decoder setting")))
                                 .font(.subheadline)
                                 .fontWeight(.medium)
                                 .foregroundStyle(.primary)
@@ -700,9 +700,9 @@ struct SettingsView: View {
                         }
                         
                         Picker("", selection: $decoderComputeUnits) {
-                            Text(String(localized: "CPU")).tag(MLComputeUnits.cpuOnly)
-                            Text(String(localized: "GPU")).tag(MLComputeUnits.cpuAndGPU)
-                            Text(String(localized: "Neural Engine")).tag(MLComputeUnits.cpuAndNeuralEngine)
+                            Text(String(localized: LocalizedStringResource("CPU", comment: "CPU option"))).tag(MLComputeUnits.cpuOnly)
+                            Text(String(localized: LocalizedStringResource("GPU", comment: "GPU option"))).tag(MLComputeUnits.cpuAndGPU)
+                            Text(String(localized: LocalizedStringResource("Neural Engine", comment: "Neural Engine option"))).tag(MLComputeUnits.cpuAndNeuralEngine)
                         }
                         .onChange(of: decoderComputeUnits, initial: false) { _, _ in
                             onLoadModel(selectedModel)
@@ -761,19 +761,19 @@ struct SettingsView: View {
                 .disabled(!(whisperKit?.modelVariant.isMultilingual ?? false))
                 
                 if selectedTask == "translate" {
-                    Text("Translation mode converts speech to English")
+                    Text(String(localized: LocalizedStringResource("Translation mode converts speech to English", comment: "Translation mode description")))
                         .font(.caption)
                         .foregroundStyle(.orange)
                         .padding(.top, 4)
                 } else if selectedTask == "transcribe" {
-                    Text("Transcription mode preserves original language")
+                    Text(String(localized: LocalizedStringResource("Transcription mode preserves original language", comment: "Transcription mode description")))
                         .font(.caption)
                         .foregroundStyle(.green)
                         .padding(.top, 4)
                 }
                 
                 if selectedLanguage == "auto" {
-                    Text("Auto-detect language from audio content")
+                    Text(String(localized: LocalizedStringResource("Auto-detect language from audio content", comment: "Auto-detect language description")))
                         .font(.caption)
                         .foregroundStyle(.blue)
                         .padding(.top, 4)
@@ -784,7 +784,7 @@ struct SettingsView: View {
                 HStack(spacing: 12) {
                     
                     VStack(alignment: .leading, spacing: 4) {
-                        Text(String(localized: "Source Language"))
+                        Text(String(localized: LocalizedStringResource("Source Language", comment: "Source language setting")))
                             .font(.headline)
                             .fontWeight(.semibold)
                             .foregroundStyle(Color.accentColor)
@@ -796,7 +796,7 @@ struct SettingsView: View {
                         showLanguageSelection = true
                     }) {
                         HStack(spacing: 8) {
-                            Text(selectedLanguage.isEmpty ? String(localized: "Select Language") : languageManager.languageDisplayName(for: selectedLanguage))
+                            Text(selectedLanguage.isEmpty ? String(localized: LocalizedStringResource("Select Language", comment: "Select language button")) : languageManager.languageDisplayName(for: selectedLanguage))
                                 .font(.subheadline)
                                 .foregroundStyle(Color.accentColor)
                             
@@ -811,13 +811,13 @@ struct SettingsView: View {
             
             // Wave from Icon Action Setting
             VStack(alignment: .leading, spacing: 8) {
-                Text("Wave form Icon Action")
+                Text(String(localized: LocalizedStringResource("Wave form Icon Action", comment: "Wave form icon action setting")))
                     .font(.subheadline)
                     .foregroundStyle(.secondary)
                 
                 Picker("", selection: $waveformActionType) {
-                    Text("Clear Text").tag("clear")
-                    Text("Show ASCII Art").tag("ascii")
+                    Text(String(localized: LocalizedStringResource("Clear Text", comment: "Clear text option"))).tag("clear")
+                    Text(String(localized: LocalizedStringResource("Show ASCII Art", comment: "Show ASCII art option"))).tag("ascii")
                 }
                 .pickerStyle(SegmentedPickerStyle())
             }
@@ -830,7 +830,7 @@ struct SettingsView: View {
             // Font Family Selection
             HStack(spacing: 12) {
                 VStack(alignment: .leading, spacing: 4) {
-                    Text("settings.text_font_type")
+                    Text(String(localized: LocalizedStringResource("Text Font Type", comment: "Text font type setting")))
                         .font(.subheadline)
                         .fontWeight(.medium)
                         .foregroundStyle(.primary)
@@ -842,7 +842,7 @@ struct SettingsView: View {
                     showFontSelection = true
                 }) {
                     HStack(spacing: 8) {
-                        Text(FontFamily.fontFamily(named: sttFontFamily)?.displayName ?? String(localized: "System"))
+                        Text(FontFamily.fontFamily(named: sttFontFamily)?.displayName ?? String(localized: LocalizedStringResource("System", comment: "System font option")))
                             .font(.subheadline)
                             .foregroundStyle(.primary)
                         
@@ -890,7 +890,7 @@ struct SettingsView: View {
                     .fontWeight(.medium)
                     .foregroundStyle(.secondary)
                 
-                Text("Sample text preview")
+                Text(String(localized: "Sample text preview"))
                     .font(FontFamily.fontFamily(named: sttFontFamily)?.font(withSize: sttFontSize) ?? .system(size: sttFontSize))
                     .foregroundStyle(.primary)
                     .padding(.horizontal, 12)
@@ -1283,7 +1283,7 @@ struct ModelSelectionView: View {
             #endif
             .toolbar(content: {
                 ToolbarItem(placement: .primaryAction) {
-                    Button(String(localized: "Done")) {
+                    Button(String(localized: LocalizedStringResource("Done", comment: "Done button"))) {
                         dismiss()
                     }
                     .buttonStyle(.bordered)
@@ -1546,7 +1546,7 @@ struct FontSelectionView: View {
             #endif
             .toolbar {
                 ToolbarItem(placement: .primaryAction) {
-                    Button(String(localized: "Done")) {
+                    Button(String(localized: LocalizedStringResource("Done", comment: "Done button"))) {
                         dismiss()
                     }
                     .buttonStyle(.bordered)
@@ -1690,7 +1690,7 @@ struct UILanguageSelectionView: View {
             #endif
             .toolbar {
                 ToolbarItem(placement: .primaryAction) {
-                    Button(String(localized: "Done")) {
+                    Button(String(localized: LocalizedStringResource("Done", comment: "Done button"))) {
                         dismiss()
                     }
                     .buttonStyle(.bordered)

@@ -46,7 +46,7 @@ struct ModelSelectionView: View {
                     HStack {
                         Image(systemName: "magnifyingglass")
                             .foregroundColor(.secondary)
-                        TextField("Search models...", text: $searchText)
+                        TextField(String(localized: LocalizedStringResource("Search models...", comment: "Search models placeholder")), text: $searchText)
                             .textFieldStyle(PlainTextFieldStyle())
                     }
                     .padding(.horizontal, 12)
@@ -58,7 +58,7 @@ struct ModelSelectionView: View {
                     ScrollView(.horizontal, showsIndicators: false) {
                         HStack(spacing: 12) {
                             CategoryButton(
-                                title: "All",
+                                title: String(localized: LocalizedStringResource("All", comment: "All category filter")),
                                 isSelected: selectedCategory == nil,
                                 action: { selectedCategory = nil }
                             )
@@ -78,7 +78,7 @@ struct ModelSelectionView: View {
                     HStack {
                         Image(systemName: "star.fill")
                             .foregroundColor(.orange)
-                        Text("Show Recommended Only")
+                        Text(String(localized: LocalizedStringResource("Show Recommended Only", comment: "Show recommended only toggle")))
                             .font(.subheadline)
                             .foregroundColor(.primary)
                         Spacer()
@@ -99,10 +99,10 @@ struct ModelSelectionView: View {
                         Image(systemName: "magnifyingglass")
                             .font(.system(size: 48))
                             .foregroundColor(.secondary)
-                        Text("No Models Found")
+                        Text(String(localized: LocalizedStringResource("No Models Found", comment: "No models found message")))
                             .font(.headline)
                             .foregroundColor(.secondary)
-                        Text("Try adjusting your search criteria")
+                        Text(String(localized: LocalizedStringResource("Try adjusting your search criteria", comment: "No models found suggestion")))
                             .font(.subheadline)
                             .foregroundColor(.secondary)
                     }
@@ -124,13 +124,13 @@ struct ModelSelectionView: View {
                     .listStyle(PlainListStyle())
                 }
             }
-            .navigationTitle("Select Model")
+            .navigationTitle(String(localized: LocalizedStringResource("Select Model", comment: "Select model title")))
             #if os(iOS)
             .navigationBarTitleDisplayMode(.large)
             #endif
             .toolbar {
                 ToolbarItem(placement: .primaryAction) {
-                    Button("Done") {
+                    Button(String(localized: LocalizedStringResource("Done", comment: "Done button"))) {
                         dismiss()
                     }
                     .font(.headline)
