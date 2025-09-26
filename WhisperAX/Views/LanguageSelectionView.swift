@@ -159,9 +159,9 @@ struct LanguageSelectionView: View {
                         LanguageRow(
                             languageCode: languageCode,
                             displayName: sourceLanguageDisplayName(for: languageCode),
-                            isSelected: languageCodeToLanguageName(languageCode) == selectedLanguage
+                            isSelected: languageCode == selectedLanguage
                         ) {
-                            selectedLanguage = languageCodeToLanguageName(languageCode)
+                            selectedLanguage = languageCode
                             dismiss()
                         }
                         .listRowInsets(EdgeInsets(top: 4, leading: 16, bottom: 4, trailing: 16))

@@ -3,12 +3,32 @@
 
 import Foundation
 import SwiftUI
+#if os(macOS)
+import AppKit
+#endif
 
 /// トークン計算ビュー
 struct TokenCalculatorView: View {
     @StateObject private var calculator = TokenCalculator()
     @State private var showingDetailedStats = false
     @State private var isAnimating = false
+    
+    // Platform-specific colors
+    private var controlBackgroundColor: Color {
+        #if os(macOS)
+        return Color(NSColor.controlBackgroundColor)
+        #else
+        return Color(.systemGray6)
+        #endif
+    }
+    
+    private var windowBackgroundColor: Color {
+        #if os(macOS)
+        return Color(NSColor.windowBackgroundColor)
+        #else
+        return Color(.systemBackground)
+        #endif
+    }
     
     var body: some View {
         ScrollView {
@@ -54,7 +74,7 @@ struct TokenCalculatorView: View {
                     }) {
                         ZStack {
                             Circle()
-                                .fill(Color(.systemGray5))
+                                .fill(controlBackgroundColor)
                                 .frame(width: 36, height: 36)
                             
                             Image(systemName: "trash")
@@ -83,14 +103,14 @@ struct TokenCalculatorView: View {
                                 .foregroundColor(.secondary)
                                 .padding(.horizontal, 8)
                                 .padding(.vertical, 4)
-                                .background(Color(.systemGray6))
+                                .background(controlBackgroundColor)
                                 .cornerRadius(6)
                         }
                     }
                     
                     ZStack(alignment: .topLeading) {
                         RoundedRectangle(cornerRadius: 12)
-                            .fill(Color(.systemGray6))
+                            .fill(controlBackgroundColor)
                             .overlay(
                                 RoundedRectangle(cornerRadius: 12)
                                     .stroke(
@@ -174,7 +194,7 @@ struct TokenCalculatorView: View {
                             VStack(spacing: 4) {
                                 ZStack {
                                     Circle()
-                                        .stroke(Color(.systemGray5), lineWidth: 3)
+                                        .stroke(controlBackgroundColor, lineWidth: 3)
                                         .frame(width: 24, height: 24)
                                     
                                     Circle()
@@ -195,7 +215,7 @@ struct TokenCalculatorView: View {
                         .padding(16)
                         .background(
                             RoundedRectangle(cornerRadius: 12)
-                                .fill(Color(.systemGray6))
+                                .fill(controlBackgroundColor)
                                 .overlay(
                                     RoundedRectangle(cornerRadius: 12)
                                         .stroke(
@@ -314,8 +334,8 @@ struct TokenCalculatorView: View {
         .background(
             LinearGradient(
                 colors: [
-                    Color(.systemBackground),
-                    Color(.systemGray6)
+                    windowBackgroundColor,
+                    controlBackgroundColor
                 ],
                 startPoint: .top,
                 endPoint: .bottom
@@ -339,6 +359,15 @@ struct StatItem: View {
     let icon: String
     let gradient: [Color]
     @State private var isAnimating = false
+    
+    // Platform-specific colors
+    private var windowBackgroundColor: Color {
+        #if os(macOS)
+        return Color(NSColor.windowBackgroundColor)
+        #else
+        return Color(.systemBackground)
+        #endif
+    }
     
     var body: some View {
         VStack(spacing: 12) {
@@ -382,7 +411,7 @@ struct StatItem: View {
         .padding(.horizontal, 16)
         .background(
             RoundedRectangle(cornerRadius: 16)
-                .fill(Color(.systemBackground))
+                .fill(windowBackgroundColor)
                 .overlay(
                     RoundedRectangle(cornerRadius: 16)
                         .stroke(
@@ -409,6 +438,23 @@ struct DetailedStatsView: View {
     let stats: TokenStats
     @Environment(\.dismiss) private var dismiss
     @State private var isAnimating = false
+    
+    // Platform-specific colors
+    private var controlBackgroundColor: Color {
+        #if os(macOS)
+        return Color(NSColor.controlBackgroundColor)
+        #else
+        return Color(.systemGray6)
+        #endif
+    }
+    
+    private var windowBackgroundColor: Color {
+        #if os(macOS)
+        return Color(NSColor.windowBackgroundColor)
+        #else
+        return Color(.systemBackground)
+        #endif
+    }
     
     var body: some View {
         NavigationView {
@@ -569,7 +615,7 @@ struct DetailedStatsView: View {
                         .padding(20)
                         .background(
                             RoundedRectangle(cornerRadius: 16)
-                                .fill(Color(.systemGray6))
+                                .fill(controlBackgroundColor)
                                 .overlay(
                                     RoundedRectangle(cornerRadius: 16)
                                         .stroke(
@@ -589,16 +635,15 @@ struct DetailedStatsView: View {
             .background(
                 LinearGradient(
                     colors: [
-                        Color(.systemBackground),
-                        Color(.systemGray6).opacity(0.3)
+                        windowBackgroundColor,
+                        controlBackgroundColor.opacity(0.3)
                     ],
                     startPoint: .top,
                     endPoint: .bottom
                 )
             )
-            .navigationBarTitleDisplayMode(.inline)
             .toolbar {
-                ToolbarItem(placement: .navigationBarTrailing) {
+                ToolbarItem(placement: .primaryAction) {
                     Button("Done") {
                         dismiss()
                     }
@@ -656,6 +701,15 @@ struct EnhancedDetailRow: View {
     let gradient: [Color]
     @State private var isAnimating = false
     
+    // Platform-specific colors
+    private var windowBackgroundColor: Color {
+        #if os(macOS)
+        return Color(NSColor.windowBackgroundColor)
+        #else
+        return Color(.systemBackground)
+        #endif
+    }
+    
     var body: some View {
         HStack(spacing: 16) {
             ZStack {
@@ -693,7 +747,7 @@ struct EnhancedDetailRow: View {
         .padding(16)
         .background(
             RoundedRectangle(cornerRadius: 12)
-                .fill(Color(.systemBackground))
+                .fill(windowBackgroundColor)
                 .overlay(
                     RoundedRectangle(cornerRadius: 12)
                         .stroke(

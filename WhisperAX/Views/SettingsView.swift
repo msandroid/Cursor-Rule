@@ -275,51 +275,23 @@ struct SettingsView: View {
     var uiLanguageSettingsView: some View {
         VStack(alignment: .leading, spacing: 16) {
             HStack(spacing: 12) {
-                
-                    VStack(alignment: .leading, spacing: 4) {
-                        Text(String(localized: LocalizedStringResource("Display Language", comment: "Display language setting")))
-                            .font(.subheadline)
-                            .fontWeight(.medium)
-                            .foregroundStyle(.primary)
-                        
-                        Text(String(localized: LocalizedStringResource("UI Language", comment: "UI language setting")))
-                            .font(.caption)
-                            .foregroundStyle(.secondary)
-                    }
-                
-                Spacer()
-                
                 Button(action: {
                     showUILanguageSelection = true
                 }) {
                     HStack(spacing: 8) {
                         Text(languageManager.languageDisplayName(for: languageManager.currentLanguage))
                             .font(.subheadline)
+                            .fontWeight(.bold)
                             .foregroundStyle(.primary)
                         
                         Image(systemName: "chevron.right")
                             .font(.caption)
+                            .fontWeight(.bold)
                             .foregroundStyle(.secondary)
                     }
                 }
                 .buttonStyle(.plain)
             }
-            
-            // Auto-detect system language button
-            Button(action: {
-                languageManager.updateToSystemLanguage()
-            }) {
-                HStack(spacing: 8) {
-                    Image(systemName: "arrow.clockwise")
-                        .font(.caption)
-                        .foregroundStyle(Color(hex: "1CA485"))
-                    
-                    Text(String(localized: LocalizedStringResource("Auto-detect system language", comment: "Auto-detect system language setting")))
-                        .font(.caption)
-                        .foregroundStyle(Color(hex: "1CA485"))
-                }
-            }
-            .buttonStyle(.plain)
         }
         .sheet(isPresented: $showUILanguageSelection) {
             UILanguageSelectionView()
@@ -866,20 +838,20 @@ struct SettingsView: View {
             
             // Line Break Settings
             ToggleSettingRow(
-                title: "Line Breaks on Punctuation",
+                title: NSLocalizedString("line.breaks.punctuation", comment: "Setting for enabling line breaks after punctuation marks"),
                 isOn: $enableLineBreaks,
-                infoText: "Automatically insert line breaks after periods (.) and Japanese periods (。) to improve text readability."
+                infoText: NSLocalizedString("line.breaks.punctuation.info", comment: "Information text explaining line breaks on punctuation setting")
             )
             
             // Line Spacing Slider (only show when line breaks are enabled)
             if enableLineBreaks {
                 SliderSettingRow(
-                    title: "Line Spacing",
+                    title: NSLocalizedString("line.spacing", comment: "Setting for controlling line spacing when line breaks are enabled"),
                     value: $lineSpacing,
                     range: 0...20,
                     step: 1,
                     displayValue: lineSpacing.formatted(.number),
-                    infoText: "Controls the spacing between lines when line breaks are enabled. Higher values create more space between lines."
+                    infoText: NSLocalizedString("line.spacing.info", comment: "Information text explaining line spacing setting")
                 )
             }
             

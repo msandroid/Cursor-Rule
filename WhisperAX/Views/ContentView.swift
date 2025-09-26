@@ -493,9 +493,9 @@ struct ContentView: View {
     @State private var disabledModels: [String] = WhisperKit.recommendedModels().disabled
 
     @AppStorage("selectedAudioInput") private var selectedAudioInput: String = String(localized: LocalizedStringResource("No Audio Input", comment: "No audio input default"))
-    @AppStorage("selectedModel") private var selectedModel: String = "base"
+    @AppStorage("selectedModel") private var selectedModel: String = "openai_whisper-base"
     @AppStorage("selectedTask") private var selectedTask: String = "transcribe"
-    @AppStorage("selectedLanguage") private var selectedLanguage: String = "english"
+    @AppStorage("selectedLanguage") private var selectedLanguage: String = "ja"
     @AppStorage("repoName") private var repoName: String = "argmaxinc/whisperkit-coreml"
     @AppStorage("enableTimestamps") private var enableTimestamps: Bool = true
     @AppStorage("enablePromptPrefill") private var enablePromptPrefill: Bool = true
@@ -505,10 +505,10 @@ struct ContentView: View {
     @AppStorage("enableDecoderPreview") private var enableDecoderPreview: Bool = true
     @AppStorage("preserveTextOnRecording") private var preserveTextOnRecording: Bool = true
     @AppStorage("hideIconsDuringSTT") private var hideIconsDuringSTT: Bool = false
-    @AppStorage("temperatureStart") private var temperatureStart: Double = 0
-    @AppStorage("enableFixedTemperature") private var enableFixedTemperature: Bool = false
+    @AppStorage("temperatureStart") private var temperatureStart: Double = 0.0
+    @AppStorage("enableFixedTemperature") private var enableFixedTemperature: Bool = true
     @AppStorage("fixedTemperatureValue") private var fixedTemperatureValue: Double = 0.0
-    @AppStorage("fallbackCount") private var fallbackCount: Double = 2
+    @AppStorage("fallbackCount") private var fallbackCount: Double = 1
     @AppStorage("compressionCheckWindow") private var compressionCheckWindow: Double = 30
     @AppStorage("sampleLength") private var sampleLength: Double = 100
     @AppStorage("silenceThreshold") private var silenceThreshold: Double = 0.2
@@ -2177,10 +2177,27 @@ struct ContentView: View {
     func transcribeAudioSamples(_ samples: [Float]) async throws -> TranscriptionResult? {
         guard let whisperKit = whisperKit else { return nil }
 
-        let languageCode = Constants.languages[selectedLanguage, default: Constants.defaultLanguageCode]
+        // selectedLanguageが言語コードの場合はそのまま使用、そうでなければマッピングから取得
+        let languageCode: String
+        if selectedLanguage.count == 2 || selectedLanguage == "auto" {
+            // 2文字の言語コード（ja, en等）またはautoの場合はそのまま使用
+            languageCode = selectedLanguage
+        } else {
+            // 言語名の場合はマッピングから取得
+            languageCode = Constants.languages[selectedLanguage, default: "ja"] // デフォルトを日本語に設定
+        }
         let task: DecodingTask = selectedTask == "transcribe" ? .transcribe : .translate
         let seekClip: [Float] = [lastConfirmedSegmentEndSeconds]
         print("================================")
+        print("Language setting: \(selectedLanguage) -> \(languageCode)")
+        print("Task: \(task)")
+        print("Model: \(selectedModel)")
+        print("DecodingOptions language parameter: \(languageCode)")
+        if languageCode == "ja" {
+            print("Japanese-specific settings applied: compressionRatio=1.2, logProb=-0.8, noSpeech=0.3")
+        } else {
+            print("Non-Japanese language detected: \(languageCode)")
+        }
 
         let options = DecodingOptions(
             verbose: false, // リアルタイムでは冗長ログを無効化
@@ -2195,6 +2212,10 @@ struct ContentView: View {
             withoutTimestamps: !enableTimestamps,
             wordTimestamps: true,
             clipTimestamps: seekClip,
+            // 日本語専用の厳格な設定
+            compressionRatioThreshold: languageCode == "ja" ? 1.2 : nil,
+            logProbThreshold: languageCode == "ja" ? -0.8 : nil,
+            noSpeechThreshold: languageCode == "ja" ? 0.3 : nil,
             concurrentWorkerCount: Int(concurrentWorkerCount),
             chunkingStrategy: chunkingStrategy
         )
@@ -2489,9 +2510,26 @@ struct ContentView: View {
             return nil
         }
 
-        let languageCode = Constants.languages[selectedLanguage, default: Constants.defaultLanguageCode]
+        // selectedLanguageが言語コードの場合はそのまま使用、そうでなければマッピングから取得
+        let languageCode: String
+        if selectedLanguage.count == 2 || selectedLanguage == "auto" {
+            // 2文字の言語コード（ja, en等）またはautoの場合はそのまま使用
+            languageCode = selectedLanguage
+        } else {
+            // 言語名の場合はマッピングから取得
+            languageCode = Constants.languages[selectedLanguage, default: "ja"] // デフォルトを日本語に設定
+        }
         let task: DecodingTask = selectedTask == "transcribe" ? .transcribe : .translate
         LogDebug("Selected language: \(selectedLanguage), code: \(languageCode)", category: .stt)
+        print("Eager mode - Language setting: \(selectedLanguage) -> \(languageCode)")
+        print("Eager mode - Task: \(task)")
+        print("Eager mode - Model: \(selectedModel)")
+        print("Eager mode - DecodingOptions language parameter: \(languageCode)")
+        if languageCode == "ja" {
+            print("Eager mode - Japanese-specific settings applied: compressionRatio=1.2, logProb=-0.8, noSpeech=0.3")
+        } else {
+            print("Eager mode - Non-Japanese language detected: \(languageCode)")
+        }
 
         let options = DecodingOptions(
             verbose: true,
@@ -2505,7 +2543,11 @@ struct ContentView: View {
             skipSpecialTokens: !enableSpecialCharacters,
             withoutTimestamps: !enableTimestamps,
             wordTimestamps: true, // required for eager mode
+            // 日本語専用の厳格な設定
+            compressionRatioThreshold: languageCode == "ja" ? 1.2 : nil,
+            logProbThreshold: languageCode == "ja" ? -0.8 : nil,
             firstTokenLogProbThreshold: -1.5, // higher threshold to prevent fallbacks from running to often
+            noSpeechThreshold: languageCode == "ja" ? 0.3 : nil,
             chunkingStrategy: ChunkingStrategy.none
         )
 
