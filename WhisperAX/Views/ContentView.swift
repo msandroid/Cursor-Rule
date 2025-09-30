@@ -1816,7 +1816,36 @@ struct ContentView: View {
         // WhisperModelManagerのlocalModelsをベースに開始
         localModels = modelManager.localModels
 
-        // First check what's already downloaded
+        // Check for bundled models first
+        if let resourceURL = Bundle.main.resourceURL {
+            let fileManager = FileManager.default
+            do {
+                let resourceContents = try fileManager.contentsOfDirectory(at: resourceURL, includingPropertiesForKeys: nil)
+                for item in resourceContents {
+                    let modelName = item.lastPathComponent
+                    if modelName.hasPrefix("openai_whisper-") {
+                        // Check if this model has the required files
+                        let audioEncoderPath = item.appendingPathComponent("AudioEncoder.mlmodelc/model.mil")
+                        let textDecoderPath = item.appendingPathComponent("TextDecoder.mlmodelc/model.mil")
+                        let melSpectrogramPath = item.appendingPathComponent("MelSpectrogram.mlmodelc/model.mil")
+                        
+                        if fileManager.fileExists(atPath: audioEncoderPath.path) &&
+                           fileManager.fileExists(atPath: textDecoderPath.path) &&
+                           fileManager.fileExists(atPath: melSpectrogramPath.path) {
+                            if !localModels.contains(modelName) {
+                                localModels.append(modelName)
+                                modelManager.addLocalModel(modelName)
+                                print("Found bundled model: \(modelName)")
+                            }
+                        }
+                    }
+                }
+            } catch {
+                print("Error scanning bundle for models: \(error.localizedDescription)")
+            }
+        }
+
+        // Then check what's already downloaded
         if let documents = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first {
             let modelPath = documents.appendingPathComponent(modelStorage).path
 

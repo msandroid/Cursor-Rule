@@ -63,9 +63,66 @@ class WhisperModelManager: ObservableObject {
         optimizationProgress = 0.0
         optimizationStatus = "Initializing..."
         
-        // WhisperKitの初期化と設定は実際のモデル読み込み処理に委譲
-        // ここでは状態管理のみを行う
         print("WhisperModelManager: Loading model \(model)")
+        
+        whisperKit = nil
+        Task {
+            // Check if the model is bundled in the app first
+            var bundledModelPath: URL?
+            
+            // Try to find bundled model in Resources directory
+            if let resourceURL = Bundle.main.resourceURL {
+                let modelURL = resourceURL.appendingPathComponent(model)
+                
+                // Check if model directory exists and contains required files
+                let fileManager = FileManager.default
+                if fileManager.fileExists(atPath: modelURL.path) {
+                    let audioEncoderPath = modelURL.appendingPathComponent("AudioEncoder.mlmodelc/model.mil")
+                    let textDecoderPath = modelURL.appendingPathComponent("TextDecoder.mlmodelc/model.mil")
+                    let melSpectrogramPath = modelURL.appendingPathComponent("MelSpectrogram.mlmodelc/model.mil")
+                    
+                    if fileManager.fileExists(atPath: audioEncoderPath.path) &&
+                       fileManager.fileExists(atPath: textDecoderPath.path) &&
+                       fileManager.fileExists(atPath: melSpectrogramPath.path) {
+                        bundledModelPath = modelURL
+                        print("Found bundled model at: \(modelURL.path)")
+                    } else {
+                        print("Model directory exists but missing required files at: \(modelURL.path)")
+                    }
+                } else {
+                    print("Model directory not found at: \(modelURL.path)")
+                }
+            }
+            
+            let config = WhisperKitConfig(verbose: true,
+                                          logLevel: .debug,
+                                          prewarm: true,
+                                          load: true,
+                                          download: false,
+                                          modelFolder: bundledModelPath)
+            
+            whisperKit = try await WhisperKit(config)
+            guard let whisperKit = whisperKit else {
+                await MainActor.run {
+                    modelState = .unloaded
+                    isOptimizing = false
+                }
+                return
+            }
+            
+            await MainActor.run {
+                optimizationProgress = 0.3
+                optimizationStatus = "Loading model files..."
+            }
+            
+            // WhisperKit with load: true will automatically load models
+            await MainActor.run {
+                modelState = .loaded
+                isOptimizing = false
+                optimizationProgress = 1.0
+                optimizationStatus = "Model loaded successfully"
+            }
+        }
     }
     
     func deleteModel(_ model: String) async {

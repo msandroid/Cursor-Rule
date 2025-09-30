@@ -24,14 +24,6 @@ struct WhisperAXApp: App {
             // 端末の言語設定を確認して自動切り替え
             LanguageManager.shared.updateToSystemLanguage()
         }
-        
-        // バックグラウンドタスクの設定
-        setupBackgroundTasks()
-    }
-    
-    private func setupBackgroundTasks() {
-        // バックグラウンド処理のスケジュール
-        backgroundTaskManager.scheduleBackgroundProcessing()
     }
     
     var body: some Scene {
@@ -49,6 +41,10 @@ struct WhisperAXApp: App {
                 }
                 .onReceive(NotificationCenter.default.publisher(for: UIApplication.willEnterForegroundNotification)) { _ in
                     backgroundTaskManager.endBackgroundTask()
+                }
+                .onAppear {
+                    // バックグラウンドタスクの設定をView表示時に実行
+                    backgroundTaskManager.scheduleBackgroundProcessing()
                 }
                 #endif
             #if os(macOS)

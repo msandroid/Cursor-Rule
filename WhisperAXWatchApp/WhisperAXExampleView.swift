@@ -39,6 +39,139 @@ struct WhisperAXWatchView: View {
     @State private var availableModels: [String] = []
     @State private var availableLanguages: [String] = []
     @State private var disabledModels: [String] = WhisperKit.recommendedModels().disabled
+    
+    // 言語データ
+    private let languages: [(code: String, name: String)] = [
+        ("en", "English (英語)"),
+        ("zh", "Chinese (中国語)"),
+        ("de", "German (ドイツ語)"),
+        ("es", "Spanish (スペイン語)"),
+        ("ru", "Russian (ロシア語)"),
+        ("ko", "Korean (韓国語)"),
+        ("fr", "French (フランス語)"),
+        ("ja", "Japanese (日本語)"),
+        ("pt", "Portuguese (ポルトガル語)"),
+        ("tr", "Turkish (トルコ語)"),
+        ("nl", "Dutch (オランダ語)"),
+        ("pl", "Polish (ポーランド語)"),
+        ("ca", "Catalan (カタルーニャ語)"),
+        ("ar", "Arabic (アラビア語)"),
+        ("sv", "Swedish (スウェーデン語)"),
+        ("it", "Italian (イタリア語)"),
+        ("id", "Indonesian (インドネシア語)"),
+        ("hi", "Hindi (ヒンディー語)"),
+        ("fi", "Finnish (フィンランド語)"),
+        ("vi", "Vietnamese (ベトナム語)"),
+        ("he", "Hebrew (ヘブライ語)"),
+        ("uk", "Ukrainian (ウクライナ語)"),
+        ("el", "Greek (ギリシャ語)"),
+        ("ms", "Malay (マレー語)"),
+        ("cs", "Czech (チェコ語)"),
+        ("ro", "Romanian (ルーマニア語)"),
+        ("da", "Danish (デンマーク語)"),
+        ("hu", "Hungarian (ハンガリー語)"),
+        ("ta", "Tamil (タミル語)"),
+        ("no", "Norwegian (ノルウェー語)"),
+        ("th", "Thai (タイ語)"),
+        ("ur", "Urdu (ウルドゥー語)"),
+        ("hr", "Croatian (クロアチア語)"),
+        ("bg", "Bulgarian (ブルガリア語)"),
+        ("lt", "Lithuanian (リトアニア語)"),
+        ("la", "Latin (ラテン語)"),
+        ("mi", "Maori (マオリ語)"),
+        ("ml", "Malayalam (マラヤーラム語)"),
+        ("cy", "Welsh (ウェールズ語)"),
+        ("sk", "Slovak (スロバキア語)"),
+        ("te", "Telugu (テルグ語)"),
+        ("fa", "Persian (ペルシャ語)"),
+        ("lv", "Latvian (ラトビア語)"),
+        ("bn", "Bengali (ベンガル語)"),
+        ("sr", "Serbian (セルビア語)"),
+        ("az", "Azerbaijani (アゼルバイジャン語)"),
+        ("sl", "Slovenian (スロベニア語)"),
+        ("kn", "Kannada (カンナダ語)"),
+        ("et", "Estonian (エストニア語)"),
+        ("mk", "Macedonian (マケドニア語)"),
+        ("br", "Breton (ブルトン語)"),
+        ("eu", "Basque (バスク語)"),
+        ("is", "Icelandic (アイスランド語)"),
+        ("hy", "Armenian (アルメニア語)"),
+        ("ne", "Nepali (ネパール語)"),
+        ("mn", "Mongolian (モンゴル語)"),
+        ("bs", "Bosnian (ボスニア語)"),
+        ("kk", "Kazakh (カザフ語)"),
+        ("sq", "Albanian (アルバニア語)"),
+        ("sw", "Swahili (スワヒリ語)"),
+        ("gl", "Galician (ガリシア語)"),
+        ("mr", "Marathi (マラーティー語)"),
+        ("pa", "Punjabi (パンジャブ語)"),
+        ("si", "Sinhala (シンハラ語)"),
+        ("km", "Khmer (クメール語)"),
+        ("sn", "Shona (ショナ語)"),
+        ("yo", "Yoruba (ヨルバ語)"),
+        ("so", "Somali (ソマリ語)"),
+        ("af", "Afrikaans (アフリカーンス語)"),
+        ("oc", "Occitan (オック語)"),
+        ("ka", "Georgian (グルジア語)"),
+        ("be", "Belarusian (ベラルーシ語)"),
+        ("tg", "Tajik (タジク語)"),
+        ("sd", "Sindhi (シンド語)"),
+        ("gu", "Gujarati (グジャラート語)"),
+        ("am", "Amharic (アムハラ語)"),
+        ("yi", "Yiddish (イディッシュ語)"),
+        ("lo", "Lao (ラオ語)"),
+        ("uz", "Uzbek (ウズベク語)"),
+        ("fo", "Faroese (フェロー語)"),
+        ("ht", "Haitian Creole (ハイチ・クレオール語)"),
+        ("ps", "Pashto (パシュトー語)"),
+        ("tk", "Turkmen (トルクメン語)"),
+        ("nn", "Nynorsk (ニーノシュク)"),
+        ("mt", "Maltese (マルタ語)"),
+        ("sa", "Sanskrit (サンスクリット語)"),
+        ("lb", "Luxembourgish (ルクセンブルク語)"),
+        ("my", "Myanmar (ミャンマー語)"),
+        ("bo", "Tibetan (チベット語)"),
+        ("tl", "Tagalog (タガログ語)"),
+        ("mg", "Malagasy (マラガシ語)"),
+        ("as", "Assamese (アッサム語)"),
+        ("tt", "Tatar (タタール語)"),
+        ("haw", "Hawaiian (ハワイ語)"),
+        ("ln", "Lingala (リンガラ語)"),
+        ("ha", "Hausa (ハウサ語)"),
+        ("ba", "Bashkir (バシキール語)"),
+        ("jw", "Javanese (ジャワ語)"),
+        ("su", "Sundanese (スンダ語)"),
+        ("yue", "Cantonese (広東語)")
+    ]
+    
+    // モデル表示名と実際のモデルIDのマッピング
+    private let modelNameMapping: [String: String] = [
+        "Scribe Swift English": "openai_whisper-tiny.en",
+        "Scribe mini English": "openai_whisper-base.en", 
+        "Scribe Pro English": "openai_whisper-small.en",
+        "Scribe Enterprise English": "openai_whisper-medium.en",
+        "Scribe Swift": "openai_whisper-tiny",
+        "Scribe mini": "openai_whisper-base",
+        "Scribe Pro": "openai_whisper-small",
+        "Scribe Enterprise": "openai_whisper-medium",
+        "Scribe Ultra": "openai_whisper-large-v3",
+        "Scribe UltraTurbo": "openai_whisper-large-v3_turbo",
+        "Quantum Scribe English": "openai_whisper-small.en_217MB",
+        "Quantum Scribe mini": "openai_whisper-small_216MB",
+        "Quantum Scribe UltraLite 1.0": "openai_whisper-large-v2_949MB",
+        "Quantum Scribe UltraTurboLite 2.0": "openai_whisper-large-v2_turbo_955MB",
+        "Quantum Scribe UltraLite 3.0": "openai_whisper-large-v3_947MB",
+        "Quantum Scribe UltraTurboLite 3.5": "openai_whisper-large-v3_turbo_954MB",
+        "Quantum Scribe Ultra 3.6": "openai_whisper-large-v3-v20240930",
+        "Quantum Scribe UltraTurbo 3.6": "openai_whisper-large-v3-v20240930_turbo",
+        "Quantum Scribe UltraLite 3.6": "openai_whisper-large-v3-v20240930_547MB",
+        "Quantum Scribe UltraLite+ 3.6": "openai_whisper-large-v3-v20240930_626MB",
+        "Quantum Scribe UltraTurboLite 3.6": "openai_whisper-large-v3-v20240930_turbo_632MB",
+        "Scribe Dual 3.0": "distil-whisper_distil-large-v3",
+        "Scribe Dual 0.5": "distil-whisper_distil-large-v3_594MB",
+        "Scribe Dual 1.5": "distil-whisper_distil-large-v3_turbo",
+        "Scribe Dual 0.6": "distil-whisper_distil-large-v3_turbo_600MB"
+    ]
 
     @State private var loadingProgressValue: Float = 0.0
     @State private var specializationProgressRatio: Float = 0.7
@@ -75,23 +208,33 @@ struct WhisperAXWatchView: View {
         NavigationSplitView {
             if WhisperKit.deviceName().hasPrefix("Watch7") || WhisperKit.isRunningOnSimulator {
                 modelSelectorView
-                    .navigationTitle("WhisperAX")
                     .navigationBarTitleDisplayMode(.automatic)
 
                 if modelState == .loaded {
-                    List(menu, selection: $selectedCategoryId) { item in
-                        HStack {
-                            Image(systemName: item.image)
-                            Text(item.name)
-                                .scaledToFit()
-                                .minimumScaleFactor(0.5)
-                                .font(.system(.title3))
-                                .bold()
-                                .padding(.horizontal)
+                    VStack {
+                        // 言語選択
+                        Picker("Language", selection: $selectedLanguage) {
+                            ForEach(languages, id: \.code) { language in
+                                Text(language.name)
+                                    .tag(language.code)
+                            }
                         }
+                        .pickerStyle(.wheel)
+                        .frame(height: 60)
+                        
+                        List(menu, selection: $selectedCategoryId) { item in
+                            HStack {
+                                Image(systemName: item.image)
+                                Text(item.name)
+                                    .scaledToFit()
+                                    .minimumScaleFactor(0.5)
+                                    .font(.system(.title3))
+                                    .bold()
+                                    .padding(.horizontal)
+                            }
+                        }
+                        .foregroundColor(.primary)
                     }
-                    .foregroundColor(.primary)
-                    .navigationTitle("WhisperAX")
                     .navigationBarTitleDisplayMode(.automatic)
                 }
             } else {
@@ -109,7 +252,6 @@ struct WhisperAXWatchView: View {
                         .padding()
                         .frame(maxWidth: .infinity)
                 }
-                .navigationTitle("WhisperAX")
                 .navigationBarTitleDisplayMode(.inline)
             }
 
@@ -118,6 +260,12 @@ struct WhisperAXWatchView: View {
         }
         .onAppear {
             fetchModels()
+            // アプリ起動時にScribe Swiftを自動でダウンロード・ロード
+            if selectedModel == WhisperKit.recommendedModels().default {
+                selectedModel = "Scribe Swift"
+                loadModel("Scribe Swift")
+                modelState = .loading
+            }
         }
     }
 
@@ -208,13 +356,13 @@ struct WhisperAXWatchView: View {
                                 stacking: .center
                             )
                             .cornerRadius(1)
-                            .foregroundStyle($0.value > Float(silenceThreshold) ? .green : .red)
+                            .foregroundStyle($0.value > Float(silenceThreshold) ? .white : .green)
                         }
                         .chartXAxis(.hidden)
                         .chartXScale(domain: [0, energyToDisplayCount])
                         .chartYAxis(.hidden)
                         .chartYScale(domain: [-0.5, 0.5])
-                        .frame(height: 45)
+                        .frame(height: 30)
                         .padding(.bottom)
                     }
                 }
@@ -291,7 +439,7 @@ struct WhisperAXWatchView: View {
     }
 
     func fetchModels() {
-        availableModels = ["base", "base.en", "tiny", "tiny.en"]
+        availableModels = ["Scribe mini", "Scribe mini English", "Scribe Swift", "Scribe Swift English", "Scribe Pro", "Scribe Pro English", "Scribe Enterprise", "Scribe Enterprise English", "Scribe Ultra", "Scribe UltraTurbo", "Quantum Scribe English", "Quantum Scribe mini", "Quantum Scribe UltraLite 1.0", "Quantum Scribe UltraTurboLite 2.0", "Quantum Scribe UltraLite 3.0", "Quantum Scribe UltraTurboLite 3.5", "Quantum Scribe Ultra 3.6", "Quantum Scribe UltraTurbo 3.6", "Quantum Scribe UltraLite 3.6", "Quantum Scribe UltraLite+ 3.6", "Quantum Scribe UltraTurboLite 3.6", "Scribe Dual 3.0", "Scribe Dual 0.5", "Scribe Dual 1.5", "Scribe Dual 0.6"]
         let devices = MLModel.availableComputeDevices
         print("Available devices: \(devices)")
         // First check what's already downloaded
@@ -303,7 +451,7 @@ struct WhisperAXWatchView: View {
                 localModelPath = modelPath
                 do {
                     let downloadedModels = try FileManager.default.contentsOfDirectory(atPath: modelPath)
-                    for model in downloadedModels where !localModels.contains(model) && model.starts(with: "openai") {
+                    for model in downloadedModels where !localModels.contains(model) {
                         localModels.append(model)
                     }
                 } catch {
@@ -314,10 +462,12 @@ struct WhisperAXWatchView: View {
 
         localModels = WhisperKit.formatModelFiles(localModels)
         for model in localModels {
-            if !availableModels.contains(model),
+            // 実際のモデルIDから表示名を取得
+            let displayName = modelNameMapping.first { $0.value == model }?.key ?? model
+            if !availableModels.contains(displayName),
                !disabledModels.contains(model)
             {
-                availableModels.append(model)
+                availableModels.append(displayName)
             }
         }
 
@@ -337,6 +487,10 @@ struct WhisperAXWatchView: View {
 
     func loadModel(_ model: String, redownload: Bool = false) {
         print("Selected Model: \(selectedModel)")
+        
+        // 表示名から実際のモデルIDを取得
+        let actualModelId = modelNameMapping[model] ?? model
+        print("Actual Model ID: \(actualModelId)")
 
         whisperKit = nil
         Task {
@@ -354,14 +508,14 @@ struct WhisperAXWatchView: View {
             var folder: URL?
 
             // Check if the model is available locally
-            if localModels.contains(model) && !redownload {
+            if localModels.contains(actualModelId) && !redownload {
                 // Get local model folder URL from localModels
                 // TODO: Make this configurable in the UI
                 // TODO: Handle incomplete downloads
-                folder = URL(fileURLWithPath: localModelPath).appendingPathComponent(model)
+                folder = URL(fileURLWithPath: localModelPath).appendingPathComponent(actualModelId)
             } else {
-                // Download the model
-                folder = try await WhisperKit.download(variant: model, from: repoName, progressCallback: { progress in
+                // Download the model using the actual model ID
+                folder = try await WhisperKit.download(variant: actualModelId, from: repoName, progressCallback: { progress in
                     DispatchQueue.main.async {
                         loadingProgressValue = Float(progress.fractionCompleted) * specializationProgressRatio
                         modelState = .downloading
@@ -390,7 +544,7 @@ struct WhisperAXWatchView: View {
                     print("Error prewarming models, retrying: \(error.localizedDescription)")
                     progressBarTask.cancel()
                     if !redownload {
-                        loadModel(model, redownload: true)
+                        loadModel(selectedModel, redownload: true)
                         return
                     } else {
                         // Redownloading failed, error out

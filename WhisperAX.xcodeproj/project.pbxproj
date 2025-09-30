@@ -50,18 +50,17 @@
 		1677AFF52B57704E008C61C0 /* DashboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1677AFF62B57704E008C61C0 /* DashboardView.swift */; };
 		1677AFF72B57704E008C61C0 /* LocalizedStrings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1677AFF82B57704E008C61C0 /* LocalizedStrings.swift */; };
 		1677AFF92B57704E008C61C0 /* ThemeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1677AFFA2B57704E008C61C0 /* ThemeManager.swift */; };
-		1677AFFB2B57704E008C61C0 /* ThemeManager.swift in Resources */ = {isa = PBXBuildFile; fileRef = 1677AFFA2B57704E008C61C0 /* ThemeManager.swift */; };
 		1683EFEE2B9FACFE002448CD /* WhisperAX Watch App.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = 161135DE2B3F66DA003C20F6 /* WhisperAX Watch App.app */; platformFilter = ios; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		1683EFEF2B9FADFE002448CD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1677AFB42B57618A008C61C0 /* Assets.xcassets */; };
 		1683EFF02B9FADFE002448CD /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1677AFB62B57618A008C61C0 /* Preview Assets.xcassets */; };
 		16EA36CF2B59E550006CA7CF /* WhisperKit in Frameworks */ = {isa = PBXBuildFile; productRef = 16EA36CE2B59E550006CA7CF /* WhisperKit */; };
 		8174ADDF2E7C352A008D790F /* WhisperKit in Frameworks */ = {isa = PBXBuildFile; productRef = 8174ADDE2E7C352A008D790F /* WhisperKit */; };
 		8174ADE12E7C352A008D790F /* whisperkit-cli in Frameworks */ = {isa = PBXBuildFile; productRef = 8174ADE02E7C352A008D790F /* whisperkit-cli */; };
-		818A9B242E8AEFAD008A0334 /* Resources/openai_whisper-base in Resources */ = {isa = PBXBuildFile; fileRef = 81C222252E7C76CF000FBB0B /* Resources/openai_whisper-base */; };
+		818A9B242E8AEFAD008A0334 /* (null) in Resources */ = {isa = PBXBuildFile; };
 		81B8F7472E83C80000B6AA41 /* Sribe Share Extensionc.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 81B8F73D2E83C7FF00B6AA41 /* Sribe Share Extensionc.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
-		81C222262E7C76CF000FBB0B /* Resources/openai_whisper-base in Resources */ = {isa = PBXBuildFile; fileRef = 81C222252E7C76CF000FBB0B /* Resources/openai_whisper-base */; };
 		81C222272E7C76CF000FBB0B /* art.txt in Resources */ = {isa = PBXBuildFile; fileRef = 81C222282E7C76CF000FBB0B /* art.txt */; };
 		81C2222A2E7C76CF000FBB0D /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = 81C222292E7C76CF000FBB0C /* Localizable.xcstrings */; };
+		81D333442F7C76CF000FBB0B /* openai_whisper-base in Resources */ = {isa = PBXBuildFile; fileRef = 81D333452F7C76CF000FBB0B /* openai_whisper-base */; };
 		90F04526FEED4539A3A66B76 /* TokenModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC3D8B5F5CE644D5BC94935F /* TokenModels.swift */; };
 		9611C164AEEA43DBA5A10241 /* DisplayLanguageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5B0FEF9A4104E06BF1119B4 /* DisplayLanguageManager.swift */; };
 		ABF232CE2B57704E008C61C0 /* AnalyticsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 574DB8122B57704E008C61C0 /* AnalyticsManager.swift */; };
@@ -200,9 +199,9 @@
 		665EE0826BA6403A83FD62EC02252FAF /* BackgroundTaskManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BackgroundTaskManager.swift; sourceTree = "<group>"; };
 		81B8F73D2E83C7FF00B6AA41 /* Sribe Share Extensionc.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "Sribe Share Extensionc.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
 		81B8F74D2E83C88000B6AA41 /* WhisperAXRelease.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = WhisperAXRelease.entitlements; sourceTree = "<group>"; };
-		81C222252E7C76CF000FBB0B /* Resources/openai_whisper-base */ = {isa = PBXFileReference; lastKnownFileType = folder; path = "Resources/openai_whisper-base"; sourceTree = "<group>"; };
 		81C222282E7C76CF000FBB0B /* art.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = art.txt; sourceTree = "<group>"; };
 		81C222292E7C76CF000FBB0C /* Localizable.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = Localizable.xcstrings; sourceTree = "<group>"; };
+		81D333452F7C76CF000FBB0B /* openai_whisper-base */ = {isa = PBXFileReference; lastKnownFileType = folder; path = "openai_whisper-base"; sourceTree = "<group>"; };
 		B4EE7FAF414C40F5A872F3FD47525821 /* SharedTextsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SharedTextsView.swift; sourceTree = "<group>"; };
 		CC3D8B5F5CE644D5BC94935F /* TokenModels.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TokenModels.swift; sourceTree = "<group>"; };
 		E46D907F3B5B4C97B1C44827E1A140EE /* VideoAudioConverter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VideoAudioConverter.swift; sourceTree = "<group>"; };
@@ -338,7 +337,6 @@
 				1677AFE42B5769E5008C61C0 /* Views */,
 				1677AFD82B576375008C61C0 /* Models */,
 				1677AFD72B576375008C61C0 /* Resources */,
-				81C222252E7C76CF000FBB0B /* Resources/openai_whisper-base */,
 				1677AFFA2B57704E008C61C0 /* ThemeManager.swift */,
 				1677AFAD2B57618A008C61C0 /* Preview Content */,
 			);
@@ -408,6 +406,7 @@
 				1677AFF82B57704E008C61C0 /* LocalizedStrings.swift */,
 				81C222282E7C76CF000FBB0B /* art.txt */,
 				81C222292E7C76CF000FBB0C /* Localizable.xcstrings */,
+				81D333452F7C76CF000FBB0B /* openai_whisper-base */,
 				47591D15DB31411E90FF8EF7 /* TokenCalculator.swift */,
 			);
 			path = Resources;
@@ -630,7 +629,7 @@
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1640;
-				LastUpgradeCheck = 1600;
+				LastUpgradeCheck = 1640;
 				TargetAttributes = {
 					161135DD2B3F66DA003C20F6 = {
 						CreatedOnToolsVersion = 15.1;
@@ -691,7 +690,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				81C222262E7C76CF000FBB0B /* Resources/openai_whisper-base in Resources */,
 				1683EFEF2B9FADFE002448CD /* Assets.xcassets in Resources */,
 				1683EFF02B9FADFE002448CD /* Preview Assets.xcassets in Resources */,
 			);
@@ -719,10 +717,10 @@
 				1677AFCA2B57618A008C61C0 /* Preview Assets.xcassets in Resources */,
 				1677AFC92B57618A008C61C0 /* Assets.xcassets in Resources */,
 				1677AFE12B57678E008C61C0 /* Assets.xcassets in Resources */,
-				1677AFFB2B57704E008C61C0 /* ThemeManager.swift in Resources */,
-				818A9B242E8AEFAD008A0334 /* Resources/openai_whisper-base in Resources */,
+				818A9B242E8AEFAD008A0334 /* (null) in Resources */,
 				81C222272E7C76CF000FBB0B /* art.txt in Resources */,
 				81C2222A2E7C76CF000FBB0D /* Localizable.xcstrings in Resources */,
+				81D333442F7C76CF000FBB0B /* openai_whisper-base in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -958,7 +956,6 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 9GH6B93N9T;
 				GENERATE_INFOPLIST_FILE = YES;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = scribe.ai.watchkitapp;
@@ -979,7 +976,6 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 9GH6B93N9T;
 				GENERATE_INFOPLIST_FILE = YES;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = scribe.ai.watchkitapp;
@@ -1000,7 +996,6 @@
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 9GH6B93N9T;
 				GENERATE_INFOPLIST_FILE = YES;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = scribe.ai.watchkitapp;
@@ -1020,7 +1015,6 @@
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 9GH6B93N9T;
 				GENERATE_INFOPLIST_FILE = YES;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = scribe.ai.watchkitapp;
@@ -1072,6 +1066,7 @@
 				COPY_PHASE_STRIP = NO;
 				DEAD_CODE_STRIPPING = YES;
 				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = 9GH6B93N9T;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
 				ENABLE_USER_SCRIPT_SANDBOXING = YES;
@@ -1135,6 +1130,7 @@
 				COPY_PHASE_STRIP = NO;
 				DEAD_CODE_STRIPPING = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = 9GH6B93N9T;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
@@ -1173,7 +1169,7 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = WhisperAX/Info.plist;
-				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.productivity";
 				INFOPLIST_KEY_NSMicrophoneUsageDescription = "Required to record audio from the microphone for transcription.";
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
@@ -1189,7 +1185,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 14.0;
-				MARKETING_VERSION = 0.4.0;
+				MARKETING_VERSION = 1.0.0;
 				PRODUCT_BUNDLE_IDENTIFIER = scribe.ai;
 				PRODUCT_NAME = Scribe;
 				REGISTER_APP_GROUPS = YES;
@@ -1221,7 +1217,7 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = WhisperAX/Info.plist;
-				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.productivity";
 				INFOPLIST_KEY_NSMicrophoneUsageDescription = "Required to record audio from the microphone for transcription.";
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
@@ -1237,7 +1233,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 14.0;
-				MARKETING_VERSION = 0.4.0;
+				MARKETING_VERSION = 1.0.0;
 				PRODUCT_BUNDLE_IDENTIFIER = scribe.ai;
 				PRODUCT_NAME = Scribe;
 				REGISTER_APP_GROUPS = YES;
@@ -1259,7 +1255,6 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEAD_CODE_STRIPPING = YES;
-				DEVELOPMENT_TEAM = 9GH6B93N9T;
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				MACOSX_DEPLOYMENT_TARGET = 14.0;
@@ -1283,7 +1278,6 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEAD_CODE_STRIPPING = YES;
-				DEVELOPMENT_TEAM = 9GH6B93N9T;
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				MACOSX_DEPLOYMENT_TARGET = 14.0;
@@ -1307,7 +1301,6 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEAD_CODE_STRIPPING = YES;
-				DEVELOPMENT_TEAM = 9GH6B93N9T;
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				MACOSX_DEPLOYMENT_TARGET = 14.0;
@@ -1333,7 +1326,6 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEAD_CODE_STRIPPING = YES;
-				DEVELOPMENT_TEAM = 9GH6B93N9T;
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				MACOSX_DEPLOYMENT_TARGET = 14.0;
@@ -1355,7 +1347,6 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 9GH6B93N9T;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Sribe Share Extensionc/Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = "Sribe Share Extensionc";
@@ -1366,7 +1357,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 0.4.0;
 				PRODUCT_BUNDLE_IDENTIFIER = scribe.ai.ShareExtension;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
@@ -1383,7 +1374,6 @@
 				CODE_SIGN_ENTITLEMENTS = "Sribe Share Extensionc/Sribe Share ExtensioncRelease.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 9GH6B93N9T;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Sribe Share Extensionc/Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = "Sribe Share Extensionc";
@@ -1394,7 +1384,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 0.4.0;
 				PRODUCT_BUNDLE_IDENTIFIER = scribe.ai.ShareExtension;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;

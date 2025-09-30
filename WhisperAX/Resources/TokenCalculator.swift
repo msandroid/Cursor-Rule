@@ -226,7 +226,7 @@ class TokenCalculator: ObservableObject {
             languageConfidence = topLanguage.value
             
             // キャッシュに保存（最大100エントリ）
-            if languageCache.count > 100 {
+            if languageCache.count > 10000 {
                 let firstKey = languageCache.keys.first!
                 languageCache.removeValue(forKey: firstKey)
             }

@@ -1,0 +1,40 @@
+以下が **元IDと新名称の対応表（JSON形式）** です。
+構造は `{ "元ID": "新名称" }` になっています。
+
+{
+"openai\_whisper-tiny.en": {"name": "Scribe Swift English", "size": "75 MiB"},
+"openai\_whisper-base.en": {"name": "Scribe mini English", "size": "142 MiB"},
+"openai\_whisper-small.en": {"name": "Scribe Pro English", "size": "466 MiB"},
+"openai\_whisper-medium.en": {"name": "Scribe Enterprise English", "size": "1.5 GiB"},
+
+"openai\_whisper-tiny": {"name": "Scribe Swift", "size": "75 MiB"},
+"openai\_whisper-base": {"name": "Scribe mini", "size": "142 MiB"},
+"openai\_whisper-small": {"name": "Scribe Pro", "size": "466 MiB"},
+"openai\_whisper-medium": {"name": "Scribe Enterprise", "size": "1.5 GiB"},
+"openai\_whisper-large-v2": {"name": "Scribe Ultra", "size": "2.9 GiB"},
+"openai\_whisper-large-v2\_turbo": {"name": "Scribe UltraTurbo", "size": "1.5 GiB"},
+"openai\_whisper-large-v3": {"name": "Scribe Ultra", "size": "2.9 GiB"},
+"openai\_whisper-large-v3\_turbo": {"name": "Scribe UltraTurbo", "size": "1.5 GiB"},
+
+"openai\_whisper-small.en\_217MB": {"name": "Quantum Scribe English", "size": "217 MiB"},
+
+"openai\_whisper-small\_216MB": {"name": "Quantum Scribe mini", "size": "216 MiB"},
+"openai\_whisper-large-v2\_949MB": {"name": "Quantum Scribe UltraLite 1.0", "size": "949 MiB"},
+"openai\_whisper-large-v2\_turbo\_955MB": {"name": "Quantum Scribe UltraTurboLite 2.0", "size": "955 MiB"},
+"openai\_whisper-large-v3\_947MB": {"name": "Quantum Scribe UltraLite 3.0", "size": "947 MiB"},
+"openai\_whisper-large-v3\_turbo\_954MB": {"name": "Quantum Scribe UltraTurboLite 3.5", "size": "954 MiB"},
+
+"openai\_whisper-large-v3-v20240930": {"name": "Quantum Scribe Ultra 3.6", "size": "2.9 GiB"},
+"openai\_whisper-large-v3-v20240930\_turbo": {"name": "Quantum Scribe UltraTurbo 3.6", "size": "1.5 GiB"},
+"openai\_whisper-large-v3-v20240930\_547MB": {"name": "Quantum Scribe UltraLite 3.6", "size": "547 MiB"},
+"openai\_whisper-large-v3-v20240930\_626MB": {"name": "Quantum Scribe UltraLite+ 3.6", "size": "626 MiB"},
+"openai\_whisper-large-v3-v20240930\_turbo\_632MB": {"name": "Quantum Scribe UltraTurboLite 3.6", "size": "632 MiB"},
+
+"distil-whisper\_distil-large-v3": {"name": "Scribe Dual 3.0", "size": "2.9 GiB"},
+"distil-whisper\_distil-large-v3\_594MB": {"name": "Scribe Dual 0.5", "size": "594 MiB"},
+"distil-whisper\_distil-large-v3\_turbo": {"name": "Scribe Dual 1.5", "size": "1.5 GiB"},
+"distil-whisper\_distil-large-v3\_turbo\_600MB": {"name": "Scribe Dual 0.6", "size": "600 MiB"},
+
+}
+
+---
