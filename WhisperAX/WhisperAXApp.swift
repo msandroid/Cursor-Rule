@@ -8,7 +8,8 @@ import UIKit
 
 @main
 struct WhisperAXApp: App {
-    @StateObject private var languageManager = LanguageManagerNew.shared
+    @StateObject private var languageManager = LanguageManager.shared  // Source Language
+    @StateObject private var displayLanguageManager = DisplayLanguageManager.shared  // UI Display Language
     @StateObject private var modelManager = WhisperModelManager()
     @StateObject private var themeManager = ThemeManager.shared
     @StateObject private var backgroundTaskManager = BackgroundTaskManager.shared
@@ -21,7 +22,7 @@ struct WhisperAXApp: App {
             UserDefaults.standard.synchronize()
         } else {
             // 端末の言語設定を確認して自動切り替え
-            LanguageManagerNew.shared.updateToSystemLanguage()
+            LanguageManager.shared.updateToSystemLanguage()
         }
         
         // バックグラウンドタスクの設定
@@ -36,7 +37,8 @@ struct WhisperAXApp: App {
     var body: some Scene {
         WindowGroup {
             ContentView()
-                .environmentObject(languageManager)
+                .environmentObject(languageManager)  // Source Language
+                .environmentObject(displayLanguageManager)  // UI Display Language
                 .environmentObject(modelManager)
                 .environmentObject(themeManager)
                 .environmentObject(backgroundTaskManager)

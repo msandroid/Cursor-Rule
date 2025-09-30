@@ -13,7 +13,8 @@ import CoreML
 import Network
 
 struct SettingsView: View {
-    @EnvironmentObject var languageManager: LanguageManagerNew
+    @EnvironmentObject var languageManager: LanguageManager  // Source Language
+    @EnvironmentObject var displayLanguageManager: DisplayLanguageManager  // UI Display Language
     @EnvironmentObject var modelManager: WhisperModelManager
     @Binding var whisperKit: WhisperKit?
     @Binding var modelState: ModelState
@@ -258,10 +259,10 @@ struct SettingsView: View {
                 wasDownloadingWhenOffline = false
             }
         }
-        .onChange(of: languageManager.currentLanguage) { _, newLanguage in
-            // Language changed, force UI refresh
+        .onChange(of: displayLanguageManager.currentDisplayLanguage) { _, newLanguage in
+            // Display language changed, force UI refresh
             // This will trigger a re-evaluation of all localized strings
-            print("Language changed to: \(newLanguage)")
+            print("Display language changed to: \(newLanguage)")
             
             // アプリの再起動を促すアラートを表示
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
@@ -279,7 +280,7 @@ struct SettingsView: View {
                     showUILanguageSelection = true
                 }) {
                     HStack(spacing: 8) {
-                        Text(languageManager.languageDisplayName(for: languageManager.currentLanguage))
+                        Text(displayLanguageManager.displayLanguageDisplayName(for: displayLanguageManager.currentDisplayLanguage))
                             .font(.subheadline)
                             .fontWeight(.bold)
                             .foregroundStyle(.primary)
@@ -291,10 +292,9 @@ struct SettingsView: View {
                     }
                 }
                 .buttonStyle(.plain)
+                
+                Spacer()
             }
-        }
-        .sheet(isPresented: $showUILanguageSelection) {
-            UILanguageSelectionView()
         }
     }
     
@@ -778,6 +778,9 @@ struct SettingsView: View {
                         }
                     }
                     .buttonStyle(.plain)
+
+                    Spacer()
+                    
                 }
             }
             
@@ -1632,17 +1635,17 @@ struct FontSelectionView: View {
 
 // MARK: - UI Language Selection View
 struct UILanguageSelectionView: View {
-    @EnvironmentObject var languageManager: LanguageManagerNew
+    @EnvironmentObject var displayLanguageManager: DisplayLanguageManager
     @Environment(\.dismiss) private var dismiss
     @State private var searchText = ""
     
     private var filteredLanguages: [String] {
-        let languages = languageManager.availableLanguages()
+        let languages = displayLanguageManager.availableDisplayLanguages()
         if searchText.isEmpty {
             return languages
         } else {
             return languages.filter { language in
-                let displayName = languageManager.languageDisplayName(for: language)
+                let displayName = displayLanguageManager.displayLanguageDisplayName(for: language)
                 return displayName.localizedCaseInsensitiveContains(searchText) ||
                        language.localizedCaseInsensitiveContains(searchText)
             }
@@ -1695,7 +1698,7 @@ struct UILanguageSelectionView: View {
     
     private func languageRow(for language: String) -> some View {
         Button(action: {
-            languageManager.setLanguage(language)
+            displayLanguageManager.setDisplayLanguage(language)
             // UIの即座更新のため、少し遅延してからdismiss
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
                 dismiss()
@@ -1703,7 +1706,7 @@ struct UILanguageSelectionView: View {
         }) {
             HStack {
                 VStack(alignment: .leading, spacing: 4) {
-                    Text(languageManager.languageDisplayName(for: language))
+                    Text(displayLanguageManager.displayLanguageDisplayName(for: language))
                         .font(.headline)
                         .foregroundColor(.primary)
                     
@@ -1714,7 +1717,7 @@ struct UILanguageSelectionView: View {
                 
                 Spacer()
                 
-                if language == languageManager.currentLanguage {
+                if language == displayLanguageManager.currentDisplayLanguage {
                     Image(systemName: "checkmark.circle.fill")
                         .foregroundColor(.accentColor)
                 }

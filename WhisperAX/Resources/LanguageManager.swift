@@ -31,35 +31,185 @@ private class AnyLanguageBundle: Bundle {
     }
 }
 
-/// Modern language manager using SwiftUI's localization system
+/// Source Language（音声認識言語）専用の管理クラス
+/// UI表示言語とは完全に独立して動作する
 @MainActor
-class LanguageManagerNew: ObservableObject {
-    static let shared = LanguageManagerNew()
+class LanguageManager: ObservableObject {
+    static let shared = LanguageManager()
     
+    /// 現在のSource Language（音声認識言語）の言語コード
     @Published var currentLanguage: String {
         didSet {
-            UserDefaults.standard.set(currentLanguage, forKey: "selectedLanguage")
-            updateLocale()
+            // Source Language専用のキーで保存
+            UserDefaults.standard.set(currentLanguage, forKey: "sourceLanguageCode")
+            // Source Languageの変更はUIの表示言語には影響しない
+            print("LanguageManager: Source language set to '\(currentLanguage)'")
         }
     }
     
     private init() {
-        // 端末のプライマリ言語を取得して自動設定
-        let systemLanguage = Self.getSystemPrimaryLanguage()
-        self.currentLanguage = systemLanguage
+        // 初期値として一時的にシステムデフォルトを設定（後で更新される）
+        self.currentLanguage = Self.getSystemPrimaryLanguage()
         
-        // アプリ起動時に言語設定を適用
-        if let savedLanguage = UserDefaults.standard.string(forKey: "selectedLanguage") {
-            self.currentLanguage = savedLanguage
+        // アプリ起動時にSource Language設定を適用
+        // 古いキーからのマイグレーション
+        if let oldCurrentLanguageCode = UserDefaults.standard.string(forKey: "currentLanguageCode") {
+            print("🔄 Migrating old currentLanguageCode to sourceLanguageCode: \(oldCurrentLanguageCode)")
+            UserDefaults.standard.set(oldCurrentLanguageCode, forKey: "sourceLanguageCode")
+            UserDefaults.standard.removeObject(forKey: "currentLanguageCode")
         }
         
-        updateLocale()
+        if let savedLanguage = UserDefaults.standard.string(forKey: "sourceLanguageCode") {
+            // Constants.swiftと同じ完全な言語マッピング（99言語対応）
+            let languageMapping: [String: String] = [
+                "auto": "auto",
+                "english": "en",
+                "chinese": "zh",
+                "german": "de",
+                "spanish": "es",
+                "russian": "ru",
+                "korean": "ko",
+                "french": "fr",
+                "japanese": "ja",
+                "portuguese": "pt",
+                "turkish": "tr",
+                "polish": "pl",
+                "catalan": "ca",
+                "dutch": "nl",
+                "arabic": "ar",
+                "swedish": "sv",
+                "italian": "it",
+                "indonesian": "id",
+                "hindi": "hi",
+                "finnish": "fi",
+                "vietnamese": "vi",
+                "hebrew": "he",
+                "ukrainian": "uk",
+                "greek": "el",
+                "malay": "ms",
+                "czech": "cs",
+                "romanian": "ro",
+                "danish": "da",
+                "hungarian": "hu",
+                "tamil": "ta",
+                "norwegian": "no",
+                "thai": "th",
+                "urdu": "ur",
+                "croatian": "hr",
+                "bulgarian": "bg",
+                "lithuanian": "lt",
+                "latin": "la",
+                "maori": "mi",
+                "malayalam": "ml",
+                "welsh": "cy",
+                "slovak": "sk",
+                "telugu": "te",
+                "persian": "fa",
+                "latvian": "lv",
+                "bengali": "bn",
+                "serbian": "sr",
+                "azerbaijani": "az",
+                "slovenian": "sl",
+                "kannada": "kn",
+                "estonian": "et",
+                "macedonian": "mk",
+                "breton": "br",
+                "basque": "eu",
+                "icelandic": "is",
+                "armenian": "hy",
+                "nepali": "ne",
+                "mongolian": "mn",
+                "bosnian": "bs",
+                "kazakh": "kk",
+                "albanian": "sq",
+                "swahili": "sw",
+                "galician": "gl",
+                "marathi": "mr",
+                "punjabi": "pa",
+                "sinhala": "si",
+                "khmer": "km",
+                "shona": "sn",
+                "yoruba": "yo",
+                "somali": "so",
+                "afrikaans": "af",
+                "occitan": "oc",
+                "georgian": "ka",
+                "belarusian": "be",
+                "tajik": "tg",
+                "sindhi": "sd",
+                "gujarati": "gu",
+                "amharic": "am",
+                "yiddish": "yi",
+                "lao": "lo",
+                "uzbek": "uz",
+                "faroese": "fo",
+                "haitian": "ht",
+                "pashto": "ps",
+                "turkmen": "tk",
+                "nynorsk": "nn",
+                "maltese": "mt",
+                "sanskrit": "sa",
+                "luxembourgish": "lb",
+                "myanmar": "my",
+                "tibetan": "bo",
+                "tagalog": "tl",
+                "malagasy": "mg",
+                "assamese": "as",
+                "tatar": "tt",
+                "hawaiian": "haw",
+                "lingala": "ln",
+                "hausa": "ha",
+                "bashkir": "ba",
+                "javanese": "jw",
+                "sundanese": "su",
+                "cantonese": "yue"
+            ]
+            
+            // 保存された値が言語コードか言語名かを判定
+            let supportedLanguageCodes = Set(languageMapping.values)
+            if supportedLanguageCodes.contains(savedLanguage) {
+                // 保存された値が言語コード（"ja", "en"など）の場合
+                self.currentLanguage = savedLanguage
+            } else if let languageCode = languageMapping[savedLanguage] {
+                // 保存された値が言語名（"japanese", "english"など）の場合
+                self.currentLanguage = languageCode
+            } else {
+                // 無効な値の場合はシステムの言語設定に基づいて設定
+                let systemLang = Self.getSystemPrimaryLanguageIgnoringUserDefaults()
+                self.currentLanguage = systemLang
+            }
+        }
+        
+        // Source Language の初期化完了
+    }
+    
+    /// UserDefaultsを無視して端末のプライマリ言語を取得
+    private static func getSystemPrimaryLanguageIgnoringUserDefaults() -> String {
+        // 端末の言語設定からプライマリ言語を取得
+        let preferredLanguages = Locale.preferredLanguages
+        let systemLanguage = Locale.current.language.languageCode?.identifier ?? "en"
+        
+        // アプリでサポートされている言語の中から最適なものを選択
+        let supportedLanguages = Self.getAvailableLanguages()
+        for preferredLang in preferredLanguages {
+            let langCode = String(preferredLang.prefix(2)) // "ja-JP" -> "ja"
+            if supportedLanguages.contains(langCode) {
+                return langCode
+            }
+        }
+        
+        // フォールバック: システムのデフォルト言語、サポートされていない場合は英語
+        if supportedLanguages.contains(systemLanguage) {
+            return systemLanguage
+        } else {
+            return "en"
+        }
     }
     
     /// 端末のプライマリ言語を取得
     private static func getSystemPrimaryLanguage() -> String {
-        // ユーザーが手動で選択した言語がある場合はそれを使用
-        if let savedLanguage = UserDefaults.standard.string(forKey: "selectedLanguage") {
+        // 保存されたSource Language設定があればそれを優先
+        if let savedLanguage = UserDefaults.standard.string(forKey: "sourceLanguageCode") {
             return savedLanguage
         }
         
@@ -76,8 +226,12 @@ class LanguageManagerNew: ObservableObject {
             }
         }
         
-        // フォールバック: システムのデフォルト言語
-        return systemLanguage
+        // フォールバック: システムのデフォルト言語、サポートされていない場合は英語
+        if supportedLanguages.contains(systemLanguage) {
+            return systemLanguage
+        } else {
+            return "en"
+        }
     }
     
     /// 端末の言語設定を再取得して自動切り替え
@@ -89,10 +243,10 @@ class LanguageManagerNew: ObservableObject {
     }
     
     private func updateLocale() {
-        // Localizable.xcstringsを使用する場合、システムの言語設定を変更
-        // これはアプリの再起動が必要になる場合があります
+        // Bundleベースの言語切り替えを使用
+        Bundle.setLanguage(currentLanguage)
         
-        // 現在の言語設定を保存
+        // システムレベルの言語設定も更新
         UserDefaults.standard.set([currentLanguage], forKey: "AppleLanguages")
         UserDefaults.standard.synchronize()
         
@@ -101,12 +255,12 @@ class LanguageManagerNew: ObservableObject {
             NotificationCenter.default.post(name: .languageChanged, object: nil)
         }
         
-        print("LanguageManagerNew: Current language set to '\(currentLanguage)'")
+        print("LanguageManager: Language changed to '\(currentLanguage)'")
     }
     
     static func getAvailableLanguages() -> [String] {
         return [
-            "en", "zh", "de", "es", "ru", "ko", "fr", "ja", "pt", "tr",
+            "auto", "en", "zh", "de", "es", "ru", "ko", "fr", "ja", "pt", "tr",
             "pl", "ca", "nl", "ar", "sv", "it", "id", "hi", "fi", "vi",
             "he", "uk", "el", "ms", "cs", "ro", "da", "hu", "ta", "no",
             "th", "ur", "hr", "bg", "lt", "la", "mi", "ml", "cy", "sk",
@@ -125,6 +279,7 @@ class LanguageManagerNew: ObservableObject {
     
     func languageDisplayName(for code: String) -> String {
         let languageNames: [String: String] = [
+            "auto": "Auto-detect",
             "en": "English",
             "zh": "中文",
             "de": "Deutsch",
@@ -231,17 +386,33 @@ class LanguageManagerNew: ObservableObject {
     }
     
     func setLanguage(_ languageCode: String) {
+        print("LanguageManager: Setting language to '\(languageCode)' from '\(currentLanguage)'")
+        
+        // 有効な言語コードかチェック
+        let supportedLanguages = Self.getAvailableLanguages()
+        guard supportedLanguages.contains(languageCode) else {
+            print("LanguageManager: Warning - Unsupported language code '\(languageCode)'. Ignoring.")
+            return
+        }
+        
+        // 同じ言語の場合はスキップ
+        if currentLanguage == languageCode {
+            print("LanguageManager: Language '\(languageCode)' is already selected.")
+            return
+        }
+        
         currentLanguage = languageCode
+        print("LanguageManager: Language successfully changed to '\(languageCode)'")
     }
 }
 
 // MARK: - SwiftUI Environment Support
 extension EnvironmentValues {
     private struct LanguageManagerKey: EnvironmentKey {
-        static let defaultValue = LanguageManagerNew.shared
+        static let defaultValue = LanguageManager.shared
     }
     
-    var languageManager: LanguageManagerNew {
+    var languageManager: LanguageManager {
         get { self[LanguageManagerKey.self] }
         set { self[LanguageManagerKey.self] = newValue }
     }

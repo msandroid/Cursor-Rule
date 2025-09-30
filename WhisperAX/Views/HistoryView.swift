@@ -14,7 +14,7 @@ struct HistoryView: View {
     @State private var selectedFilter: HistoryFilter = .all
     @State private var selectedItem: HistoryItem? = nil
     @State private var showingDetailView = false
-    @StateObject private var languageManager = LanguageManagerNew.shared
+    @StateObject private var languageManager = LanguageManager.shared
     @StateObject private var analyticsManager = AnalyticsManager.shared
     @StateObject private var themeManager = ThemeManager.shared
     

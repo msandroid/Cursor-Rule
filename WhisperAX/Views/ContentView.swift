@@ -466,10 +466,24 @@ struct ContentView: View {
     // TODO: Make this configurable in the UI
     @State private var modelStorage: String = "huggingface/models/argmaxinc/whisperkit-coreml"
     @State private var appStartTime = Date()
-    @EnvironmentObject var languageManager: LanguageManagerNew
+    @EnvironmentObject var languageManager: LanguageManager
     @EnvironmentObject var modelManager: WhisperModelManager
     @EnvironmentObject var themeManager: ThemeManager
     @StateObject private var analyticsManager = AnalyticsManager.shared
+    @State private var selectedCategoryId: MenuItem.ID?
+
+    // MARK: Menu items for navigation
+    
+    struct MenuItem: Identifiable, Hashable {
+        var id = UUID()
+        var name: String
+        var image: String
+    }
+
+    private var menu = [
+        MenuItem(name: "Transcribe", image: "book.pages"),
+        MenuItem(name: "Stream", image: "waveform.badge.mic"),
+    ]
 
     // MARK: Model management
 
@@ -495,7 +509,7 @@ struct ContentView: View {
     @AppStorage("selectedAudioInput") private var selectedAudioInput: String = String(localized: LocalizedStringResource("No Audio Input", comment: "No audio input default"))
     @AppStorage("selectedModel") private var selectedModel: String = "openai_whisper-base"
     @AppStorage("selectedTask") private var selectedTask: String = "transcribe"
-    @AppStorage("selectedLanguage") private var selectedLanguage: String = "ja"
+    @AppStorage("selectedLanguage") private var selectedLanguage: String = "japanese"
     @AppStorage("repoName") private var repoName: String = "argmaxinc/whisperkit-coreml"
     @AppStorage("enableTimestamps") private var enableTimestamps: Bool = true
     @AppStorage("enablePromptPrefill") private var enablePromptPrefill: Bool = true
@@ -576,6 +590,7 @@ struct ContentView: View {
     @State private var showDashboardView: Bool = false
     @State private var showTokenCalculator: Bool = false
     @State private var showUIElements: Bool = true
+    @State private var showLanguageSelection: Bool = false
     @State private var transcriptionTask: Task<Void, Never>?
     @State private var transcribeTask: Task<Void, Never>?
     @State private var isCopied: Bool = false
@@ -611,7 +626,7 @@ struct ContentView: View {
     }
     
     private var isStreamMode: Bool {
-        return false // Always false in simple UI
+        selectedCategoryId == menu.first(where: { $0.name == "Stream" })?.id
     }
     
     private var backgroundColor: Color {
@@ -632,6 +647,16 @@ struct ContentView: View {
 
     func getComputeOptions() -> ModelComputeOptions {
         return ModelComputeOptions(audioEncoderCompute: encoderComputeUnits, textDecoderCompute: decoderComputeUnits)
+    }
+    
+    /// 言語コードから言語名を取得するヘルパー関数
+    private func getLanguageName(for languageCode: String) -> String {
+        for (name, code) in Constants.languages {
+            if code == languageCode {
+                return name
+            }
+        }
+        return "japanese" // デフォルト
     }
     
     func loadAsciiArt() {
@@ -751,6 +776,36 @@ struct ContentView: View {
         }
     }
     
+    var sourceLanguageHeader: some View {
+        HStack {
+            Button(action: {
+                showLanguageSelection = true
+            }) {
+                HStack(spacing: 8) {
+                    Image(systemName: "globe")
+                        .font(.system(size: 14, weight: .medium))
+                        .foregroundColor(.primary)
+                    
+                      Text(languageManager.languageDisplayName(for: Constants.languages[selectedLanguage] ?? "ja"))
+                        .font(.system(size: 16, weight: .medium))
+                        .foregroundColor(.primary)
+                    
+                    Image(systemName: "chevron.down")
+                        .font(.system(size: 12, weight: .medium))
+                        .foregroundColor(.secondary)
+                }
+                .padding(.horizontal, 16)
+                .padding(.vertical, 8)
+                .background(.regularMaterial, in: RoundedRectangle(cornerRadius: 20))
+                .overlay(
+                    RoundedRectangle(cornerRadius: 20)
+                        .stroke(.quaternary, lineWidth: 1)
+                )
+            }
+            .buttonStyle(.plain)
+        }
+    }
+    
     var waveformView: some View {
         HStack(spacing: 2) {
             ForEach(0..<audioLevels.count, id: \.self) { index in
@@ -761,6 +816,63 @@ struct ContentView: View {
             }
         }
         .frame(height: 40)
+    }
+    
+    var taskToggleView: some View {
+        HStack {
+            Spacer()
+            
+            HStack(spacing: 0) {
+                // Transcribe ボタン
+                Button(action: {
+                    selectedTask = "transcribe"
+                }) {
+                    HStack(spacing: 6) {
+                        Image(systemName: "text.quote")
+                            .font(.system(size: 14, weight: .medium))
+                        Text("Transcribe")
+                            .font(.system(size: 14, weight: .medium))
+                    }
+                    .foregroundColor(selectedTask == "transcribe" ? .white : .primary)
+                    .frame(minWidth: 0, maxWidth: .infinity)
+                    .padding(.horizontal, 16)
+                    .padding(.vertical, 10)
+                    .background(
+                        RoundedRectangle(cornerRadius: 25)
+                            .fill(selectedTask == "transcribe" ? Color.accentColor : Color.clear)
+                    )
+                }
+                .buttonStyle(.plain)
+                
+                // Translate ボタン
+                Button(action: {
+                    selectedTask = "translate"
+                }) {
+                    HStack(spacing: 6) {
+                        Image(systemName: "arrow.right.arrow.left")
+                            .font(.system(size: 14, weight: .medium))
+                        Text("Translate")
+                            .font(.system(size: 14, weight: .medium))
+                    }
+                    .foregroundColor(selectedTask == "translate" ? .white : .primary)
+                    .frame(minWidth: 0, maxWidth: .infinity)
+                    .padding(.horizontal, 16)
+                    .padding(.vertical, 10)
+                    .background(
+                        RoundedRectangle(cornerRadius: 25)
+                            .fill(selectedTask == "translate" ? Color.accentColor : Color.clear)
+                    )
+                }
+                .buttonStyle(.plain)
+            }
+            .background(.regularMaterial, in: RoundedRectangle(cornerRadius: 25))
+            .overlay(
+                RoundedRectangle(cornerRadius: 25)
+                    .stroke(.quaternary, lineWidth: 1)
+            )
+            
+            Spacer()
+        }
     }
     
     var bottomButtonRow: some View {
@@ -917,7 +1029,17 @@ struct ContentView: View {
 
     var body: some View {
         NavigationView {
-            VStack {
+            VStack(spacing: 0) {
+                // Source Language設定（上部中央）
+                if showUIElements && !(hideIconsDuringSTT && (isRecording || isTranscribing)) {
+                    HStack {
+                        Spacer()
+                        sourceLanguageHeader
+                        Spacer()
+                    }
+                    .padding(.horizontal, 16)
+                }
+                
                 // ASCII art display時は全画面表示
                 if showAsciiArt && !asciiArtText.isEmpty {
                     asciiArtFullScreenView
@@ -936,6 +1058,11 @@ struct ContentView: View {
                     // 下部の3つのアイコンボタン（タップで切り替え + STT中は非表示オプション）
                     if showUIElements && !(hideIconsDuringSTT && (isRecording || isTranscribing)) {
                         bottomButtonRow
+                    }
+                    
+                    // Transcribe/Translate切り替えボタン（画面下部）
+                    if showUIElements && !(hideIconsDuringSTT && (isRecording || isTranscribing)) {
+                        taskToggleView
                     }
                 }
             }
@@ -992,6 +1119,9 @@ struct ContentView: View {
         }
         .sheet(isPresented: $showSharedTexts) {
             SharedTextsView(sharedTexts: $sharedTexts)
+        }
+        .sheet(isPresented: $showLanguageSelection) {
+            LanguageSelectionView(selectedLanguage: $selectedLanguage)
         }
         .sheet(isPresented: $showAdvancedOptions) {
             SettingsView(
@@ -1067,30 +1197,44 @@ struct ContentView: View {
         }
         .onAppear {
             fetchModels()
-            // 端末の言語設定を確認して自動切り替え
-            languageManager.updateToSystemLanguage()
             
             // 確実に文字起こしモードに設定（翻訳モードを無効化）
             selectedTask = "transcribe"
+            
+            // 言語設定はユーザーの選択を保持（強制変更しない）
+            // ただし、LanguageManagerとの同期は確保
+            let currentLanguageCode = Constants.languages[selectedLanguage] ?? Constants.defaultLanguageCode
+            languageManager.setLanguage(currentLanguageCode)
+            
+            // 言語設定のデバッグ情報を出力
+            print("🔍 ON_APPEAR LANGUAGE DEBUG:")
+            print("LanguageManager currentLanguage: \(languageManager.currentLanguage)")
+            print("selectedLanguage: \(selectedLanguage)")
+            print("UserDefaults selectedLanguage: \(UserDefaults.standard.string(forKey: "selectedLanguage") ?? "nil")")
+            print("Constants.languages mapping: \(Constants.languages[selectedLanguage] ?? "NOT_FOUND")")
+            print("Constants.defaultLanguageCode: \(Constants.defaultLanguageCode)")
+            print("Language Code from selectedLanguage: \(Constants.languages[selectedLanguage] ?? "NOT_FOUND")")
             
             // WhisperModelManagerのselectedModelとAppStorageを同期
             if !modelManager.selectedModel.isEmpty {
                 selectedModel = modelManager.selectedModel
             }
             
-            // WhisperModelManagerが自動で最適化・ロードを実行
-            // 追加の手動ロードは不要
-            
             // 共有されたテキストを読み込み
             loadSharedTexts()
         }
         .onReceive(NotificationCenter.default.publisher(for: NSLocale.currentLocaleDidChangeNotification)) { _ in
-            // 端末の言語設定が変更された時に自動切り替え
-            languageManager.updateToSystemLanguage()
+            // 端末の言語設定が変更された時の処理（ユーザーの選択を尊重）
+            let currentLanguageCode = Constants.languages[selectedLanguage] ?? Constants.defaultLanguageCode
+            languageManager.setLanguage(currentLanguageCode)
         }
         .onReceive(NotificationCenter.default.publisher(for: .languageChanged)) { _ in
             // 言語変更の通知を受け取って画面を強制更新
-            // LanguageManagerNewの@Publishedプロパティの変更により自動的に更新される
+            // LanguageManagerとの同期を確保（ユーザーの選択を変更しない）
+            let currentLanguageCode = Constants.languages[selectedLanguage] ?? Constants.defaultLanguageCode
+            if languageManager.currentLanguage != currentLanguageCode {
+                languageManager.setLanguage(currentLanguageCode)
+            }
         }
         .onDisappear {
             // タイマーをクリーンアップ
@@ -2177,45 +2321,32 @@ struct ContentView: View {
     func transcribeAudioSamples(_ samples: [Float]) async throws -> TranscriptionResult? {
         guard let whisperKit = whisperKit else { return nil }
 
-        // selectedLanguageが言語コードの場合はそのまま使用、そうでなければマッピングから取得
-        let languageCode: String
-        if selectedLanguage.count == 2 || selectedLanguage == "auto" {
-            // 2文字の言語コード（ja, en等）またはautoの場合はそのまま使用
-            languageCode = selectedLanguage
-        } else {
-            // 言語名の場合はマッピングから取得
-            languageCode = Constants.languages[selectedLanguage, default: "ja"] // デフォルトを日本語に設定
-        }
+        // サンプルコードと同じシンプルなアプローチ
+        let languageCode = Constants.languages[selectedLanguage, default: Constants.defaultLanguageCode]
         let task: DecodingTask = selectedTask == "transcribe" ? .transcribe : .translate
         let seekClip: [Float] = [lastConfirmedSegmentEndSeconds]
-        print("================================")
-        print("Language setting: \(selectedLanguage) -> \(languageCode)")
-        print("Task: \(task)")
-        print("Model: \(selectedModel)")
-        print("DecodingOptions language parameter: \(languageCode)")
-        if languageCode == "ja" {
-            print("Japanese-specific settings applied: compressionRatio=1.2, logProb=-0.8, noSpeech=0.3")
-        } else {
-            print("Non-Japanese language detected: \(languageCode)")
-        }
+        
+        // デバッグログ
+        print("🔧 TRANSCRIBE DEBUG:")
+        print("  selectedLanguage: '\(selectedLanguage)'")
+        print("  languageCode: '\(languageCode)'")
+        print("  task will be set to: .transcribe (forced)")
+        print("  usePrefillPrompt: true (forced)")
+        print("  usePrefillCache: true (forced)")
 
         let options = DecodingOptions(
-            verbose: false, // リアルタイムでは冗長ログを無効化
-            task: task,
+            verbose: true,
+            task: .transcribe, // 強制的にtranscribeに設定
             language: languageCode,
-            temperature: Float(enableFixedTemperature ? fixedTemperatureValue : temperatureStart),
+            temperature: Float(temperatureStart),
             temperatureFallbackCount: Int(fallbackCount),
             sampleLength: Int(sampleLength),
-            usePrefillPrompt: enablePromptPrefill,
-            usePrefillCache: enableCachePrefill,
+            usePrefillPrompt: true, // Prompt Prefillを有効にして確実にtranscribeモードを強制
+            usePrefillCache: true, // Cache Prefillも有効にして最適化
             skipSpecialTokens: !enableSpecialCharacters,
             withoutTimestamps: !enableTimestamps,
             wordTimestamps: true,
             clipTimestamps: seekClip,
-            // 日本語専用の厳格な設定
-            compressionRatioThreshold: languageCode == "ja" ? 1.2 : nil,
-            logProbThreshold: languageCode == "ja" ? -0.8 : nil,
-            noSpeechThreshold: languageCode == "ja" ? 0.3 : nil,
             concurrentWorkerCount: Int(concurrentWorkerCount),
             chunkingStrategy: chunkingStrategy
         )
@@ -2224,7 +2355,7 @@ struct ContentView: View {
         let decodingCallback: ((TranscriptionProgress) -> Bool?) = { (progress: TranscriptionProgress) in
             DispatchQueue.main.async {
                 let fallbacks = Int(progress.timings.totalDecodingFallbacks)
-                let chunkId = false ? 0 : progress.windowId
+                let chunkId = isStreamMode ? 0 : progress.windowId
 
                 // First check if this is a new window for the same chunk, append if so
                 var updatedChunk = (chunkText: [progress.text], fallbacks: fallbacks)
@@ -2235,7 +2366,7 @@ struct ContentView: View {
                         updatedChunk = currentChunk
                     } else {
                         // This is either a new window or a fallback (only in streaming mode)
-                        if fallbacks == currentChunk.fallbacks && false {
+                        if fallbacks == currentChunk.fallbacks && isStreamMode {
                             // New window (since fallbacks havent changed)
                             updatedChunk.chunkText = [updatedChunk.chunkText.first ?? "" + progress.text]
                         } else {
@@ -2253,7 +2384,6 @@ struct ContentView: View {
 
                 currentText = joinedChunks
                 currentFallbacks = fallbacks
-                updateStableDecoderText()
                 currentDecodingLoops += 1
             }
 
@@ -2506,48 +2636,28 @@ struct ContentView: View {
         guard let whisperKit = whisperKit else { return nil }
 
         guard whisperKit.textDecoder.supportsWordTimestamps else {
-            confirmedText = "Eager mode not supported by current model."
+            confirmedText = "Eager mode requires word timestamps, which are not supported by the current model: \(selectedModel)."
             return nil
         }
 
-        // selectedLanguageが言語コードの場合はそのまま使用、そうでなければマッピングから取得
-        let languageCode: String
-        if selectedLanguage.count == 2 || selectedLanguage == "auto" {
-            // 2文字の言語コード（ja, en等）またはautoの場合はそのまま使用
-            languageCode = selectedLanguage
-        } else {
-            // 言語名の場合はマッピングから取得
-            languageCode = Constants.languages[selectedLanguage, default: "ja"] // デフォルトを日本語に設定
-        }
+        let languageCode = Constants.languages[selectedLanguage, default: Constants.defaultLanguageCode]
         let task: DecodingTask = selectedTask == "transcribe" ? .transcribe : .translate
-        LogDebug("Selected language: \(selectedLanguage), code: \(languageCode)", category: .stt)
-        print("Eager mode - Language setting: \(selectedLanguage) -> \(languageCode)")
-        print("Eager mode - Task: \(task)")
-        print("Eager mode - Model: \(selectedModel)")
-        print("Eager mode - DecodingOptions language parameter: \(languageCode)")
-        if languageCode == "ja" {
-            print("Eager mode - Japanese-specific settings applied: compressionRatio=1.2, logProb=-0.8, noSpeech=0.3")
-        } else {
-            print("Eager mode - Non-Japanese language detected: \(languageCode)")
-        }
+        print(selectedLanguage)
+        print(languageCode)
 
         let options = DecodingOptions(
             verbose: true,
-            task: task,
+            task: .transcribe, // 強制的にtranscribeに設定
             language: languageCode,
-            temperature: Float(enableFixedTemperature ? fixedTemperatureValue : temperatureStart),
+            temperature: Float(temperatureStart),
             temperatureFallbackCount: Int(fallbackCount),
             sampleLength: Int(sampleLength),
-            usePrefillPrompt: enablePromptPrefill,
-            usePrefillCache: enableCachePrefill,
+            usePrefillPrompt: true, // Prompt Prefillを有効にして確実にtranscribeモードを強制
+            usePrefillCache: true, // Cache Prefillも有効にして最適化
             skipSpecialTokens: !enableSpecialCharacters,
             withoutTimestamps: !enableTimestamps,
             wordTimestamps: true, // required for eager mode
-            // 日本語専用の厳格な設定
-            compressionRatioThreshold: languageCode == "ja" ? 1.2 : nil,
-            logProbThreshold: languageCode == "ja" ? -0.8 : nil,
             firstTokenLogProbThreshold: -1.5, // higher threshold to prevent fallbacks from running to often
-            noSpeechThreshold: languageCode == "ja" ? 0.3 : nil,
             chunkingStrategy: ChunkingStrategy.none
         )
 
@@ -2564,7 +2674,6 @@ struct ContentView: View {
                 }
                 currentText = progress.text
                 currentFallbacks = fallbacks
-                updateStableDecoderText()
                 currentDecodingLoops += 1
             }
             // Check early stopping

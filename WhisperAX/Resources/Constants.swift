@@ -4,7 +4,7 @@
 import Foundation
 
 struct Constants {
-    static let defaultLanguageCode = "auto"
+    static let defaultLanguageCode = "ja"
     
     static let languages: [String: String] = [
         "auto": "auto",
