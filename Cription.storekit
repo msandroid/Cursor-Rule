@@ -1,0 +1,304 @@
+{
+  "identifier" : "CriptionCredits",
+  "nonRenewingSubCriptions" : [
+
+  ],
+  "products" : [
+    {
+      "displayPrice" : "19.99",
+      "familyShareable" : false,
+      "internalID" : "CREDIT_20",
+      "localizations" : [
+        {
+          "deCription" : "15 credits for API usage",
+          "displayName" : "15 Credits",
+          "locale" : "en_US"
+        }
+      ],
+      "productID" : "Cription.credits.22",
+      "referenceName" : "22 Credits",
+      "type" : "Consumable"
+    },
+    {
+      "displayPrice" : "49.99",
+      "familyShareable" : false,
+      "internalID" : "CREDIT_50",
+      "localizations" : [
+        {
+          "deCription" : "38 credits for API usage",
+          "displayName" : "38 Credits",
+          "locale" : "en_US"
+        }
+      ],
+      "productID" : "Cription.credits.55",
+      "referenceName" : "55 Credits",
+      "type" : "Consumable"
+    },
+    {
+      "displayPrice" : "99.99",
+      "familyShareable" : false,
+      "internalID" : "CREDIT_100",
+      "localizations" : [
+        {
+          "deCription" : "77 credits for API usage",
+          "displayName" : "77 Credits",
+          "locale" : "en_US"
+        }
+      ],
+      "productID" : "Cription.credits.110",
+      "referenceName" : "110 Credits",
+      "type" : "Consumable"
+    },
+    {
+      "displayPrice" : "199.99",
+      "familyShareable" : false,
+      "internalID" : "CREDIT_200",
+      "localizations" : [
+        {
+          "deCription" : "154 credits for API usage",
+          "displayName" : "154 Credits",
+          "locale" : "en_US"
+        }
+      ],
+      "productID" : "Cription.credits.220",
+      "referenceName" : "220 Credits",
+      "type" : "Consumable"
+    },
+    {
+      "displayPrice" : "999.99",
+      "familyShareable" : false,
+      "internalID" : "CREDIT_1000",
+      "localizations" : [
+        {
+          "deCription" : "769 credits for API usage",
+          "displayName" : "769 Credits",
+          "locale" : "en_US"
+        }
+      ],
+      "productID" : "Cription.credits.1100",
+      "referenceName" : "1100 Credits",
+      "type" : "Consumable"
+    },
+    {
+      "displayPrice" : "4.99",
+      "familyShareable" : false,
+      "internalID" : "MODEL_BASE",
+      "localizations" : [
+        {
+          "deCription" : "Cription Base model for high-quality transcription",
+          "displayName" : "Cription Base Model",
+          "locale" : "en_US"
+        }
+      ],
+      "productID" : "Cription.model.Cription.mini",
+      "referenceName" : "Cription Base Model",
+      "type" : "Consumable"
+    },
+    {
+      "displayPrice" : "9.99",
+      "familyShareable" : false,
+      "internalID" : "MODEL_SMALL",
+      "localizations" : [
+        {
+          "deCription" : "Cription Small model for balanced performance and accuracy",
+          "displayName" : "Cription Small Model",
+          "locale" : "en_US"
+        }
+      ],
+      "productID" : "Cription.model.Cription.Pro",
+      "referenceName" : "Cription Small Model",
+      "type" : "Consumable"
+    },
+    {
+      "displayPrice" : "19.99",
+      "familyShareable" : false,
+      "internalID" : "MODEL_MEDIUM",
+      "localizations" : [
+        {
+          "deCription" : "Cription Medium model for enhanced accuracy",
+          "displayName" : "Cription Medium Model",
+          "locale" : "en_US"
+        }
+      ],
+      "productID" : "Cription.model.Cription.Enterprise",
+      "referenceName" : "Cription Medium Model",
+      "type" : "Consumable"
+    },
+    {
+      "displayPrice" : "39.99",
+      "familyShareable" : false,
+      "internalID" : "MODEL_LARGE_V2",
+      "localizations" : [
+        {
+          "deCription" : "Cription Large v2 model for maximum accuracy",
+          "displayName" : "Cription Large v2 Model",
+          "locale" : "en_US"
+        }
+      ],
+      "productID" : "Cription.model.Cription.Ultra",
+      "referenceName" : "Cription Large v2 Model",
+      "type" : "Consumable"
+    },
+    {
+      "displayPrice" : "49.99",
+      "familyShareable" : false,
+      "internalID" : "MODEL_LARGE_V3",
+      "localizations" : [
+        {
+          "deCription" : "Cription Large v3 model for ultimate accuracy",
+          "displayName" : "Cription Large v3 Model",
+          "locale" : "en_US"
+        }
+      ],
+      "productID" : "Cription.model.Cription.Ultra.v3",
+      "referenceName" : "Cription Large v3 Model",
+      "type" : "Consumable"
+    }
+  ],
+  "settings" : {
+    "_askToBuyEnabled" : false,
+    "_billingGracePeriodEnabled" : false,
+    "_billingIssuesEnabled" : false,
+    "_compatibilityTimeRate" : {
+      "3" : 6
+    },
+    "_disableDialogs" : false,
+    "_failTransactionsEnabled" : false,
+    "_locale" : "en_US",
+    "_renewalBillingIssuesEnabled" : false,
+    "_storefront" : "USA",
+    "_storeKitErrors" : [
+      {
+        "enabled" : false,
+        "name" : "Load Products"
+      },
+      {
+        "enabled" : false,
+        "name" : "Purchase"
+      },
+      {
+        "enabled" : false,
+        "name" : "Verification"
+      },
+      {
+        "enabled" : false,
+        "name" : "App Store Sync"
+      },
+      {
+        "enabled" : false,
+        "name" : "SubCription Status"
+      },
+      {
+        "enabled" : false,
+        "name" : "App Transaction"
+      },
+      {
+        "enabled" : false,
+        "name" : "Manage SubCriptions Sheet"
+      },
+      {
+        "enabled" : false,
+        "name" : "Refund Request Sheet"
+      },
+      {
+        "enabled" : false,
+        "name" : "Offer Code Redeem Sheet"
+      }
+    ],
+    "_timeRate" : 1003
+  },
+  "subCriptionGroups" : [
+    {
+      "id" : "CriptionPlus",
+      "localizations" : [
+        {
+          "deCription" : "Premium features and unlimited usage",
+          "displayName" : "Cription Plus",
+          "locale" : "en_US"
+        }
+      ],
+      "name" : "Cription Plus",
+      "subCriptions" : [
+        {
+          "adHocOffers" : [
+
+          ],
+          "codeOffers" : [
+
+          ],
+          "displayPrice" : "10.00",
+          "familyShareable" : false,
+          "groupNumber" : 1,
+          "internalID" : "SUBSCRIPTION_WEEKLY",
+          "introductoryOffer" : null,
+          "localizations" : [
+            {
+              "deCription" : "Perfect for trying out our premium features",
+              "displayName" : "Weekly Plan",
+              "locale" : "en_US"
+            }
+          ],
+          "productID" : "Cription.plus.weekly",
+          "recurringSubscriptionPeriod" : "P1W",
+          "referenceName" : "Weekly Plan",
+          "subscriptionGroupID" : "CriptionPlus",
+          "type" : "RecurringSubscription"
+        },
+        {
+          "adHocOffers" : [
+
+          ],
+          "codeOffers" : [
+
+          ],
+          "displayPrice" : "30.00",
+          "familyShareable" : false,
+          "groupNumber" : 1,
+          "internalID" : "SUBSCRIPTION_MONTHLY",
+          "introductoryOffer" : null,
+          "localizations" : [
+            {
+              "deCription" : "Best value for regular users with 3000 minutes",
+              "displayName" : "Monthly Plan",
+              "locale" : "en_US"
+            }
+          ],
+          "productID" : "Cription.plus.monthly",
+          "recurringSubscriptionPeriod" : "P1M",
+          "referenceName" : "Monthly Plan",
+          "subscriptionGroupID" : "CriptionPlus",
+          "type" : "RecurringSubscription"
+        },
+        {
+          "adHocOffers" : [
+
+          ],
+          "codeOffers" : [
+
+          ],
+          "displayPrice" : "300.00",
+          "familyShareable" : false,
+          "groupNumber" : 1,
+          "internalID" : "SUBSCRIPTION_YEARLY",
+          "introductoryOffer" : null,
+          "localizations" : [
+            {
+              "deCription" : "Ultimate value with 2 months free - 36,000 minutes included",
+              "displayName" : "Yearly Plan",
+              "locale" : "en_US"
+            }
+          ],
+          "productID" : "Cription.plus.yearly",
+          "recurringSubscriptionPeriod" : "P1Y",
+          "referenceName" : "Yearly Plan",
+          "subscriptionGroupID" : "CriptionPlus",
+          "type" : "RecurringSubscription"
+        }
+      ]
+    }
+  ],
+  "version" : {
+    "major" : 4,
+    "minor" : 0
+  }
+}

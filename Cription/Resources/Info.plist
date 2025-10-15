@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>UIBackgroundModes</key>
+	<array>
+		<string>fetch</string>
+	</array>
+	<key>BGTaskSchedulerPermittedIdentifiers</key>
+	<array>
+		<string>com.Cription.Cription.background-processing</string>
+	</array>
+	<key>NSMicrophoneUsageDescription</key>
+	<string>このアプリは音声を文字に変換するためにマイクへのアクセスが必要です。</string>
+</dict>
+</plist>

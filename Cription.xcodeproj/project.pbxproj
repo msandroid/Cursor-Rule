@@ -1,0 +1,1639 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 70;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		0D5E282ACB1D4557BC94D975 /* TokenCalculatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D5E282ACB1D4557BC94D974 /* TokenCalculatorView.swift */; };
+		0E602E4D7DB445DEBE8C5C3F /* TokenCalculationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E602E4D7DB445DEBE8C5C3E /* TokenCalculationService.swift */; };
+		161136102B3F6C68003C20F6 /* WhisperKit in Frameworks */ = {isa = PBXBuildFile; productRef = 1611360F2B3F6C68003C20F6 /* WhisperKit */; };
+		162514CE2DAE39250037301E /* SpellingMapping.swift in Sources */ = {isa = PBXBuildFile; fileRef = 162514BC2DAE39250037301E /* SpellingMapping.swift */; };
+		162514CF2DAE39250037301E /* DistanceCalculation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 162514BA2DAE39250037301E /* DistanceCalculation.swift */; };
+		162514D02DAE39250037301E /* FunctionalTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 162514C82DAE39250037301E /* FunctionalTests.swift */; };
+		162514D12DAE39250037301E /* TestUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 162514CB2DAE39250037301E /* TestUtils.swift */; };
+		162514D22DAE39250037301E /* WERUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 162514BD2DAE39250037301E /* WERUtils.swift */; };
+		162514D32DAE39250037301E /* NormalizeEn.swift in Sources */ = {isa = PBXBuildFile; fileRef = 162514BB2DAE39250037301E /* NormalizeEn.swift */; };
+		162514D42DAE39250037301E /* RegressionTestUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 162514CA2DAE39250037301E /* RegressionTestUtils.swift */; };
+		162514D52DAE39250037301E /* UnitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 162514CC2DAE39250037301E /* UnitTests.swift */; };
+		162514D62DAE39250037301E /* RegressionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 162514C92DAE39250037301E /* RegressionTests.swift */; };
+		162514D72DAE39250037301E /* es_test_clip.wav in Resources */ = {isa = PBXBuildFile; fileRef = 162514C22DAE39250037301E /* es_test_clip.wav */; };
+		162514D82DAE39250037301E /* ja_test_clip.wav in Resources */ = {isa = PBXBuildFile; fileRef = 162514C32DAE39250037301E /* ja_test_clip.wav */; };
+		162514D92DAE39250037301E /* ted_60.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 162514C62DAE39250037301E /* ted_60.m4a */; };
+		162514DA2DAE39250037301E /* 8_Channel_ID.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 162514BF2DAE39250037301E /* 8_Channel_ID.m4a */; };
+		162514DB2DAE39250037301E /* config-v02.json in Resources */ = {isa = PBXBuildFile; fileRef = 162514C02DAE39250037301E /* config-v02.json */; };
+		162514DC2DAE39250037301E /* jfk_441khz.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 162514C52DAE39250037301E /* jfk_441khz.m4a */; };
+		162514DD2DAE39250037301E /* config-v03.json in Resources */ = {isa = PBXBuildFile; fileRef = 162514C12DAE39250037301E /* config-v03.json */; };
+		162514DE2DAE39250037301E /* jfk.wav in Resources */ = {isa = PBXBuildFile; fileRef = 162514C42DAE39250037301E /* jfk.wav */; };
+		1677AFC22B57618A008C61C0 /* CriptionApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1677AFAB2B57618A008C61C0 /* CriptionApp.swift */; };
+		1677AFC42B57618A008C61C0 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1677AFAE2B57618A008C61C0 /* Preview Assets.xcassets */; };
+		1677AFC92B57618A008C61C0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1677AFB42B57618A008C61C0 /* Assets.xcassets */; };
+		1677AFCA2B57618A008C61C0 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1677AFB62B57618A008C61C0 /* Preview Assets.xcassets */; };
+		1677AFCB2B57618A008C61C0 /* Preview Content in Resources */ = {isa = PBXBuildFile; fileRef = 1677AFB52B57618A008C61C0 /* Preview Content */; };
+		1677AFCC2B57618A008C61C0 /* CriptionUITests in Resources */ = {isa = PBXBuildFile; fileRef = 1677AFB82B57618A008C61C0 /* CriptionUITests */; };
+		1677AFD32B5762BC008C61C0 /* CriptionWatchApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1677AFB72B57618A008C61C0 /* CriptionWatchApp.swift */; };
+		1677AFD42B57632E008C61C0 /* CriptionWatchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1677AFB32B57618A008C61C0 /* CriptionWatchView.swift */; };
+		1677AFD92B5763B7008C61C0 /* CriptionUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1677AFBA2B57618A008C61C0 /* CriptionUITests.swift */; };
+		1677AFDA2B5763BA008C61C0 /* CriptionUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1677AFB92B57618A008C61C0 /* CriptionUITestsLaunchTests.swift */; };
+		1677AFDC2B5763C0008C61C0 /* CriptionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1677AFBC2B57618A008C61C0 /* CriptionTests.swift */; };
+		1677AFDD2B5763C7008C61C0 /* Cription_Watch_AppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1677AFBE2B57618A008C61C0 /* Cription_Watch_AppTests.swift */; };
+		1677AFDE2B5763CB008C61C0 /* Cription_Watch_AppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1677AFA62B57618A008C61C0 /* Cription_Watch_AppUITests.swift */; };
+		1677AFDF2B5763CE008C61C0 /* Cription_Watch_AppUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1677AFA72B57618A008C61C0 /* Cription_Watch_AppUITestsLaunchTests.swift */; };
+		1677AFE12B57678E008C61C0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1677AFE02B57678E008C61C0 /* Assets.xcassets */; };
+		1677AFE62B57704E008C61C0 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1677AFE52B57704E008C61C0 /* ContentView.swift */; };
+		1677AFE92B57704E008C61C0 /* LanguageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1677AFEA2B57704E008C61C0 /* LanguageManager.swift */; };
+		1677AFEB2B57704E008C61C0 /* CriptionModelManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1677AFEC2B57704E008C61C0 /* CriptionModelManager.swift */; };
+		1677AFED2B57704E008C61C0 /* CriptionModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1677AFEE2B57704E008C61C0 /* CriptionModels.swift */; };
+		1677AFEF2B57704E008C61C0 /* HistoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1677AFF02B57704E008C61C0 /* HistoryView.swift */; };
+		1677AFF12B57704E008C61C0 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1677AFF22B57704E008C61C0 /* SettingsView.swift */; };
+		1677AFF32B57704E008C61C0 /* LanguageSelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1677AFF42B57704E008C61C0 /* LanguageSelectionView.swift */; };
+		1677AFF52B57704E008C61C0 /* DashboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1677AFF62B57704E008C61C0 /* DashboardView.swift */; };
+		1677AFF72B57704E008C61C0 /* LocalizedStrings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1677AFF82B57704E008C61C0 /* LocalizedStrings.swift */; };
+		1677AFF92B57704E008C61C0 /* ThemeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1677AFFA2B57704E008C61C0 /* ThemeManager.swift */; };
+		1683EFEE2B9FACFE002448CD /* Cription Watch App.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = 161135DE2B3F66DA003C20F6 /* Cription Watch App.app */; platformFilter = ios; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		1683EFEF2B9FADFE002448CD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1677AFB42B57618A008C61C0 /* Assets.xcassets */; };
+		1683EFF02B9FADFE002448CD /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1677AFB62B57618A008C61C0 /* Preview Assets.xcassets */; };
+		16EA36CF2B59E550006CA7CF /* WhisperKit in Frameworks */ = {isa = PBXBuildFile; productRef = 16EA36CE2B59E550006CA7CF /* WhisperKit */; };
+		8174ADDF2E7C352A008D790F /* WhisperKit in Frameworks */ = {isa = PBXBuildFile; productRef = 8174ADDE2E7C352A008D790F /* WhisperKit */; };
+		8174ADE12E7C352A008D790F /* whisperkit-cli in Frameworks */ = {isa = PBXBuildFile; productRef = 8174ADE02E7C352A008D790F /* whisperkit-cli */; };
+		818A9B242E8AEFAD008A0334 /* (null) in Resources */ = {isa = PBXBuildFile; };
+		81B8F7472E83C80000B6AA41 /* Sribe Share Extensionc.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 81B8F73D2E83C7FF00B6AA41 /* Sribe Share Extensionc.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		81C2222A2E7C76CF000FBB0D /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = 81C222292E7C76CF000FBB0C /* Localizable.xcstrings */; };
+		81D333442F7C76CF000FBB0B /* Cription mini in Resources */ = {isa = PBXBuildFile; fileRef = 81D333452F7C76CF000FBB0B /* Cription mini */; };
+		81F1B9902EA024370008C5A7 /* FluidAudio in Frameworks */ = {isa = PBXBuildFile; productRef = 81F1B98F2EA024370008C5A7 /* FluidAudio */; };
+		90F04526FEED4539A3A66B76 /* TokenModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC3D8B5F5CE644D5BC94935F /* TokenModels.swift */; };
+		9611C164AEEA43DBA5A10241 /* DisplayLanguageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5B0FEF9A4104E06BF1119B4 /* DisplayLanguageManager.swift */; };
+		A1U2D3I4O5W6A7V8E9F0O1R2 /* AudioWaveformView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1U2D3I4O5W6A7V8E9F0O1R1 /* AudioWaveformView.swift */; };
+		ABF232CE2B57704E008C61C0 /* AnalyticsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 574DB8122B57704E008C61C0 /* AnalyticsManager.swift */; };
+		B1L2L3I4N5G6V7I8E9W0S1W2 /* BillingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1L2L3I4N5G6V7I8E9W0S1W1 /* BillingView.swift */; };
+		B4EE7FAF414C40F5A872F3FD47525820 /* SharedTextsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4EE7FAF414C40F5A872F3FD47525821 /* SharedTextsView.swift */; };
+		B95D167382E347F2915A12F83457941B /* FontSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 665EE0826BA6403A83FD62EC02252FAE /* FontSettings.swift */; };
+		B95D167382E347F2915A12F83457941C /* BackgroundTaskManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 665EE0826BA6403A83FD62EC02252FAF /* BackgroundTaskManager.swift */; };
+		C1R2E3D4I5T6M7A8N9A0G1E2 /* CreditManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1R2E3D4I5T6M7A8N9A0G1E1 /* CreditManager.swift */; };
+		C1R2P3T4I5O6N7P8L9U0S1V2 /* CriptionPlusView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1R2P3T4I5O6N7P8L9U0S1V1 /* CriptionPlusView.swift */; };
+		C1R2P3T4I5O6N7P8L9U0S1V3 /* CriptionPlusViewLocalization.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1R2P3T4I5O6N7P8L9U0S1V4 /* CriptionPlusViewLocalization.swift */; };
+		C2R3E4D5I6T7H8I9S0T1O2R3 /* CreditHistoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2R3E4D5I6T7H8I9S0T1O2R2 /* CreditHistoryView.swift */; };
+		C3R4E5D6I7T8P9U0R1C2H3A4 /* CreditPurchaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3R4E5D6I7T8P9U0R1C2H3A3 /* CreditPurchaseView.swift */; };
+		C4B87B53AB524142BD2DF2E7 /* TokenCalculator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47591D15DB31411E90FF8EF7 /* TokenCalculator.swift */; };
+		CADB24A7BF204694BD038C8786218F65 /* VideoAudioConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E46D907F3B5B4C97B1C44827E1A140EE /* VideoAudioConverter.swift */; };
+		F1G2H3I4J5K6L7M8N9O0P1Q2 /* FireworksStreamingASRService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1G2H3I4J5K6L7M8N9O0P1Q1 /* FireworksStreamingASRService.swift */; };
+		F2G3H4I5J6K7L8M9N0O1P2Q3 /* FireworksServerlessASRService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2G3H4I5J6K7L8M9N0O1P2Q2 /* FireworksServerlessASRService.swift */; };
+		H1I2S3T4O5R6Y7T8A9B0V1I2 /* HistoryTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = H1I2S3T4O5R6Y7T8A9B0V1I1 /* HistoryTabView.swift */; };
+		M1N2O3P4Q5R6S7T8U9V0W1X2 /* OpenAIRealtimeTranscriptionService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B2C3D4E5F6G7H8I9J0K1L2 /* OpenAIRealtimeTranscriptionService.swift */; };
+		M1O2D3E4L5P6U7R8C9H0A1S2 /* ModelPurchaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = M1O2D3E4L5P6U7R8C9H0A1S1 /* ModelPurchaseManager.swift */; };
+		M1O2D3E4L5S6T7A8B9V0I1E2 /* ModelsTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = M1O2D3E4L5S6T7A8B9V0I1E1 /* ModelsTabView.swift */; };
+		M2N3O4P5Q6R7S8T9U0V1W2X3 /* OpenAIStreamingTranscriptionService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B2C3D4E5F6G7H8I9J0K1L3 /* OpenAIStreamingTranscriptionService.swift */; };
+		M2O3D4E5L6S7E8L9E0C1T2V3 /* ModelSelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = M2O3D4E5L6S7E8L9E0C1T2V2 /* ModelSelectionView.swift */; };
+		N2O3P4Q5R6S7T8U9V0W1X2Y3 /* TranscriptionServiceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2B3C4D5E6F7G8H9I0J1K2L3 /* TranscriptionServiceManager.swift */; };
+		7F1DF702F020423CBCA6A759 /* ParakeetTranscriptionService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F1DF701F020423CBCA6A759 /* ParakeetTranscriptionService.swift */; };
+		O1V2E3R4V5I6E7W8T9A0B1V2 /* OverviewTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = O1V2E3R4V5I6E7W8T9A0B1V1 /* OverviewTabView.swift */; };
+		O3P4Q5R6S7T8U9V0W1X2Y3Z4 /* OpenAITranscriptionService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3B4C5D6E7F8G9H0I1J2K3L4 /* OpenAITranscriptionService.swift */; };
+		P4Q5R6S7T8U9V0W1X2Y3Z4A5 /* OpenAITextTranslationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4B5C6D7E8F9G0H1I2J3K4L5 /* OpenAITextTranslationService.swift */; };
+		Q5R6S7T8U9V0W1X2Y3Z4A5B6 /* SecureKeychainManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5B6C7D8E9F0G1H2I3J4K5L6 /* SecureKeychainManager.swift */; };
+		R6S7T8U9V0W1X2Y3Z4A5B6C7 /* SubscriptionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6B7C8D9E0F1G2H3I4J5K6L7 /* SubscriptionManager.swift */; };
+		S7T8U9V0W1X2Y3Z4A5B6C7D8 /* AudioOptimizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7C8D9E0F1G2H3I4J5K6L7M8 /* AudioOptimizer.swift */; };
+		T1R2A3N4S5C6R7I8P9T0I1O2 /* TranscriptionTestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = T1R2A3N4S5C6R7I8P9T0I1O1 /* TranscriptionTestView.swift */; };
+		T8U9V0W1X2Y3Z4A5B6C7D8E9 /* CostReportManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8D9E0F1G2H3I4J5K6L7M8N9 /* CostReportManager.swift */; };
+		U1S2A3G4E5D6A7T8A9S0W1I2 /* UsageData.swift in Sources */ = {isa = PBXBuildFile; fileRef = U1S2A3G4E5D6A7T8A9S0W1I1 /* UsageData.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		161135F12B3F66DC003C20F6 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 167B34562B05431E0076F261 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 161135DD2B3F66DA003C20F6;
+			remoteInfo = "Basic Watch App";
+		};
+		161135FB2B3F66DC003C20F6 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 167B34562B05431E0076F261 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 161135DD2B3F66DA003C20F6;
+			remoteInfo = "Basic Watch App";
+		};
+		167B34722B05431F0076F261 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 167B34562B05431E0076F261 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 167B345D2B05431E0076F261;
+			remoteInfo = BasicExample;
+		};
+		167B347C2B05431F0076F261 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 167B34562B05431E0076F261 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 167B345D2B05431E0076F261;
+			remoteInfo = BasicExample;
+		};
+		1683EFF12B9FAFAD002448CD /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 167B34562B05431E0076F261 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 161135DD2B3F66DA003C20F6;
+			remoteInfo = "Cription Watch App";
+		};
+		81B8F7452E83C80000B6AA41 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 167B34562B05431E0076F261 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 81B8F73C2E83C7FF00B6AA41;
+			remoteInfo = "Sribe Share Extensionc";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		1621BFDF2B74BF6E007FA014 /* Embed Watch Content */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "$(CONTENTS_FOLDER_PATH)/Watch";
+			dstSubfolderSpec = 16;
+			files = (
+				1683EFEE2B9FACFE002448CD /* Cription Watch App.app in Embed Watch Content */,
+			);
+			name = "Embed Watch Content";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		81B8F7482E83C80000B6AA41 /* Embed Foundation Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				81B8F7472E83C80000B6AA41 /* Sribe Share Extensionc.appex in Embed Foundation Extensions */,
+			);
+			name = "Embed Foundation Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		0D5E282ACB1D4557BC94D974 /* TokenCalculatorView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TokenCalculatorView.swift; sourceTree = "<group>"; };
+		0E602E4D7DB445DEBE8C5C3E /* TokenCalculationService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TokenCalculationService.swift; sourceTree = "<group>"; };
+		161135DE2B3F66DA003C20F6 /* Cription Watch App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Cription Watch App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		161135F02B3F66DC003C20F6 /* Cription Watch AppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Cription Watch AppTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		161135FA2B3F66DC003C20F6 /* Cription Watch AppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Cription Watch AppUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		162514BA2DAE39250037301E /* DistanceCalculation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DistanceCalculation.swift; sourceTree = "<group>"; };
+		162514BB2DAE39250037301E /* NormalizeEn.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NormalizeEn.swift; sourceTree = "<group>"; };
+		162514BC2DAE39250037301E /* SpellingMapping.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpellingMapping.swift; sourceTree = "<group>"; };
+		162514BD2DAE39250037301E /* WERUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WERUtils.swift; sourceTree = "<group>"; };
+		162514BF2DAE39250037301E /* 8_Channel_ID.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = 8_Channel_ID.m4a; sourceTree = "<group>"; };
+		162514C02DAE39250037301E /* config-v02.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = "config-v02.json"; sourceTree = "<group>"; };
+		162514C12DAE39250037301E /* config-v03.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = "config-v03.json"; sourceTree = "<group>"; };
+		162514C22DAE39250037301E /* es_test_clip.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = es_test_clip.wav; sourceTree = "<group>"; };
+		162514C32DAE39250037301E /* ja_test_clip.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = ja_test_clip.wav; sourceTree = "<group>"; };
+		162514C42DAE39250037301E /* jfk.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = jfk.wav; sourceTree = "<group>"; };
+		162514C52DAE39250037301E /* jfk_441khz.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = jfk_441khz.m4a; sourceTree = "<group>"; };
+		162514C62DAE39250037301E /* ted_60.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = ted_60.m4a; sourceTree = "<group>"; };
+		162514C82DAE39250037301E /* FunctionalTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FunctionalTests.swift; sourceTree = "<group>"; };
+		162514C92DAE39250037301E /* RegressionTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegressionTests.swift; sourceTree = "<group>"; };
+		162514CA2DAE39250037301E /* RegressionTestUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegressionTestUtils.swift; sourceTree = "<group>"; };
+		162514CB2DAE39250037301E /* TestUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestUtils.swift; sourceTree = "<group>"; };
+		162514CC2DAE39250037301E /* UnitTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnitTests.swift; sourceTree = "<group>"; };
+		1626683A2BB90CC9008F950A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		1677AFA62B57618A008C61C0 /* Cription_Watch_AppUITests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Cription_Watch_AppUITests.swift; sourceTree = "<group>"; };
+		1677AFA72B57618A008C61C0 /* Cription_Watch_AppUITestsLaunchTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Cription_Watch_AppUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		1677AFA92B57618A008C61C0 /* Cription.entitlements */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.entitlements; path = Cription.entitlements; sourceTree = "<group>"; };
+		1677AFAB2B57618A008C61C0 /* CriptionApp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CriptionApp.swift; sourceTree = "<group>"; };
+		1677AFAE2B57618A008C61C0 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		1677AFB32B57618A008C61C0 /* CriptionWatchView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CriptionWatchView.swift; sourceTree = "<group>"; };
+		1677AFB42B57618A008C61C0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		1677AFB62B57618A008C61C0 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		1677AFB72B57618A008C61C0 /* CriptionWatchApp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CriptionWatchApp.swift; sourceTree = "<group>"; };
+		1677AFB92B57618A008C61C0 /* CriptionUITestsLaunchTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CriptionUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		1677AFBA2B57618A008C61C0 /* CriptionUITests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CriptionUITests.swift; sourceTree = "<group>"; };
+		1677AFBC2B57618A008C61C0 /* CriptionTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CriptionTests.swift; sourceTree = "<group>"; };
+		1677AFBE2B57618A008C61C0 /* Cription_Watch_AppTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Cription_Watch_AppTests.swift; sourceTree = "<group>"; };
+		1677AFE02B57678E008C61C0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		1677AFE52B57704E008C61C0 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		1677AFEA2B57704E008C61C0 /* LanguageManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LanguageManager.swift; sourceTree = "<group>"; };
+		1677AFEC2B57704E008C61C0 /* CriptionModelManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CriptionModelManager.swift; sourceTree = "<group>"; };
+		1677AFEE2B57704E008C61C0 /* CriptionModels.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CriptionModels.swift; sourceTree = "<group>"; };
+		1677AFF02B57704E008C61C0 /* HistoryView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HistoryView.swift; sourceTree = "<group>"; };
+		1677AFF22B57704E008C61C0 /* SettingsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		1677AFF42B57704E008C61C0 /* LanguageSelectionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LanguageSelectionView.swift; sourceTree = "<group>"; };
+		1677AFF62B57704E008C61C0 /* DashboardView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DashboardView.swift; sourceTree = "<group>"; };
+		1677AFF82B57704E008C61C0 /* LocalizedStrings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocalizedStrings.swift; sourceTree = "<group>"; };
+		1677AFFA2B57704E008C61C0 /* ThemeManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThemeManager.swift; sourceTree = "<group>"; };
+		167B345E2B05431E0076F261 /* Cription.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Cription.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		167B34712B05431F0076F261 /* CriptionTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CriptionTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		167B347B2B05431F0076F261 /* CriptionUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CriptionUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		169144182CCEEE87009903CA /* Debug.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Debug.xcconfig; sourceTree = "<group>"; };
+		47591D15DB31411E90FF8EF7 /* TokenCalculator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TokenCalculator.swift; sourceTree = "<group>"; };
+		574DB8122B57704E008C61C0 /* AnalyticsManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnalyticsManager.swift; sourceTree = "<group>"; };
+		665EE0826BA6403A83FD62EC02252FAE /* FontSettings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FontSettings.swift; sourceTree = "<group>"; };
+		665EE0826BA6403A83FD62EC02252FAF /* BackgroundTaskManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BackgroundTaskManager.swift; sourceTree = "<group>"; };
+		81B8F73D2E83C7FF00B6AA41 /* Sribe Share Extensionc.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "Sribe Share Extensionc.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
+		81B8F74D2E83C88000B6AA41 /* CriptionRelease.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = CriptionRelease.entitlements; sourceTree = "<group>"; };
+		81C222282E7C76CF000FBB0B /* art.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = art.txt; sourceTree = "<group>"; };
+		81C222292E7C76CF000FBB0C /* Localizable.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = Localizable.xcstrings; sourceTree = "<group>"; };
+		81D333452F7C76CF000FBB0B /* Cription mini */ = {isa = PBXFileReference; lastKnownFileType = folder; path = "Cription mini"; sourceTree = "<group>"; };
+		A1B2C3D4E5F6G7H8I9J0K1L2 /* OpenAIRealtimeTranscriptionService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OpenAIRealtimeTranscriptionService.swift; sourceTree = "<group>"; };
+		A1B2C3D4E5F6G7H8I9J0K1L3 /* OpenAIStreamingTranscriptionService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OpenAIStreamingTranscriptionService.swift; sourceTree = "<group>"; };
+		A1U2D3I4O5W6A7V8E9F0O1R1 /* AudioWaveformView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AudioWaveformView.swift; sourceTree = "<group>"; };
+		A2B3C4D5E6F7G8H9I0J1K2L3 /* TranscriptionServiceManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TranscriptionServiceManager.swift; sourceTree = "<group>"; };
+		7F1DF701F020423CBCA6A759 /* ParakeetTranscriptionService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParakeetTranscriptionService.swift; sourceTree = "<group>"; };
+		A3B4C5D6E7F8G9H0I1J2K3L4 /* OpenAITranscriptionService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OpenAITranscriptionService.swift; sourceTree = "<group>"; };
+		A4B5C6D7E8F9G0H1I2J3K4L5 /* OpenAITextTranslationService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OpenAITextTranslationService.swift; sourceTree = "<group>"; };
+		A5B6C7D8E9F0G1H2I3J4K5L6 /* SecureKeychainManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SecureKeychainManager.swift; sourceTree = "<group>"; };
+		A6B7C8D9E0F1G2H3I4J5K6L7 /* SubscriptionManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubscriptionManager.swift; sourceTree = "<group>"; };
+		B1L2L3I4N5G6V7I8E9W0S1W1 /* BillingView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BillingView.swift; sourceTree = "<group>"; };
+		B4EE7FAF414C40F5A872F3FD47525821 /* SharedTextsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SharedTextsView.swift; sourceTree = "<group>"; };
+		B7C8D9E0F1G2H3I4J5K6L7M8 /* AudioOptimizer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AudioOptimizer.swift; sourceTree = "<group>"; };
+		C1R2E3D4I5T6M7A8N9A0G1E1 /* CreditManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreditManager.swift; sourceTree = "<group>"; };
+		C1R2P3T4I5O6N7P8L9U0S1V1 /* CriptionPlusView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CriptionPlusView.swift; sourceTree = "<group>"; };
+		C1R2P3T4I5O6N7P8L9U0S1V4 /* CriptionPlusViewLocalization.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CriptionPlusViewLocalization.swift; sourceTree = "<group>"; };
+		C2R3E4D5I6T7H8I9S0T1O2R2 /* CreditHistoryView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreditHistoryView.swift; sourceTree = "<group>"; };
+		C3R4E5D6I7T8P9U0R1C2H3A3 /* CreditPurchaseView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreditPurchaseView.swift; sourceTree = "<group>"; };
+		C8D9E0F1G2H3I4J5K6L7M8N9 /* CostReportManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CostReportManager.swift; sourceTree = "<group>"; };
+		CC3D8B5F5CE644D5BC94935F /* TokenModels.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TokenModels.swift; sourceTree = "<group>"; };
+		E46D907F3B5B4C97B1C44827E1A140EE /* VideoAudioConverter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VideoAudioConverter.swift; sourceTree = "<group>"; };
+		E5B0FEF9A4104E06BF1119B4 /* DisplayLanguageManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DisplayLanguageManager.swift; sourceTree = "<group>"; };
+		F1G2H3I4J5K6L7M8N9O0P1Q1 /* FireworksStreamingASRService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FireworksStreamingASRService.swift; sourceTree = "<group>"; };
+		F2G3H4I5J6K7L8M9N0O1P2Q2 /* FireworksServerlessASRService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FireworksServerlessASRService.swift; sourceTree = "<group>"; };
+		H1I2S3T4O5R6Y7T8A9B0V1I1 /* HistoryTabView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HistoryTabView.swift; sourceTree = "<group>"; };
+		M1O2D3E4L5P6U7R8C9H0A1S1 /* ModelPurchaseManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModelPurchaseManager.swift; sourceTree = "<group>"; };
+		M1O2D3E4L5S6T7A8B9V0I1E1 /* ModelsTabView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModelsTabView.swift; sourceTree = "<group>"; };
+		M2O3D4E5L6S7E8L9E0C1T2V2 /* ModelSelectionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModelSelectionView.swift; sourceTree = "<group>"; };
+		O1V2E3R4V5I6E7W8T9A0B1V1 /* OverviewTabView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OverviewTabView.swift; sourceTree = "<group>"; };
+		T1R2A3N4S5C6R7I8P9T0I1O1 /* TranscriptionTestView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TranscriptionTestView.swift; sourceTree = "<group>"; };
+		U1S2A3G4E5D6A7T8A9S0W1I1 /* UsageData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UsageData.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		81B8F74B2E83C80000B6AA41 /* PBXFileSystemSynchronizedBuildFileExceptionSet */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Info.plist,
+			);
+			target = 81B8F73C2E83C7FF00B6AA41 /* Sribe Share Extensionc */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
+
+/* Begin PBXFileSystemSynchronizedRootGroup section */
+		81B8F73E2E83C80000B6AA41 /* Sribe Share Extensionc */ = {isa = PBXFileSystemSynchronizedRootGroup; exceptions = (81B8F74B2E83C80000B6AA41 /* PBXFileSystemSynchronizedBuildFileExceptionSet */, ); explicitFileTypes = {}; explicitFolders = (); path = "Sribe Share Extensionc"; sourceTree = "<group>"; };
+/* End PBXFileSystemSynchronizedRootGroup section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		161135DB2B3F66DA003C20F6 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				161136102B3F6C68003C20F6 /* WhisperKit in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		161135ED2B3F66DC003C20F6 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		161135F72B3F66DC003C20F6 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		167B345B2B05431E0076F261 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				81F1B9902EA024370008C5A7 /* FluidAudio in Frameworks */,
+				8174ADDF2E7C352A008D790F /* WhisperKit in Frameworks */,
+				16EA36CF2B59E550006CA7CF /* WhisperKit in Frameworks */,
+				8174ADE12E7C352A008D790F /* whisperkit-cli in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		167B346E2B05431F0076F261 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		167B34782B05431F0076F261 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		81B8F73A2E83C7FF00B6AA41 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		162514BE2DAE39250037301E /* Evaluate */ = {
+			isa = PBXGroup;
+			children = (
+				162514BA2DAE39250037301E /* DistanceCalculation.swift */,
+				162514BB2DAE39250037301E /* NormalizeEn.swift */,
+				162514BC2DAE39250037301E /* SpellingMapping.swift */,
+				162514BD2DAE39250037301E /* WERUtils.swift */,
+			);
+			path = Evaluate;
+			sourceTree = "<group>";
+		};
+		162514C72DAE39250037301E /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				162514BF2DAE39250037301E /* 8_Channel_ID.m4a */,
+				162514C02DAE39250037301E /* config-v02.json */,
+				162514C12DAE39250037301E /* config-v03.json */,
+				162514C22DAE39250037301E /* es_test_clip.wav */,
+				162514C32DAE39250037301E /* ja_test_clip.wav */,
+				162514C42DAE39250037301E /* jfk.wav */,
+				162514C52DAE39250037301E /* jfk_441khz.m4a */,
+				162514C62DAE39250037301E /* ted_60.m4a */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		162514CD2DAE39250037301E /* WhisperKitTests */ = {
+			isa = PBXGroup;
+			children = (
+				162514BE2DAE39250037301E /* Evaluate */,
+				162514C72DAE39250037301E /* Resources */,
+				162514C82DAE39250037301E /* FunctionalTests.swift */,
+				162514C92DAE39250037301E /* RegressionTests.swift */,
+				162514CA2DAE39250037301E /* RegressionTestUtils.swift */,
+				162514CB2DAE39250037301E /* TestUtils.swift */,
+				162514CC2DAE39250037301E /* UnitTests.swift */,
+			);
+			path = WhisperKitTests;
+			sourceTree = "<group>";
+		};
+		1677AFA52B57618A008C61C0 /* CriptionWatchAppUITests */ = {
+			isa = PBXGroup;
+			children = (
+				1677AFA62B57618A008C61C0 /* Cription_Watch_AppUITests.swift */,
+				1677AFA72B57618A008C61C0 /* Cription_Watch_AppUITestsLaunchTests.swift */,
+			);
+			path = CriptionWatchAppUITests;
+			sourceTree = "<group>";
+		};
+		1677AFA82B57618A008C61C0 /* Cription */ = {
+			isa = PBXGroup;
+			children = (
+				81B8F74D2E83C88000B6AA41 /* CriptionRelease.entitlements */,
+				1626683A2BB90CC9008F950A /* Info.plist */,
+				1677AFAB2B57618A008C61C0 /* CriptionApp.swift */,
+				1677AFE42B5769E5008C61C0 /* Views */,
+				1677AFD82B576375008C61C0 /* Models */,
+				1677AFD72B576375008C61C0 /* Resources */,
+				1677AFFA2B57704E008C61C0 /* ThemeManager.swift */,
+				1677AFAD2B57618A008C61C0 /* Preview Content */,
+			);
+			path = Cription;
+			sourceTree = "<group>";
+		};
+		1677AFAD2B57618A008C61C0 /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				1677AFAE2B57618A008C61C0 /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		1677AFB22B57618A008C61C0 /* CriptionWatchApp */ = {
+			isa = PBXGroup;
+			children = (
+				1677AFB72B57618A008C61C0 /* CriptionWatchApp.swift */,
+				1677AFB32B57618A008C61C0 /* CriptionWatchView.swift */,
+				1677AFB42B57618A008C61C0 /* Assets.xcassets */,
+				1677AFB52B57618A008C61C0 /* Preview Content */,
+			);
+			path = CriptionWatchApp;
+			sourceTree = "<group>";
+		};
+		1677AFB52B57618A008C61C0 /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				1677AFB62B57618A008C61C0 /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		1677AFB82B57618A008C61C0 /* CriptionUITests */ = {
+			isa = PBXGroup;
+			children = (
+				1677AFBA2B57618A008C61C0 /* CriptionUITests.swift */,
+				1677AFB92B57618A008C61C0 /* CriptionUITestsLaunchTests.swift */,
+			);
+			path = CriptionUITests;
+			sourceTree = "<group>";
+		};
+		1677AFBB2B57618A008C61C0 /* CriptionTests */ = {
+			isa = PBXGroup;
+			children = (
+				1677AFBC2B57618A008C61C0 /* CriptionTests.swift */,
+				162514CD2DAE39250037301E /* WhisperKitTests */,
+			);
+			path = CriptionTests;
+			sourceTree = "<group>";
+		};
+		1677AFBD2B57618A008C61C0 /* CriptionWatchAppTests */ = {
+			isa = PBXGroup;
+			children = (
+				1677AFBE2B57618A008C61C0 /* Cription_Watch_AppTests.swift */,
+			);
+			path = CriptionWatchAppTests;
+			sourceTree = "<group>";
+		};
+		1677AFD72B576375008C61C0 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				1677AFE02B57678E008C61C0 /* Assets.xcassets */,
+				1677AFA92B57618A008C61C0 /* Cription.entitlements */,
+				1677AFEA2B57704E008C61C0 /* LanguageManager.swift */,
+				E5B0FEF9A4104E06BF1119B4 /* DisplayLanguageManager.swift */,
+				1677AFF82B57704E008C61C0 /* LocalizedStrings.swift */,
+				81C222282E7C76CF000FBB0B /* art.txt */,
+				81C222292E7C76CF000FBB0C /* Localizable.xcstrings */,
+				81D333452F7C76CF000FBB0B /* Cription mini */,
+				47591D15DB31411E90FF8EF7 /* TokenCalculator.swift */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		1677AFD82B576375008C61C0 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				1677AFEC2B57704E008C61C0 /* CriptionModelManager.swift */,
+				1677AFEE2B57704E008C61C0 /* CriptionModels.swift */,
+				574DB8122B57704E008C61C0 /* AnalyticsManager.swift */,
+				665EE0826BA6403A83FD62EC02252FAE /* FontSettings.swift */,
+				665EE0826BA6403A83FD62EC02252FAF /* BackgroundTaskManager.swift */,
+				E46D907F3B5B4C97B1C44827E1A140EE /* VideoAudioConverter.swift */,
+				0E602E4D7DB445DEBE8C5C3E /* TokenCalculationService.swift */,
+				CC3D8B5F5CE644D5BC94935F /* TokenModels.swift */,
+				A1B2C3D4E5F6G7H8I9J0K1L2 /* OpenAIRealtimeTranscriptionService.swift */,
+				A1B2C3D4E5F6G7H8I9J0K1L3 /* OpenAIStreamingTranscriptionService.swift */,
+				A2B3C4D5E6F7G8H9I0J1K2L3 /* TranscriptionServiceManager.swift */,
+				7F1DF701F020423CBCA6A759 /* ParakeetTranscriptionService.swift */,
+				F1G2H3I4J5K6L7M8N9O0P1Q1 /* FireworksStreamingASRService.swift */,
+				F2G3H4I5J6K7L8M9N0O1P2Q2 /* FireworksServerlessASRService.swift */,
+				A3B4C5D6E7F8G9H0I1J2K3L4 /* OpenAITranscriptionService.swift */,
+				A4B5C6D7E8F9G0H1I2J3K4L5 /* OpenAITextTranslationService.swift */,
+				A5B6C7D8E9F0G1H2I3J4K5L6 /* SecureKeychainManager.swift */,
+				A6B7C8D9E0F1G2H3I4J5K6L7 /* SubscriptionManager.swift */,
+				B7C8D9E0F1G2H3I4J5K6L7M8 /* AudioOptimizer.swift */,
+				C8D9E0F1G2H3I4J5K6L7M8N9 /* CostReportManager.swift */,
+				U1S2A3G4E5D6A7T8A9S0W1I1 /* UsageData.swift */,
+				C1R2E3D4I5T6M7A8N9A0G1E1 /* CreditManager.swift */,
+				M1O2D3E4L5P6U7R8C9H0A1S1 /* ModelPurchaseManager.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		1677AFE42B5769E5008C61C0 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				A1U2D3I4O5W6A7V8E9F0O1R1 /* AudioWaveformView.swift */,
+				B1L2L3I4N5G6V7I8E9W0S1W1 /* BillingView.swift */,
+				1677AFE52B57704E008C61C0 /* ContentView.swift */,
+				C2R3E4D5I6T7H8I9S0T1O2R2 /* CreditHistoryView.swift */,
+				C3R4E5D6I7T8P9U0R1C2H3A3 /* CreditPurchaseView.swift */,
+				C1R2P3T4I5O6N7P8L9U0S1V1 /* CriptionPlusView.swift */,
+				C1R2P3T4I5O6N7P8L9U0S1V4 /* CriptionPlusViewLocalization.swift */,
+				1677AFF62B57704E008C61C0 /* DashboardView.swift */,
+				H1I2S3T4O5R6Y7T8A9B0V1I1 /* HistoryTabView.swift */,
+				1677AFF02B57704E008C61C0 /* HistoryView.swift */,
+				1677AFF42B57704E008C61C0 /* LanguageSelectionView.swift */,
+				M2O3D4E5L6S7E8L9E0C1T2V2 /* ModelSelectionView.swift */,
+				M1O2D3E4L5S6T7A8B9V0I1E1 /* ModelsTabView.swift */,
+				O1V2E3R4V5I6E7W8T9A0B1V1 /* OverviewTabView.swift */,
+				1677AFF22B57704E008C61C0 /* SettingsView.swift */,
+				B4EE7FAF414C40F5A872F3FD47525821 /* SharedTextsView.swift */,
+				0D5E282ACB1D4557BC94D974 /* TokenCalculatorView.swift */,
+				T1R2A3N4S5C6R7I8P9T0I1O1 /* TranscriptionTestView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		167B34552B05431E0076F261 = {
+			isa = PBXGroup;
+			children = (
+				169144182CCEEE87009903CA /* Debug.xcconfig */,
+				1677AFA82B57618A008C61C0 /* Cription */,
+				1677AFBB2B57618A008C61C0 /* CriptionTests */,
+				1677AFB82B57618A008C61C0 /* CriptionUITests */,
+				1677AFB22B57618A008C61C0 /* CriptionWatchApp */,
+				1677AFBD2B57618A008C61C0 /* CriptionWatchAppTests */,
+				1677AFA52B57618A008C61C0 /* CriptionWatchAppUITests */,
+				81B8F73E2E83C80000B6AA41 /* Sribe Share Extensionc */,
+				167B345F2B05431E0076F261 /* Products */,
+				16D581072B4F7E4E000C0AB0 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		167B345F2B05431E0076F261 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				167B345E2B05431E0076F261 /* Cription.app */,
+				167B34712B05431F0076F261 /* CriptionTests.xctest */,
+				167B347B2B05431F0076F261 /* CriptionUITests.xctest */,
+				161135DE2B3F66DA003C20F6 /* Cription Watch App.app */,
+				161135F02B3F66DC003C20F6 /* Cription Watch AppTests.xctest */,
+				161135FA2B3F66DC003C20F6 /* Cription Watch AppUITests.xctest */,
+				81B8F73D2E83C7FF00B6AA41 /* Sribe Share Extensionc.appex */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		16D581072B4F7E4E000C0AB0 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		161135DD2B3F66DA003C20F6 /* Cription Watch App */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 161136022B3F66DC003C20F6 /* Build configuration list for PBXNativeTarget "Cription Watch App" */;
+			buildPhases = (
+				161135DA2B3F66DA003C20F6 /* Sources */,
+				161135DB2B3F66DA003C20F6 /* Frameworks */,
+				161135DC2B3F66DA003C20F6 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Cription Watch App";
+			packageProductDependencies = (
+				1611360F2B3F6C68003C20F6 /* WhisperKit */,
+			);
+			productName = "Basic Watch App";
+			productReference = 161135DE2B3F66DA003C20F6 /* Cription Watch App.app */;
+			productType = "com.apple.product-type.application";
+		};
+		161135EF2B3F66DC003C20F6 /* Cription Watch AppTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 161136092B3F66DC003C20F6 /* Build configuration list for PBXNativeTarget "Cription Watch AppTests" */;
+			buildPhases = (
+				161135EC2B3F66DC003C20F6 /* Sources */,
+				161135ED2B3F66DC003C20F6 /* Frameworks */,
+				161135EE2B3F66DC003C20F6 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				161135F22B3F66DC003C20F6 /* PBXTargetDependency */,
+			);
+			name = "Cription Watch AppTests";
+			productName = "Basic Watch AppTests";
+			productReference = 161135F02B3F66DC003C20F6 /* Cription Watch AppTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		161135F92B3F66DC003C20F6 /* Cription Watch AppUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1611360C2B3F66DC003C20F6 /* Build configuration list for PBXNativeTarget "Cription Watch AppUITests" */;
+			buildPhases = (
+				161135F62B3F66DC003C20F6 /* Sources */,
+				161135F72B3F66DC003C20F6 /* Frameworks */,
+				161135F82B3F66DC003C20F6 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				161135FC2B3F66DC003C20F6 /* PBXTargetDependency */,
+			);
+			name = "Cription Watch AppUITests";
+			productName = "Basic Watch AppUITests";
+			productReference = 161135FA2B3F66DC003C20F6 /* Cription Watch AppUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+		167B345D2B05431E0076F261 /* Cription */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 167B34852B05431F0076F261 /* Build configuration list for PBXNativeTarget "Cription" */;
+			buildPhases = (
+				167B345A2B05431E0076F261 /* Sources */,
+				167B345B2B05431E0076F261 /* Frameworks */,
+				167B345C2B05431E0076F261 /* Resources */,
+				1621BFDF2B74BF6E007FA014 /* Embed Watch Content */,
+				81B8F7482E83C80000B6AA41 /* Embed Foundation Extensions */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				1683EFF22B9FAFAD002448CD /* PBXTargetDependency */,
+				81B8F7462E83C80000B6AA41 /* PBXTargetDependency */,
+			);
+			name = Cription;
+			packageProductDependencies = (
+				16EA36CE2B59E550006CA7CF /* WhisperKit */,
+				8174ADDE2E7C352A008D790F /* WhisperKit */,
+				8174ADE02E7C352A008D790F /* whisperkit-cli */,
+				81F1B98F2EA024370008C5A7 /* FluidAudio */,
+			);
+			productName = BasicExample;
+			productReference = 167B345E2B05431E0076F261 /* Cription.app */;
+			productType = "com.apple.product-type.application";
+		};
+		167B34702B05431F0076F261 /* CriptionTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 167B34882B05431F0076F261 /* Build configuration list for PBXNativeTarget "CriptionTests" */;
+			buildPhases = (
+				167B346D2B05431F0076F261 /* Sources */,
+				167B346E2B05431F0076F261 /* Frameworks */,
+				167B346F2B05431F0076F261 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				167B34732B05431F0076F261 /* PBXTargetDependency */,
+			);
+			name = CriptionTests;
+			productName = BasicExampleTests;
+			productReference = 167B34712B05431F0076F261 /* CriptionTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		167B347A2B05431F0076F261 /* CriptionUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 167B348B2B05431F0076F261 /* Build configuration list for PBXNativeTarget "CriptionUITests" */;
+			buildPhases = (
+				167B34772B05431F0076F261 /* Sources */,
+				167B34782B05431F0076F261 /* Frameworks */,
+				167B34792B05431F0076F261 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				167B347D2B05431F0076F261 /* PBXTargetDependency */,
+			);
+			name = CriptionUITests;
+			productName = BasicExampleUITests;
+			productReference = 167B347B2B05431F0076F261 /* CriptionUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+		81B8F73C2E83C7FF00B6AA41 /* Sribe Share Extensionc */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 81B8F74C2E83C80000B6AA41 /* Build configuration list for PBXNativeTarget "Sribe Share Extensionc" */;
+			buildPhases = (
+				81B8F7392E83C7FF00B6AA41 /* Sources */,
+				81B8F73A2E83C7FF00B6AA41 /* Frameworks */,
+				81B8F73B2E83C7FF00B6AA41 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			fileSystemSynchronizedGroups = (
+				81B8F73E2E83C80000B6AA41 /* Sribe Share Extensionc */,
+			);
+			name = "Sribe Share Extensionc";
+			packageProductDependencies = (
+			);
+			productName = "Sribe Share Extensionc";
+			productReference = 81B8F73D2E83C7FF00B6AA41 /* Sribe Share Extensionc.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		167B34562B05431E0076F261 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1640;
+				LastUpgradeCheck = 1640;
+				TargetAttributes = {
+					161135DD2B3F66DA003C20F6 = {
+						CreatedOnToolsVersion = 15.1;
+					};
+					161135EF2B3F66DC003C20F6 = {
+						CreatedOnToolsVersion = 15.1;
+						TestTargetID = 161135DD2B3F66DA003C20F6;
+					};
+					161135F92B3F66DC003C20F6 = {
+						CreatedOnToolsVersion = 15.1;
+						TestTargetID = 161135DD2B3F66DA003C20F6;
+					};
+					167B345D2B05431E0076F261 = {
+						CreatedOnToolsVersion = 15.0.1;
+					};
+					167B34702B05431F0076F261 = {
+						CreatedOnToolsVersion = 15.0.1;
+						TestTargetID = 167B345D2B05431E0076F261;
+					};
+					167B347A2B05431F0076F261 = {
+						CreatedOnToolsVersion = 15.0.1;
+						TestTargetID = 167B345D2B05431E0076F261;
+					};
+					81B8F73C2E83C7FF00B6AA41 = {
+						CreatedOnToolsVersion = 16.4;
+					};
+				};
+			};
+			buildConfigurationList = 167B34592B05431E0076F261 /* Build configuration list for PBXProject "Cription" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 167B34552B05431E0076F261;
+			packageReferences = (
+				8174ADDD2E7C352A008D790F /* XCRemoteSwiftPackageReference "WhisperKit" */,
+				81F1B98E2EA024370008C5A7 /* XCLocalSwiftPackageReference "Cription/Resources/Parakeet-github" */,
+			);
+			productRefGroup = 167B345F2B05431E0076F261 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				167B345D2B05431E0076F261 /* Cription */,
+				167B34702B05431F0076F261 /* CriptionTests */,
+				167B347A2B05431F0076F261 /* CriptionUITests */,
+				161135DD2B3F66DA003C20F6 /* Cription Watch App */,
+				161135EF2B3F66DC003C20F6 /* Cription Watch AppTests */,
+				161135F92B3F66DC003C20F6 /* Cription Watch AppUITests */,
+				81B8F73C2E83C7FF00B6AA41 /* Sribe Share Extensionc */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		161135DC2B3F66DA003C20F6 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1683EFEF2B9FADFE002448CD /* Assets.xcassets in Resources */,
+				1683EFF02B9FADFE002448CD /* Preview Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		161135EE2B3F66DC003C20F6 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		161135F82B3F66DC003C20F6 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		167B345C2B05431E0076F261 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1677AFC42B57618A008C61C0 /* Preview Assets.xcassets in Resources */,
+				1677AFCA2B57618A008C61C0 /* Preview Assets.xcassets in Resources */,
+				1677AFC92B57618A008C61C0 /* Assets.xcassets in Resources */,
+				1677AFE12B57678E008C61C0 /* Assets.xcassets in Resources */,
+				1677AFCB2B57618A008C61C0 /* Preview Content in Resources */,
+				1677AFCC2B57618A008C61C0 /* CriptionUITests in Resources */,
+				818A9B242E8AEFAD008A0334 /* (null) in Resources */,
+				81C2222A2E7C76CF000FBB0D /* Localizable.xcstrings in Resources */,
+				81D333442F7C76CF000FBB0B /* Cription mini in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		167B346F2B05431F0076F261 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				162514D72DAE39250037301E /* es_test_clip.wav in Resources */,
+				162514D82DAE39250037301E /* ja_test_clip.wav in Resources */,
+				162514D92DAE39250037301E /* ted_60.m4a in Resources */,
+				162514DA2DAE39250037301E /* 8_Channel_ID.m4a in Resources */,
+				162514DB2DAE39250037301E /* config-v02.json in Resources */,
+				162514DC2DAE39250037301E /* jfk_441khz.m4a in Resources */,
+				162514DD2DAE39250037301E /* config-v03.json in Resources */,
+				162514DE2DAE39250037301E /* jfk.wav in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		167B34792B05431F0076F261 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		81B8F73B2E83C7FF00B6AA41 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		161135DA2B3F66DA003C20F6 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1677AFD42B57632E008C61C0 /* CriptionWatchView.swift in Sources */,
+				1677AFD32B5762BC008C61C0 /* CriptionWatchApp.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		161135EC2B3F66DC003C20F6 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1677AFDD2B5763C7008C61C0 /* Cription_Watch_AppTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		161135F62B3F66DC003C20F6 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1677AFDF2B5763CE008C61C0 /* Cription_Watch_AppUITestsLaunchTests.swift in Sources */,
+				1677AFDE2B5763CB008C61C0 /* Cription_Watch_AppUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		167B345A2B05431E0076F261 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1677AFE62B57704E008C61C0 /* ContentView.swift in Sources */,
+				C1R2P3T4I5O6N7P8L9U0S1V2 /* CriptionPlusView.swift in Sources */,
+				C1R2P3T4I5O6N7P8L9U0S1V3 /* CriptionPlusViewLocalization.swift in Sources */,
+				0D5E282ACB1D4557BC94D975 /* TokenCalculatorView.swift in Sources */,
+				0E602E4D7DB445DEBE8C5C3F /* TokenCalculationService.swift in Sources */,
+				90F04526FEED4539A3A66B76 /* TokenModels.swift in Sources */,
+				C4B87B53AB524142BD2DF2E7 /* TokenCalculator.swift in Sources */,
+				1677AFC22B57618A008C61C0 /* CriptionApp.swift in Sources */,
+				1677AFE92B57704E008C61C0 /* LanguageManager.swift in Sources */,
+				9611C164AEEA43DBA5A10241 /* DisplayLanguageManager.swift in Sources */,
+				1677AFF92B57704E008C61C0 /* ThemeManager.swift in Sources */,
+				1677AFEB2B57704E008C61C0 /* CriptionModelManager.swift in Sources */,
+				1677AFED2B57704E008C61C0 /* CriptionModels.swift in Sources */,
+				ABF232CE2B57704E008C61C0 /* AnalyticsManager.swift in Sources */,
+				M1N2O3P4Q5R6S7T8U9V0W1X2 /* OpenAIRealtimeTranscriptionService.swift in Sources */,
+				M2N3O4P5Q6R7S8T9U0V1W2X3 /* OpenAIStreamingTranscriptionService.swift in Sources */,
+				N2O3P4Q5R6S7T8U9V0W1X2Y3 /* TranscriptionServiceManager.swift in Sources */,
+				7F1DF702F020423CBCA6A759 /* ParakeetTranscriptionService.swift in Sources */,
+				F1G2H3I4J5K6L7M8N9O0P1Q2 /* FireworksStreamingASRService.swift in Sources */,
+				F2G3H4I5J6K7L8M9N0O1P2Q3 /* FireworksServerlessASRService.swift in Sources */,
+				O3P4Q5R6S7T8U9V0W1X2Y3Z4 /* OpenAITranscriptionService.swift in Sources */,
+				P4Q5R6S7T8U9V0W1X2Y3Z4A5 /* OpenAITextTranslationService.swift in Sources */,
+				Q5R6S7T8U9V0W1X2Y3Z4A5B6 /* SecureKeychainManager.swift in Sources */,
+				R6S7T8U9V0W1X2Y3Z4A5B6C7 /* SubscriptionManager.swift in Sources */,
+				S7T8U9V0W1X2Y3Z4A5B6C7D8 /* AudioOptimizer.swift in Sources */,
+				T8U9V0W1X2Y3Z4A5B6C7D8E9 /* CostReportManager.swift in Sources */,
+				B95D167382E347F2915A12F83457941B /* FontSettings.swift in Sources */,
+				B95D167382E347F2915A12F83457941C /* BackgroundTaskManager.swift in Sources */,
+				1677AFEF2B57704E008C61C0 /* HistoryView.swift in Sources */,
+				1677AFF52B57704E008C61C0 /* DashboardView.swift in Sources */,
+				B1L2L3I4N5G6V7I8E9W0S1W2 /* BillingView.swift in Sources */,
+				C2R3E4D5I6T7H8I9S0T1O2R3 /* CreditHistoryView.swift in Sources */,
+				C3R4E5D6I7T8P9U0R1C2H3A4 /* CreditPurchaseView.swift in Sources */,
+				H1I2S3T4O5R6Y7T8A9B0V1I2 /* HistoryTabView.swift in Sources */,
+				M1O2D3E4L5S6T7A8B9V0I1E2 /* ModelsTabView.swift in Sources */,
+				O1V2E3R4V5I6E7W8T9A0B1V2 /* OverviewTabView.swift in Sources */,
+				M2O3D4E5L6S7E8L9E0C1T2V3 /* ModelSelectionView.swift in Sources */,
+				A1U2D3I4O5W6A7V8E9F0O1R2 /* AudioWaveformView.swift in Sources */,
+				T1R2A3N4S5C6R7I8P9T0I1O2 /* TranscriptionTestView.swift in Sources */,
+				U1S2A3G4E5D6A7T8A9S0W1I2 /* UsageData.swift in Sources */,
+				C1R2E3D4I5T6M7A8N9A0G1E2 /* CreditManager.swift in Sources */,
+				M1O2D3E4L5P6U7R8C9H0A1S2 /* ModelPurchaseManager.swift in Sources */,
+				1677AFF12B57704E008C61C0 /* SettingsView.swift in Sources */,
+				1677AFF32B57704E008C61C0 /* LanguageSelectionView.swift in Sources */,
+				1677AFF72B57704E008C61C0 /* LocalizedStrings.swift in Sources */,
+				CADB24A7BF204694BD038C8786218F65 /* VideoAudioConverter.swift in Sources */,
+				B4EE7FAF414C40F5A872F3FD47525820 /* SharedTextsView.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		167B346D2B05431F0076F261 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1677AFDA2B5763BA008C61C0 /* CriptionUITestsLaunchTests.swift in Sources */,
+				1677AFDC2B5763C0008C61C0 /* CriptionTests.swift in Sources */,
+				162514CE2DAE39250037301E /* SpellingMapping.swift in Sources */,
+				162514CF2DAE39250037301E /* DistanceCalculation.swift in Sources */,
+				162514D02DAE39250037301E /* FunctionalTests.swift in Sources */,
+				162514D12DAE39250037301E /* TestUtils.swift in Sources */,
+				162514D22DAE39250037301E /* WERUtils.swift in Sources */,
+				162514D32DAE39250037301E /* NormalizeEn.swift in Sources */,
+				162514D42DAE39250037301E /* RegressionTestUtils.swift in Sources */,
+				162514D52DAE39250037301E /* UnitTests.swift in Sources */,
+				162514D62DAE39250037301E /* RegressionTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		167B34772B05431F0076F261 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1677AFD92B5763B7008C61C0 /* CriptionUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		81B8F7392E83C7FF00B6AA41 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		161135F22B3F66DC003C20F6 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 161135DD2B3F66DA003C20F6 /* Cription Watch App */;
+			targetProxy = 161135F12B3F66DC003C20F6 /* PBXContainerItemProxy */;
+		};
+		161135FC2B3F66DC003C20F6 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 161135DD2B3F66DA003C20F6 /* Cription Watch App */;
+			targetProxy = 161135FB2B3F66DC003C20F6 /* PBXContainerItemProxy */;
+		};
+		167B34732B05431F0076F261 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 167B345D2B05431E0076F261 /* Cription */;
+			targetProxy = 167B34722B05431F0076F261 /* PBXContainerItemProxy */;
+		};
+		167B347D2B05431F0076F261 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 167B345D2B05431E0076F261 /* Cription */;
+			targetProxy = 167B347C2B05431F0076F261 /* PBXContainerItemProxy */;
+		};
+		1683EFF22B9FAFAD002448CD /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			platformFilter = ios;
+			target = 161135DD2B3F66DA003C20F6 /* Cription Watch App */;
+			targetProxy = 1683EFF12B9FAFAD002448CD /* PBXContainerItemProxy */;
+		};
+		81B8F7462E83C80000B6AA41 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 81B8F73C2E83C7FF00B6AA41 /* Sribe Share Extensionc */;
+			targetProxy = 81B8F7452E83C80000B6AA41 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		161136032B3F66DC003C20F6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 169144182CCEEE87009903CA /* Debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"CriptionWatchApp/Preview Content\"";
+				DEVELOPMENT_TEAM = 9GH6B93N9T;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = Transcribe;
+				INFOPLIST_KEY_NSMicrophoneUsageDescription = "Required to record audio from the microphone for transcription.";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = Cription;
+				INFOPLIST_KEY_WKRunsIndependentlyOfCompanionApp = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 0.1.2;
+				PRODUCT_BUNDLE_IDENTIFIER = Cription.watchkitapp;
+				PRODUCT_NAME = "Cription Watch App";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 10.0;
+			};
+			name = Debug;
+		};
+		161136042B3F66DC003C20F6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 169144182CCEEE87009903CA /* Debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"CriptionWatchApp/Preview Content\"";
+				DEVELOPMENT_TEAM = 9GH6B93N9T;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = Transcribe;
+				INFOPLIST_KEY_NSMicrophoneUsageDescription = "Required to record audio from the microphone for transcription.";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = Cription;
+				INFOPLIST_KEY_WKRunsIndependentlyOfCompanionApp = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 0.1.2;
+				PRODUCT_BUNDLE_IDENTIFIER = Cription.watchkitapp;
+				PRODUCT_NAME = "Cription Watch App";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				VALIDATE_PRODUCT = YES;
+				WATCHOS_DEPLOYMENT_TARGET = 10.0;
+			};
+			name = Release;
+		};
+		1611360A2B3F66DC003C20F6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 169144182CCEEE87009903CA /* Debug.xcconfig */;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 9GH6B93N9T;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = Cription.watchkitapp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Cription Watch App.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Cription Watch App";
+				WATCHOS_DEPLOYMENT_TARGET = 10.2;
+			};
+			name = Debug;
+		};
+		1611360B2B3F66DC003C20F6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 169144182CCEEE87009903CA /* Debug.xcconfig */;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 9GH6B93N9T;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = Cription.watchkitapp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Cription Watch App.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Cription Watch App";
+				VALIDATE_PRODUCT = YES;
+				WATCHOS_DEPLOYMENT_TARGET = 10.2;
+			};
+			name = Release;
+		};
+		1611360D2B3F66DC003C20F6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 169144182CCEEE87009903CA /* Debug.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 9GH6B93N9T;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = Cription.watchkitapp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				TEST_TARGET_NAME = "Basic Watch App";
+				WATCHOS_DEPLOYMENT_TARGET = 10.2;
+			};
+			name = Debug;
+		};
+		1611360E2B3F66DC003C20F6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 169144182CCEEE87009903CA /* Debug.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 9GH6B93N9T;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = Cription.watchkitapp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				TEST_TARGET_NAME = "Basic Watch App";
+				VALIDATE_PRODUCT = YES;
+				WATCHOS_DEPLOYMENT_TARGET = 10.2;
+			};
+			name = Release;
+		};
+		167B34832B05431F0076F261 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 169144182CCEEE87009903CA /* Debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEAD_CODE_STRIPPING = YES;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = 9GH6B93N9T;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		167B34842B05431F0076F261 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 169144182CCEEE87009903CA /* Debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEAD_CODE_STRIPPING = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = 9GH6B93N9T;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SWIFT_COMPILATION_MODE = wholemodule;
+			};
+			name = Release;
+		};
+		167B34862B05431F0076F261 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 169144182CCEEE87009903CA /* Debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGNING_ALLOWED = YES;
+				CODE_SIGN_ENTITLEMENTS = Cription/Resources/Cription.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEAD_CODE_STRIPPING = YES;
+				DEVELOPMENT_ASSET_PATHS = "\"Cription/Preview Content\"";
+				DEVELOPMENT_TEAM = 9GH6B93N9T;
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Cription/Info.plist;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.productivity";
+				INFOPLIST_KEY_NSMicrophoneUsageDescription = "Required to record audio from the microphone for transcription.";
+				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
+				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
+				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
+				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphonesimulator*]" = YES;
+				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphoneos*]" = YES;
+				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphonesimulator*]" = YES;
+				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphoneos*]" = UIStatusBarStyleDefault;
+				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
+				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 14.0;
+				MARKETING_VERSION = 1.0.0;
+				PRODUCT_BUNDLE_IDENTIFIER = Cription;
+				PRODUCT_NAME = Cription;
+				REGISTER_APP_GROUPS = YES;
+				SDKROOT = auto;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		167B34872B05431F0076F261 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 169144182CCEEE87009903CA /* Debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGNING_ALLOWED = YES;
+				CODE_SIGN_ENTITLEMENTS = Cription/CriptionRelease.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEAD_CODE_STRIPPING = YES;
+				DEVELOPMENT_ASSET_PATHS = "\"Cription/Preview Content\"";
+				DEVELOPMENT_TEAM = 9GH6B93N9T;
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Cription/Info.plist;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.productivity";
+				INFOPLIST_KEY_NSMicrophoneUsageDescription = "Required to record audio from the microphone for transcription.";
+				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
+				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
+				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
+				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphonesimulator*]" = YES;
+				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphoneos*]" = YES;
+				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphonesimulator*]" = YES;
+				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphoneos*]" = UIStatusBarStyleDefault;
+				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
+				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 14.0;
+				MARKETING_VERSION = 1.0.0;
+				PRODUCT_BUNDLE_IDENTIFIER = Cription;
+				PRODUCT_NAME = Cription;
+				REGISTER_APP_GROUPS = YES;
+				SDKROOT = auto;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		167B34892B05431F0076F261 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 169144182CCEEE87009903CA /* Debug.xcconfig */;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEAD_CODE_STRIPPING = YES;
+				DEVELOPMENT_TEAM = 9GH6B93N9T;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				MACOSX_DEPLOYMENT_TARGET = 14.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = Cription;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = auto;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Cription.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Cription";
+			};
+			name = Debug;
+		};
+		167B348A2B05431F0076F261 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 169144182CCEEE87009903CA /* Debug.xcconfig */;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEAD_CODE_STRIPPING = YES;
+				DEVELOPMENT_TEAM = 9GH6B93N9T;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				MACOSX_DEPLOYMENT_TARGET = 14.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = Cription;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = auto;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Cription.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Cription";
+			};
+			name = Release;
+		};
+		167B348C2B05431F0076F261 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 169144182CCEEE87009903CA /* Debug.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEAD_CODE_STRIPPING = YES;
+				DEVELOPMENT_TEAM = 9GH6B93N9T;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				MACOSX_DEPLOYMENT_TARGET = 14.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = Cription;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = auto;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = Cription;
+			};
+			name = Debug;
+		};
+		167B348D2B05431F0076F261 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 169144182CCEEE87009903CA /* Debug.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEAD_CODE_STRIPPING = YES;
+				DEVELOPMENT_TEAM = 9GH6B93N9T;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				MACOSX_DEPLOYMENT_TARGET = 14.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = Cription;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = auto;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = Cription;
+			};
+			name = Release;
+		};
+		81B8F7492E83C80000B6AA41 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "Sribe Share Extensionc/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = "Sribe Share Extensionc";
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 18.5;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 0.4.0;
+				PRODUCT_BUNDLE_IDENTIFIER = Cription.ShareExtension;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		81B8F74A2E83C80000B6AA41 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = "Sribe Share Extensionc/Sribe Share ExtensioncRelease.entitlements";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "Sribe Share Extensionc/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = "Sribe Share Extensionc";
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 18.5;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 0.4.0;
+				PRODUCT_BUNDLE_IDENTIFIER = Cription.ShareExtension;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		161136022B3F66DC003C20F6 /* Build configuration list for PBXNativeTarget "Cription Watch App" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				161136032B3F66DC003C20F6 /* Debug */,
+				161136042B3F66DC003C20F6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		161136092B3F66DC003C20F6 /* Build configuration list for PBXNativeTarget "Cription Watch AppTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1611360A2B3F66DC003C20F6 /* Debug */,
+				1611360B2B3F66DC003C20F6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		1611360C2B3F66DC003C20F6 /* Build configuration list for PBXNativeTarget "Cription Watch AppUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1611360D2B3F66DC003C20F6 /* Debug */,
+				1611360E2B3F66DC003C20F6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		167B34592B05431E0076F261 /* Build configuration list for PBXProject "Cription" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				167B34832B05431F0076F261 /* Debug */,
+				167B34842B05431F0076F261 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		167B34852B05431F0076F261 /* Build configuration list for PBXNativeTarget "Cription" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				167B34862B05431F0076F261 /* Debug */,
+				167B34872B05431F0076F261 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		167B34882B05431F0076F261 /* Build configuration list for PBXNativeTarget "CriptionTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				167B34892B05431F0076F261 /* Debug */,
+				167B348A2B05431F0076F261 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		167B348B2B05431F0076F261 /* Build configuration list for PBXNativeTarget "CriptionUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				167B348C2B05431F0076F261 /* Debug */,
+				167B348D2B05431F0076F261 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		81B8F74C2E83C80000B6AA41 /* Build configuration list for PBXNativeTarget "Sribe Share Extensionc" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				81B8F7492E83C80000B6AA41 /* Debug */,
+				81B8F74A2E83C80000B6AA41 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCLocalSwiftPackageReference section */
+		81F1B98E2EA024370008C5A7 /* XCLocalSwiftPackageReference "Cription/Resources/Parakeet-github" */ = {
+			isa = XCLocalSwiftPackageReference;
+			relativePath = "Cription/Resources/Parakeet-github";
+		};
+/* End XCLocalSwiftPackageReference section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		8174ADDD2E7C352A008D790F /* XCRemoteSwiftPackageReference "WhisperKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/argmaxinc/WhisperKit.git";
+			requirement = {
+				branch = main;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		1611360F2B3F6C68003C20F6 /* WhisperKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 8174ADDD2E7C352A008D790F /* XCRemoteSwiftPackageReference "WhisperKit" */;
+			productName = WhisperKit;
+		};
+		16EA36CE2B59E550006CA7CF /* WhisperKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 8174ADDD2E7C352A008D790F /* XCRemoteSwiftPackageReference "WhisperKit" */;
+			productName = WhisperKit;
+		};
+		8174ADDE2E7C352A008D790F /* WhisperKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 8174ADDD2E7C352A008D790F /* XCRemoteSwiftPackageReference "WhisperKit" */;
+			productName = WhisperKit;
+		};
+		8174ADE02E7C352A008D790F /* whisperkit-cli */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 8174ADDD2E7C352A008D790F /* XCRemoteSwiftPackageReference "WhisperKit" */;
+			productName = "whisperkit-cli";
+		};
+		81F1B98F2EA024370008C5A7 /* FluidAudio */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = FluidAudio;
+		};
+/* End XCSwiftPackageProductDependency section */
+	};
+	rootObject = 167B34562B05431E0076F261 /* Project object */;
+}

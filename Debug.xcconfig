@@ -1,2 +1,3 @@
 // Run `make setup` to add your team here
+#include "Config.xcconfig"
 DEVELOPMENT_TEAM=

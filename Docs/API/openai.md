@@ -1,0 +1,9 @@
+https://platform.openai.com/docs/guides/speech-to-text?lang=javascript
+https://platform.openai.com/docs/models/gpt-4o-mini
+https://platform.openai.com/docs/models/gpt-4o-transcribe
+https://platform.openai.com/docs/models/gpt-4o-mini-transcribe
+https://platform.openai.com/docs/models/whisper-1
+https://platform.openai.com/docs/guides/realtime-transcription
+https://platform.openai.com/docs/guides/speech-to-text#translations
+https://platform.openai.com/docs/api-reference/audio/createTranscription
+https://platform.openai.com/docs/api-reference/audio/createTranslation

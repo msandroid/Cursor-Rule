@@ -1,0 +1,107 @@
+**whisper-cppでサポートされている全100言語のリスト：**
+
+| ID | コード | 言語名 |
+|---|---|---|
+| 0 | en | English (英語) |
+| 1 | zh-Hans | Chinese Simplified (中国語（簡体字：中国本土）) |
+| 1.1 | zh-TW | Chinese Traditional (中国語（繁体字：台湾）) |
+| 2 | de | German (ドイツ語) |
+| 3 | es | Spanish (スペイン語) |
+| 4 | ru | Russian (ロシア語) |
+| 5 | ko | Korean (韓国語) |
+| 6 | fr | French (フランス語) |
+| 7 | ja | Japanese (日本語) |
+| 8 | pt | Portuguese (ポルトガル語) |
+| 9 | tr | Turkish (トルコ語) |
+| 12 | nl | Dutch (オランダ語) |
+| 10 | pl | Polish (ポーランド語) |
+| 11 | ca | Catalan (カタルーニャ語) |
+| 13 | ar | Arabic (アラビア語) |
+| 14 | sv | Swedish (スウェーデン語) |
+| 15 | it | Italian (イタリア語) |
+| 16 | id | Indonesian (インドネシア語) |
+| 17 | hi | Hindi (ヒンディー語) |
+| 18 | fi | Finnish (フィンランド語) |
+| 19 | vi | Vietnamese (ベトナム語) |
+| 20 | he | Hebrew (ヘブライ語) |
+| 21 | uk | Ukrainian (ウクライナ語) |
+| 22 | el | Greek (ギリシャ語) |
+| 23 | ms | Malay (マレー語) |
+| 24 | cs | Czech (チェコ語) |
+| 25 | ro | Romanian (ルーマニア語) |
+| 26 | da | Danish (デンマーク語) |
+| 27 | hu | Hungarian (ハンガリー語) |
+| 28 | ta | Tamil (タミル語) |
+| 29 | no | Norwegian (ノルウェー語) |
+| 30 | th | Thai (タイ語) |
+| 31 | ur | Urdu (ウルドゥー語) |
+| 32 | hr | Croatian (クロアチア語) |
+| 33 | bg | Bulgarian (ブルガリア語) |
+| 34 | lt | Lithuanian (リトアニア語) |
+| 35 | la | Latin (ラテン語) |
+| 36 | mi | Maori (マオリ語) |
+| 37 | ml | Malayalam (マラヤーラム語) |
+| 38 | cy | Welsh (ウェールズ語) |
+| 39 | sk | Slovak (スロバキア語) |
+| 40 | te | Telugu (テルグ語) |
+| 41 | fa | Persian (ペルシャ語) |
+| 42 | lv | Latvian (ラトビア語) |
+| 43 | bn | Bengali (ベンガル語) |
+| 44 | sr | Serbian (セルビア語) |
+| 45 | az | Azerbaijani (アゼルバイジャン語) |
+| 46 | sl | Slovenian (スロベニア語) |
+| 47 | kn | Kannada (カンナダ語) |
+| 48 | et | Estonian (エストニア語) |
+| 49 | mk | Macedonian (マケドニア語) |
+| 50 | br | Breton (ブルトン語) |
+| 51 | eu | Basque (バスク語) |
+| 52 | is | Icelandic (アイスランド語) |
+| 53 | hy | Armenian (アルメニア語) |
+| 54 | ne | Nepali (ネパール語) |
+| 55 | mn | Mongolian (モンゴル語) |
+| 56 | bs | Bosnian (ボスニア語) |
+| 57 | kk | Kazakh (カザフ語) |
+| 58 | sq | Albanian (アルバニア語) |
+| 59 | sw | Swahili (スワヒリ語) |
+| 60 | gl | Galician (ガリシア語) |
+| 61 | mr | Marathi (マラーティー語) |
+| 62 | pa | Punjabi (パンジャブ語) |
+| 63 | si | Sinhala (シンハラ語) |
+| 64 | km | Khmer (クメール語) |
+| 65 | sn | Shona (ショナ語) |
+| 66 | yo | Yoruba (ヨルバ語) |
+| 67 | so | Somali (ソマリ語) |
+| 68 | af | Afrikaans (アフリカーンス語) |
+| 69 | oc | Occitan (オック語) |
+| 70 | ka | Georgian (グルジア語) |
+| 71 | be | Belarusian (ベラルーシ語) |
+| 72 | tg | Tajik (タジク語) |
+| 73 | sd | Sindhi (シンド語) |
+| 74 | gu | Gujarati (グジャラート語) |
+| 75 | am | Amharic (アムハラ語) |
+| 76 | yi | Yiddish (イディッシュ語) |
+| 77 | lo | Lao (ラオ語) |
+| 78 | uz | Uzbek (ウズベク語) |
+| 79 | fo | Faroese (フェロー語) |
+| 80 | ht | Haitian Creole (ハイチ・クレオール語) |
+| 81 | ps | Pashto (パシュトー語) |
+| 82 | tk | Turkmen (トルクメン語) |
+| 83 | nn | Nynorsk (ニーノシュク) |
+| 84 | mt | Maltese (マルタ語) |
+| 85 | sa | Sanskrit (サンスクリット語) |
+| 86 | lb | Luxembourgish (ルクセンブルク語) |
+| 87 | my | Myanmar (ミャンマー語) |
+| 88 | bo | Tibetan (チベット語) |
+| 89 | tl | Tagalog (タガログ語) |
+| 90 | mg | Malagasy (マラガシ語) |
+| 91 | as | Assamese (アッサム語) |
+| 92 | tt | Tatar (タタール語) |
+| 93 | haw | Hawaiian (ハワイ語) |
+| 94 | ln | Lingala (リンガラ語) |
+| 95 | ha | Hausa (ハウサ語) |
+| 96 | ba | Bashkir (バシキール語) |
+| 97 | jw | Javanese (ジャワ語) |
+| 98 | su | Sundanese (スンダ語) |
+| 99 | yue | Cantonese (広東語) |
+
+**合計100言語**がサポートされています。
