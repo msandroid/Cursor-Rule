@@ -36,10 +36,10 @@ class ParakeetTranscriptionService: ObservableObject {
             print("🦜 Initializing Parakeet with model version: \(modelVersion)")
             
             // Download and load ASR models
-            models = try await AsrModels.downloadAndLoad(version: modelVersion)
+            models = try await FluidAudio.AsrModels.downloadAndLoad(version: modelVersion)
             
             // Initialize ASR manager with default config
-            asrManager = AsrManager(config: .default)
+            asrManager = FluidAudio.AsrManager(config: .default)
             try await asrManager?.initialize(models: models!)
             
             currentModelVersion = modelVersion
@@ -56,7 +56,7 @@ class ParakeetTranscriptionService: ObservableObject {
         }
     }
     
-    func switchModel(version: AsrModelVersion) async throws {
+    func switchModel(version: FluidAudio.AsrModelVersion) async throws {
         guard version != currentModelVersion else {
             print("🦜 Model version already active: \(version)")
             return
@@ -96,7 +96,8 @@ class ParakeetTranscriptionService: ObservableObject {
         
         do {
             // Load audio file and convert to 16kHz mono samples
-            let samples = try await AudioProcessor.loadAudioFile(path: url.path)
+            let audioConverter = FluidAudio.AudioConverter()
+            let samples = try audioConverter.resampleAudioFile(path: url.path)
             print("🦜 Audio loaded successfully: \(samples.count) samples")
             return samples
         } catch {
@@ -107,7 +108,7 @@ class ParakeetTranscriptionService: ObservableObject {
     
     // MARK: - Transcription
     
-    func transcribe(audioSamples: [Float], source: AudioSource = .system) async throws -> ParakeetTranscriptionResult {
+    func transcribe(audioSamples: [Float], source: FluidAudio.AudioSource = .system) async throws -> ParakeetTranscriptionResult {
         guard isInitialized, let asrManager = asrManager else {
             throw ParakeetError.notInitialized
         }
@@ -140,12 +141,12 @@ class ParakeetTranscriptionService: ObservableObject {
         }
     }
     
-    func transcribeFile(path: String, source: AudioSource = .system) async throws -> ParakeetTranscriptionResult {
+    func transcribeFile(path: String, source: FluidAudio.AudioSource = .system) async throws -> ParakeetTranscriptionResult {
         let samples = try await loadAudioFile(path: path)
         return try await transcribe(audioSamples: samples, source: source)
     }
     
-    func transcribeFile(url: URL, source: AudioSource = .system) async throws -> ParakeetTranscriptionResult {
+    func transcribeFile(url: URL, source: FluidAudio.AudioSource = .system) async throws -> ParakeetTranscriptionResult {
         let samples = try await loadAudioFile(url: url)
         return try await transcribe(audioSamples: samples, source: source)
     }
@@ -214,12 +215,9 @@ enum ParakeetError: LocalizedError {
     }
 }
 
-// MARK: - Model Version Enum
+// MARK: - Type Extensions for FluidAudio Types
 
-enum AsrModelVersion {
-    case v2  // English-only
-    case v3  // Multilingual (25 languages)
-    
+extension FluidAudio.AsrModelVersion {
     var displayName: String {
         switch self {
         case .v2:
@@ -230,21 +228,13 @@ enum AsrModelVersion {
     }
 }
 
-// MARK: - Audio Source Enum
-
-enum AudioSource {
-    case system
-    case microphone
-    case file
-    
+extension FluidAudio.AudioSource {
     var displayName: String {
         switch self {
         case .system:
             return "System Audio"
         case .microphone:
             return "Microphone"
-        case .file:
-            return "Audio File"
         }
     }
 }
